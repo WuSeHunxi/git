@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>进程控制模拟</title>
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+}
+#content{
+    width: 100%;
+    height: 1000px;
+    background-color: rgb(165, 205, 228);
+}
+#content>ul{
+    width: 100%;
+    height: 30%;
+    /* height: 800px; */
+    background-color: lightblue;
+}
+#content>ul>li{
+    width: 19%;
+    height: 180px;
+    background-color: rgb(243, 241, 241);
+    /* margin-top: 10px; */
+    list-style: none;
+    float: left;
+    margin-left: 10px;
+    margin-top: 100px;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    
+}
+ul input{
+    outline: none;
+    width: 80%;
+    height: 10%;
+    font-size: 20px;
+    margin-top: 10px;
+    position: relative;
+    top: -5px;
+    text-align: center;
+    transition: all 0.3s ease;
+    /* cursor: pointer; */
+}
+ul input:hover{
+    transform: scale(1.1);
+}
+h1{
+    /* margin-top: 30px; */
+    position: absolute;
+    top: 30px;
+    left: 200px;
+}
+button{
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    position: relative;
+    left: 86%;
+    color: rgb(0, 0, 0);
+}
+</style>
+
+<body>
+    <div id="content">
+        <h1>支持cpu指令和io指令，但只有1个进程执行</h1>
+        <ul id="ul">
+                
+            <li>
+                <input type="text" value="io">
+                <input type="text" value="cpu">
+                <input type="text" value="cpu">
+                <input type="text" value="cpu">
+                <input type="text" value="cpu">
+            </li>
+            <li>
+                <input type="text" value="cpu">
+                <input type="text" value="io">
+                <input type="text" value="cpu">
+                <input type="text" value="cpu">
+                <input type="text" value="cpu">
+            </li>
+            <li>
+                <input type="text" value="cpu">
+                <input type="text" value="cpu">
+                <input type="text" value="io">
+                <input type="text" value="cpu">
+                <input type="text" value="cpu">
+            </li>
+            <li>
+                <input type="text" value="cpu">
+                <input type="text" value="cpu">
+                <input type="text" value="cpu">
+                <input type="text" value="io">
+                <input type="text" value="cpu">
+            </li>
+            <li>
+                <input type="text" value="cpu">
+                <input type="text" value="cpu">
+                <input type="text" value="cpu">
+                <input type="text" value="cpu">
+                <input type="text" value="io">
+            </li>
+        </ul>
+        <button onclick="reset();">重置确定</button>
+    </div>
+</body>
+
+
+<script>
+    var content = document.getElementById("content");
+    // content.style.width = window.innerWidth + 'px';
+    var ul = document.getElementById("ul");
+    var li = ul.children[1];
+    // console.log(li.children[0]);
+    console.log("Time" +"    " + "PID : 0" + "    " + "CPU" + "    "  + "IOs");
+    let j = 0;
+    for(let i = 0 ; i < li.children.length ; i++){
+        if(li.children[i].value == "cpu"){
+            console.log(i+1+j + "       " + "RUN:cpu" +"     "  +  "1" );
+        }
+        else{
+            
+            console.log(i+1+"*"  +  "       " + "RUN:io" + "     " + "1");
+            li.children.length += 4;
+            for(j = 0 ; j < 4 ; j ++){
+                console.log(i+j+2 + "       " + "WAITING" + "            "  +  "1");
+            }
+            
+        }
+        if(i == li.children.length-1){
+            // console.log(li.children.length);
+            console.log(i+2+j+"*"  +  "       "+ " DONE" + "            " + "1");
+        }
+    }
+    function reset(){
+        console.log("分界线------------------------------");
+        j = 0;
+        for(let i = 0 ; i < li.children.length ; i++){
+            if(li.children[i].value == "cpu"){
+                console.log(i+1+j + "       " + "RUN:cpu" +"     "  +  "1" );
+            }
+            else{
+                
+                console.log(i+1+j+"*"  +  "       " + "RUN:io" + "     " + "1");
+                // li.children.length += 4;
+                for(let cnt = 0 ; cnt < 4 ; cnt ++){
+                    j++;
+                    console.log(i+j+1 + "       " + "WAITING" + "            "  +  "1");
+                }
+                
+            }
+            if(i == li.children.length-1){
+                // console.log(li.children.length);
+                console.log(i+2+j+"*"  +  "       "+ " DONE" + "            " + "1");
+            }
+        }
+    }
+
+    
+
+</script>
+</html>
