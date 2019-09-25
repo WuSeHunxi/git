@@ -95,8 +95,8 @@
     window.onload = function () {
         /* 
         思路分析
-        1 获取到.itemBox 宽度
-        2 获取到.item 宽度
+        1 获取到.itemBox（总容器） 宽度
+        2 获取到.item（每一张图片） 宽度
         3 求出列数
         4 求出间距
         5 实现瀑布流布局的方法
@@ -108,18 +108,21 @@
         // 1 获取到.itemBox 宽度
         var itemBoxW = itemBox.offsetWidth;
         // 2 获取到.item 宽度
+        // 每张图片的宽度相同 高度不同
         var itemW = items[0].offsetWidth;
         // 3 求出列数
         var column = parseInt(itemBoxW / itemW);
-        // 4 求出间距
+        // 4 求出间距  间距的大小是10
         var distence = (itemBoxW - itemW * column) / (column - 1);
         console.log(distence);
+
+
         // 5 实现瀑布流布局的方法
-        // 定义一个存储每列高度的容器
+            // 定义一个存储每列高度的容器
         var arr = [];
-        waterFull();
+        waterFull(); // 瀑布流函数
         // 6 滚动页面时 加载数据
-        window.onscroll = function () {
+        window.onscroll = function () { 
             if (window.pageYOffset + window.innerHeight > getMin(arr).minV) {
                 var json = [
                     { "src": "./images/P_000.jpg" },
@@ -143,8 +146,6 @@
                     itemBox.appendChild(div);
                 }
                 waterFull();
-
-
             }
         }
         // 实现瀑布流布局的方法
@@ -157,6 +158,7 @@
                 } else {
                     var minV = getMin(arr).minV;
                     var minI = getMin(arr).minI;
+                    // 设置每一个图片的位置
                     items[i].style.left = (itemW + distence) * minI + 'px';
                     items[i].style.top = minV + distence + 'px';
                     arr[minI] = minV + distence + items[i].offsetHeight;
@@ -169,8 +171,9 @@
         // 获取数组的最小值以及索引
         function getMin(arr) {
             var obj = {};
+            // 给对象添加两个obj属性
             obj.minV = arr[0];
-            obj.minI = 0;
+            obj.minI  = 0; // 取下标
             for (var i = 1; i < arr.length; i++) {
                 if (obj.minV > arr[i]) {
                     obj.minV = arr[i];
