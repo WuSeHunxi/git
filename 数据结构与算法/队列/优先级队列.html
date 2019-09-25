@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 优先级队列的实现 ---> 需要进行比较
+        function PriorityQueue() {
+
+            // 封装一个新的构造函数，用来保存元素的值和优先级
+            function QueueElement(element, priority) {
+                this.element = element;
+                this.priority = priority;
+            }
+
+            // 封装属性
+            this.items = []; // 属性里面存放的是一个两个值（是一个整体），为了更方便，将封装成一个函数
+
+            // 优先队列的添加需要判断是否为空
+            PriorityQueue.prototype.enqueue = function (element, priority) {
+                var queueElement = new QueueElement(element, priority);
+                if (this.items.length === 0) {
+                    this.items.push(queueElement);
+                } else {
+                    var added = false;
+                    for (var i = 0; i < this.items.length; i++) {
+                        // 进行优先级比较
+                        if (queueElement.priority < this.items[i].priority) {
+                            // 插入元素
+                            this.items.splice(i, 0, queueElement);
+                            added = true; // 表示已经插入完成，可以跳出循环
+                            break;
+                        }
+                    }
+                    if (!added) {
+                        this.items.push(queueElement);
+                    }
+                }
+            }
+            PriorityQueue.prototype.dequeue = function () {
+                return this.items.shift();
+            }
+
+            PriorityQueue.prototype.front = function () {
+                return this.items[0];
+            }
+
+            PriorityQueue.prototype.isEmpty = function () {
+                return this.items.length == 0;
+            }
+
+            PriorityQueue.prototype.size = function () {
+                return this.items.length;
+            }
+        }
+        var pQueue = new PriorityQueue()
+
+        // 添加元素
+        pQueue.enqueue("abc", 10)
+        pQueue.enqueue("cba", 5)
+        pQueue.enqueue("nba", 12)
+        pQueue.enqueue("mba", 3)
+
+        // 遍历所有的元素
+        var size = pQueue.size()
+        for (var i = 0; i < size; i++) {
+            var item = pQueue.dequeue()
+            console.log(item.element + "-" + item.priority)
+        }
+    </script>
+</body>
+
+</html>
