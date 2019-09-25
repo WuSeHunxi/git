@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: '微软雅黑';
+            list-style: none;
+        }
+        .container{
+            width: 450px;
+            height: 600px;
+            background-color: #eee;
+            position: relative;
+            margin: 20px auto; /*水平居中*/
+            box-shadow: 0px 0px 16px #999;
+        }
+        .header{
+            background-color: #000;
+            height:40px;
+            color:#fff;
+            line-height: 40px;
+            font-style: 20px;
+            padding: 0 10px;
+        }
+        .footer{
+            width: 430px;
+            height: 40px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 10px;
+            background-color: #999;
+        }
+        .footer input{
+            /* cursor: pointer; */
+            width: 300px;
+            position: absolute;
+            right:80px;
+            background-color: #eee;
+            outline: none;
+            text-indent:10px;
+            border-radius: 6px;
+            font-style: 16px;
+            height: 38px;
+            line-height: 38px;
+            border:none;
+            top: 14px;
+        }
+        .footer span{
+            display: inline-block;
+            width: 62px;
+            height: 38px;
+            background-color: #ccc;
+            font-weight: 900;
+            line-height: 38px;
+            cursor:pointer;
+            text-align: center;
+            position: absolute;
+            right: 10px;
+            top: 14px;
+            border-radius: 15px;
+        }
+        .footer span:hover{
+            color:#777;
+            background-color: #ddd;
+        }
+        .footer span{
+            transition: 0.5s;
+        }
+        .icon{
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border-radius: 30px;
+            position: absolute;
+            bottom: 3px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .icon img{
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+        .content{
+            font-size: 20px;
+            overflow: hidden;
+            padding: 5px;
+            width: 435px;
+            height: 662px;
+        }
+
+        .content li {
+            margin-top: 10px;
+            padding-left: 10px;
+            width:442px;
+            display:block;
+            overflow: hidden;
+        }
+        .content li img{
+            float: left;
+            border-radius: 50%;
+        }
+        .content li span{
+            padding: 10px;
+            border-radius: 10px;
+            float: left;
+            margin: 6px 10px 0 10px;
+            max-width: 310px;
+            border:1px solid #ccc;
+            box-shadow: 0 0 3px #ccc;
+        }
+
+        .content li img.imgright{
+            float:right;
+            width: 50px;
+            height: 50px;
+        }
+
+        .content li span.spanleft{
+            float:left;
+            background-color: #fff;
+        }
+        .content li span.spanright{
+            float:right;
+            background-color: #7cfc00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header"><span style="float: left;">吴世勋</span><span style="float:right">20:30</span></div>
+        <ul class="content"></ul>
+        <div class="footer">
+            <div class="icon"><img src="img/1.png" alt="" id="icon"></div>
+            <input type="text" placeholder="说点什么吧...."><span id="btn">发送</span>
+        </div>
+    </div>
+    <script>
+        
+        var btn=document.getElementsByClassName("btn")[0];
+        var img=document.getElementById("icon");
+        // 图片数组
+        var arr=['img/1.png','img/2.png'];
+        // 设置可以标记换图片的标志变量
+        var tag=0;
+
+        img.onclick=function(){
+            if(teg==0){
+                img.src=arr[1];
+                tag=1;
+            }else{
+                img.src=arr[0];
+                tag=0;
+            }
+        }
+        
+        var num=0;
+        btn.onclick=function(){
+            var text=document.getElementById("text").value;
+            if(text==""){
+                alert("聊天内容不能为空");
+            }else{
+                var content=document.getElementsByTagName("ul")[0];
+                content.innerHTML+="<li><img src='" + arr[tag] + "'/><span>" + text + "</span></li>";
+            }
+
+            var imgs=document.getElementsByTagName("img");
+            var span=document.getElementsByTagName("span");
+            //开始判断发送的内容在左边还是在右边
+            if(tag==0){
+                imgs[num].className='imgleft';
+                span[num].className='spanleft';
+            }else{
+                imgs[num].className = "imgright";
+			    span[num].className = "spanright";
+            }
+
+            // 当发送完之后 输入框的内容为空
+            document.getElementById("text").value="";
+        }
+    </script>
+</body>
+</html>
