@@ -123,7 +123,9 @@
         waterFull(); // 瀑布流函数
         // 6 滚动页面时 加载数据
         window.onscroll = function () { 
+            // 当向上滚动的距离>最小高度的时候开始创建
             if (window.pageYOffset + window.innerHeight > getMin(arr).minV) {
+                console.log(window.pageYOffset+" "+window.innerHeight);
                 var json = [
                     { "src": "./images/P_000.jpg" },
                     { "src": "./images/P_001.jpg" },
