@@ -125,6 +125,9 @@
         window.onscroll = function () { 
             // 当向上滚动的距离>最小高度的时候开始创建
             if (window.pageYOffset + window.innerHeight > getMin(arr).minV) {
+                // pageYOffset返回文档在窗口左上角水平和垂直方向滚动的像素
+                // offsetHeight 表示对象的高度
+                // innerHeight 返回窗口的文档显示区的高度。
                 console.log(window.pageYOffset+" "+window.innerHeight);
                 var json = [
                     { "src": "./images/P_000.jpg" },
@@ -153,6 +156,7 @@
         // 实现瀑布流布局的方法
         function waterFull() {
             for (var i = 0; i < items.length; i++) {
+                // 表示的是第一行
                 if (i < column) {
                     items[i].style.left = (itemW + distence) * i + 'px';
                     arr[i] = items[i].offsetHeight;
@@ -163,6 +167,7 @@
                     // 设置每一个图片的位置
                     items[i].style.left = (itemW + distence) * minI + 'px';
                     items[i].style.top = minV + distence + 'px';
+                    // 最小高度的新值   得到了最小值，然后把当前的图片放在最小值的下面，组成一个新的高度，接着求出最小值
                     arr[minI] = minV + distence + items[i].offsetHeight;
 
                 }
