@@ -57,6 +57,52 @@
                 }
                 return resultString;
             }
+            DoublyLinkedList.prototype.insert=function(position,data){
+                // 越界处理
+                if(position<0||position>this.length){
+                    return false;
+                }
+                // 创建新的节点
+                var newNode=new Node(data);
+                // 判断原来的链表是否为空
+                if(this.length==0){
+                    this.head=newNode;
+                    this.tail=newNode;
+                }else{
+                    // 判断position是否为0
+                    if(position==0){
+                        // 原来第一个节点的前一个改变了
+                        this.head.prev=newNode;
+                        newNode.next=this.head;
+                        this.head=newNode; // this.head可以更新了
+                    }else if(position==this.length){
+                        newNode.prev=this.tail;
+                        this.tail.next=newNode;
+                        this.tail=newNode;
+                    }else{
+                        var current=this.head;
+                        var index=0;
+                        while(index++<position){
+                            current=current.next;
+                        }
+                        // 修改指针
+                        newNode.next=current;
+                        newNode.prev=current.prev;
+                        current.prev.next=newNode;
+                        current.prev=newNode;
+                    }
+                }
+            }
+            DoublyLinkedList.prototype.get=function(position){
+                if(position<0||position>=this.length)
+                    return null;
+                var current=this.head;
+                var index=0;
+                while(index++<position){
+                    current=current.next;
+                }
+                return current.data;
+            }
         }
 
         var list=new DoublyLinkedList();
@@ -65,6 +111,9 @@
         list.append("pappa");
         console.log(list);
         console.log(list.backwardString());
+        list.insert(2,'ososo')
+        console.log(list.backwardString());
+        console.log(list.get(0));
     </script>
 </body>
 </html>
