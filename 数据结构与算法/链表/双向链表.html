@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 封装双向链表
+        function DoublyLinkedList(){
+            // 内部类用于创建节点
+            function Node(data){
+                this.data=data;
+                this.next=null;
+                this.prev=null;
+            }
+            // 属性
+            this.head=null;
+            this.tail=null;
+            this.length=0;
+
+            // 链表的操作
+            DoublyLinkedList.prototype.append=function(data){
+                if(this.length==0){
+                    var newNode=new Node(data);
+                    this.head=newNode;
+                    this.tail=newNode;
+                }else{
+                    var newNode=new Node(data);
+                    newNode.prev=this.tail;
+                    this.tail.next=newNode;
+                    this.tail=newNode; // 改变尾指针的指向
+                }
+                this.length+=1;
+            }
+            DoublyLinkedList.prototype.toString=function(){
+                return this.backwardString();
+            }
+            DoublyLinkedList.prototype.forwardString=function(){
+                var current=this.tail;
+                var resultString="";
+                // 依次向前遍历
+                while(current){
+                    resultString+=current.data+" ";
+                    current=current.prev;
+                }
+                return resultString;
+            }
+            DoublyLinkedList.prototype.backwardString=function(){
+                var current=this.head;
+                var resultString="";
+                while(current){
+                    resultString+=current.data+" ";
+                    current=current.next;
+                }
+                return resultString;
+            }
+        }
+
+        var list=new DoublyLinkedList();
+        list.append('abc');
+        list.append("ooo");
+        list.append("pappa");
+        console.log(list);
+        console.log(list.backwardString());
+    </script>
+</body>
+</html>
