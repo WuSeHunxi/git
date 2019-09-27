@@ -132,7 +132,36 @@
             }
             // 根据位置删除
             DoublyLinkedList.prototype.removeAt=function(position){
-
+                if(position<0||position>=this.length){
+                    return null;
+                }
+                var current=this.head;
+                // 逻辑判断
+                // 判断是否只有一个节点
+                if(this.length==1){
+                    this.head=null;
+                    this.tail=null;
+                }else{
+                    // 判断是否删除的是第一个节点
+                    if(position==0){
+                        this.head.next.prev=null;
+                        this.head=this.head.next;
+                    }else if(position==this.length-1){// 删除的是最后一个节点
+                        current=this.tail; // 直接将current的指向改成尾指针即可
+                        this.tail.prev.next=null;
+                        this.tail=this.tail.prev;
+                    }else{
+                        var index=0;
+                        while(index++<position){
+                            current=current.next;
+                        }
+                        current.prev.next=current.next;
+                        current.next.prev=current.prev;
+                    }
+                }
+                // 长度-1
+                this.length-=1;
+                return current.data;
             }
         }
 
@@ -146,6 +175,7 @@
         console.log(list.backwardString());
         console.log(list.get(0));
         console.log(list.indexOf('abc'));
+        console.log(list.removeAt(2));
     </script>
 </body>
 </html>
