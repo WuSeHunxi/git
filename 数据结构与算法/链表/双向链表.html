@@ -103,6 +103,37 @@
                 }
                 return current.data;
             }
+            // 和单向链表很像
+            DoublyLinkedList.prototype.indexOf=function(data){
+                var current=this.head;
+                var index=0;
+                while(current){
+                    if(current.data==data){
+                        return index;
+                    }
+                    current=current.next;
+                    index+=1;
+                }       
+                // 表示整个链表也没有找到
+                return -1;
+            }
+            DoublyLinkedList.prototype.update=function(position,newData){
+                // 越界判断
+                if(position<0||position>=this.length){
+                    return false;
+                }
+                var current=this.head;
+                var index=0;
+                while(index++<position){
+                    current=current.next;
+                }
+                current.data=newData;
+                return true;
+            }
+            // 根据位置删除
+            DoublyLinkedList.prototype.removeAt=function(position){
+
+            }
         }
 
         var list=new DoublyLinkedList();
@@ -114,6 +145,7 @@
         list.insert(2,'ososo')
         console.log(list.backwardString());
         console.log(list.get(0));
+        console.log(list.indexOf('abc'));
     </script>
 </body>
 </html>
