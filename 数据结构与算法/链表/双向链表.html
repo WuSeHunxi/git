@@ -163,6 +163,17 @@
                 this.length-=1;
                 return current.data;
             }
+            DoublyLinkedList.prototype.remove=function(data){
+                var index=this.index(data);
+                // 根据得到的index得到相应的节点
+                return this.removeAt(index);
+            }
+            DoublyLinkedList.prototype.isEmpty=function(){
+                return this.length==0;
+            }
+            DoublyLinkedList.prototype.size=function(){
+                return this.length;
+            }
         }
 
         var list=new DoublyLinkedList();

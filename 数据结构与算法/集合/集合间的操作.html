@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        function Set(){
+            // 属性 是对象，为了更方便检测，添加和处理
+            this.items={};
+            Set.prototype.add=function(value){
+                // 将元素添加到集合中
+                // 判断当前集合中是否有该元素
+                if(this.has(value)){ // 表示集合中包含该元素
+                    return false; // 添加失败
+                }
+                this.items[value]=value;
+                return true;
+            }
+            Set.prototype.has=function(value){
+                // 对象的方法
+                return this.items.hasOwnProperty(value);
+            }
+            Set.prototype.remove=function(value){
+                // 先判断集合中是否包含该元素
+                if(!this.has(value)){
+                    return false;
+                }
+                delete  this.items[value];
+                return true;
+            }
+            Set.prototype.clear=function(){
+                this.items={};
+            }
+            Set.prototype.size=function(){
+                // 获取可以的个数，求出长度
+                return Object.keys(this.items).length;
+            }
+            Set.prototype.values=function(){
+                return Object.keys(this.items);
+            }
+
+            // 集合间的操作
+            // 并集
+            Set.prototype.union=function(otherSet){
+                //新建集合
+                //this 是当前的集合A
+                // otherSet 是集合对象B
+
+                // 创建一个新的集合
+                var unionSet=new Set();
+                var values=this.values();
+                for(var i=0;i<values.length;i++){
+                    unionSet.add(values[i]);
+                }
+                //将B集合中的元素插入到A集合中
+                values=otherSet.values();
+                for(var i=0;i<values.length;i++){
+                    // 将元素都放入新的集合中
+                    unionSet.add(values[i]);
+                }
+                return unionSet;
+            }
+
+            //交集
+            Set.prototype.intersectionSet=function(otherSet){
+                var intersection=new Set();
+                var values=this.values();
+                for(var i=0;i<values.length;i++){
+                    var item=values[i];
+                    if(otherSet.has(item)){
+                        intersection.add(item);
+                    }
+                }
+                return intersection;
+            }
+        }
+
+        // 创建两个集合并添加元素
+        var set=new Set();
+        set.add('lalla');
+        set.add("ooo");
+        set.add('ooop');
+        var setB=new Set();
+        setB.add("000");
+        setB.add('333');
+        setB.add("ooo");
+        unionSet=set.union(setB);
+        console.log(unionSet.values());
+        var intersection=set.intersectionSet(setB);
+        console.log(intersection.values());
+    </script>
+</body>
+</html>
