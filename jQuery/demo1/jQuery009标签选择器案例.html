@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+
+        //点击按钮,设置多个p标签中显示内容为:我们都是p(标签选择器)
+
+        //页面的加载事件
+        $(function () {
+            //获取按钮,调用点击事件,获取所有的p,设置内容
+            $("#btn").click(function () {
+                //获取所有的p--->标签选择器
+                $("p").text("我们都是p");
+            });
+        });
+    </script>
+</head>
+<body>
+<input type="button" value="设置内容" id="btn"/>
+<p>这是一个p</p>
+<p>黄蓉喜欢郭靖</p>
+<p>小黑喜欢大白</p>
+<p>乔峰喜欢虚竹</p>
+<p>张无忌喜欢郭靖</p>
+</body>
+</html>
