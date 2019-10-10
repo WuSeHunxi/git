@@ -76,17 +76,7 @@
 
 <meta charset="utf-8">
 <form action="test01.php">
-	数字:<input type="text" name="num">
-	<input type="submit" name="sub" value="提交">
+    数字:<input type="text" name="num">
+    <input type="submit" name="sub" value="提交">
+    <span></span>
 </form>
-
-<script>
-	alert(b);
-</script>
-
-
-
-
-
-
-
