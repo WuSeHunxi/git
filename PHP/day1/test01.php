@@ -15,7 +15,7 @@
 	echo "<br />";*/
 	
 	//string -> int bool float
-	/*
+	
 	if(isset($_GET['sub'])){
 		$num=$_GET['num'];
 		$aa=settype($num,'int');
@@ -24,12 +24,12 @@
 		}
 		
 		//select * from user where name='$name' and pass='$pass'
-		//var_dump($num);
-		//die();
-		//echo "123";
-		//$a=(bool)$num;
-		//var_dump($a);
-	}*/
+		var_dump($num);
+		die();
+		echo "123";
+		$a=(bool)$num;
+		var_dump($a);
+	} 
 	
 	//string -> array  'abcdef'  '2017-05-07'  '192.168.0.1'
 	$str="abcdef";  //js array/string  .length  php  
@@ -40,7 +40,7 @@
 	}
 	
 	echo "<pre>";
-	print_r($arr);
+	print_r($arr); //是一种打印的格式
 	echo "</pre>";
 	
 	
@@ -67,11 +67,6 @@
 	//$a=234;
 	//echo "<script>var b=$a+1</script>";
 	
-	
-	
-	
-	
-
 ?>
 
 <meta charset="utf-8">

@@ -18,10 +18,15 @@
 	//laoshan laoxie  wd=laoshan%2dlaoxie
 	//http://localhost/s?wd=javascript
 	
+	// REQUEST_URI：取得当前URL的 路径地址
 	$str=$_SERVER['REQUEST_URI'];
-	$arr=explode("?", $str);
+	$arr=explode("?", $str); // explode()函数将字符串打散成数组，用?链接
 	//var_dump($arr);
-	$len=count($arr)-1;
+	var_dump($arr);
+	echo '<br/>';
+	$len=count($arr)-1; // count()函数用来获取数组的长度
+	echo count($arr);
+	echo '<br />';
 	echo $arr[$len];
 	
 	echo "<br />";
@@ -33,6 +38,7 @@
 	$temp=strlen($str)-1;
 	$rstr="";
 	for($i=0;$i<8;$i++){
+		//在字符串中抽取从 start 下标开始的指定数目的字符
 		$rstr.=substr($str,rand(0,$temp),1);
 	}
 	
@@ -41,14 +47,3 @@
 
 
 ?>
-
-
-
-
-
-
-
-
-
-
-
