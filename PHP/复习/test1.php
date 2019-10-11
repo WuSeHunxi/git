@@ -14,6 +14,8 @@ echo '<br/>';
 
 $time=time(); // 获取当前的时间戳
 echo $time;
+echo '<br/>';
 
-$t=data(time());
+
+$t=date('Y-m-d');
 echo $t;
