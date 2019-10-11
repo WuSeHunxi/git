@@ -18,7 +18,7 @@
 	
 	if(isset($_GET['sub'])){
 		$num=$_GET['num'];
-		$aa=settype($num,'int');
+		$aa=settype($num,'int');// 将表单中的name值获取到
 		if($aa==true){
 			var_dump($num);
 		}
