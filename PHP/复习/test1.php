@@ -14,3 +14,6 @@ echo '<br/>';
 
 $time=time(); // 获取当前的时间戳
 echo $time;
+
+$t=data(time());
+echo $t;
