@@ -15,11 +15,21 @@ date_default_timezone_set('PRC');
 // // 默认时间戳获取的就是格林威治时间
 // echo date('Y-m-d H:i:s', time());
 
-$str = '2017-10-22 15:18:58';
+// $str = '2017-10-22 15:18:58';
 
-// 对已有时间做格式化
-// strtotime 可以用来将一个有格式的时间字符串 转换为一个 时间戳
-$timestamp = strtotime($str);
+// // 对已有时间做格式化
+// // strtotime 可以用来将一个有格式的时间字符串 转换为一个 时间戳
+// $timestamp = strtotime($str);
 
-// 注意单引号字符串问题
-echo date('Y年m月d日<b\r>H:i:s', $timestamp);
+// // 注意单引号字符串问题
+// echo date('Y年m月d日<b\r>H:i:s', $timestamp);
+
+
+$time=time();
+echo date('Y-m-d H:i:s',$time);
+echo '<br/>';
+
+// strtotime()将格式化的时间转化成时间戳
+$t='2019-10-12';
+$tt=strtotime($t);
+echo $tt;
