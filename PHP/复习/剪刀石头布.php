@@ -1,17 +1,17 @@
-<!-- <?php
+<!-- 
 
-if(isset($_POST['sub'])){
-    $rnum=rand(0,2);
-    $num=$_POST['cq'];
-    if($rnum==$num){
-        echo "平局";
-    }else if($num-$rnum=-1){
-        echo "输了";
-    }
-}
+// if(isset($_POST['sub'])){
+//     $rnum=rand(0,2);
+//     $num=$_POST['cq'];
+//     if($rnum==$num){
+//         echo "平局";
+//     }else if($num-$rnum=-1){
+//         echo "输了";
+//     }
+// }
 
-?>
-<!DOCTYPE html>
+//-->
+<!--<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -22,7 +22,7 @@ if(isset($_POST['sub'])){
 </head>
 
 <body>
-    <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
+    <form action="" method="post">
         请出拳
         <select name="cq" id="s1">
             <option value="0">拳头</option>
@@ -55,6 +55,17 @@ if(isset($_POST['sub'])){
 
 <?php
 
+if(isset($_POST['sub'])){
+    $rnum=rand(0,2);
+    $num=$_POST['cq'];
+    if($rnum==$num){
+        echo '平局';
+    }else if($rnum-$num>1){
+        echo "赢了";
+    }else{
+        echo "输了";
+    }
+}
 
 ?>
 <!DOCTYPE html>
@@ -75,8 +86,26 @@ if(isset($_POST['sub'])){
             <option value="1">剪刀</option>
             <option value="2">布</option>
         </select>
-        <input type="submit" value="提交">
+        <img src="cq.jpg">
+        <input type="submit" name="sub" value="提交">
     </form>
+    <script>
+    var img = document.getElementsByTagName("img")[0];
+    var submit = document.getElementsByTagName("input")[0];
+    var cq = document.getElementById('cq');
+    cq.onclick = function(this) {
+        var val = cq.value;
+        if (val == 0) {
+            img.src = "qt.jpg";
+        } else if (val == 1) {
+            img.src = "b.jpg";
+        } else if (val == 2) {
+            img.src = "jz.jpg";
+        } else {
+            img.src = "cq.jpg";
+        }
+    }
+    </script>
 </body>
 
 </html>
