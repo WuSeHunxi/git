@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /*应用了该样式的元素就是弹性盒 该元素内部的所有子元素都变成弹性项目*/
+        /*所有的弹性项目，在弹性盒的主轴上依次排列*/
+        /*flex-direction:改变主轴方向*/
+        /*align-items:可以控制弹性项目在测轴的排列方式*/
+        /*justify-content可以控制弹性项目在主轴的方向*/
+        .box {
+            display: flex;
+        }
+
+        .item {
+            background-color: red;
+            height: 100px;
+            width: 100px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+</body>
+
+</html>
