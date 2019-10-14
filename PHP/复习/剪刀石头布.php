@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 if(isset($_POST['sub'])){
     $rnum=rand(0,2);
@@ -49,6 +49,34 @@ if(isset($_POST['sub'])){
 
     }
     </script>
+</body>
+
+</html>  -->
+
+<?php
+
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <span>请出拳</span>
+    <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
+        <select name="cq" id="cq">
+            <option value="0">拳头</option>
+            <option value="1">剪刀</option>
+            <option value="2">布</option>
+        </select>
+        <input type="submit" value="提交">
+    </form>
 </body>
 
 </html>
