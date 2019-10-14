@@ -17,7 +17,7 @@ function add () {
   }
 
   // 记下 title 和 artist
-  $data['title'] = $_POST['title'];
+  $data['title'] = $_POST['title']; // 得到的是文章标题数组
   $data['artist'] = $_POST['artist'];
 
   // 2. 接收图片文件
@@ -28,6 +28,7 @@ function add () {
     return;
   }
 
+  // 接收文件的时候用的是$_FILES参数
   $images = $_FILES['images'];
   // 准备一个容器装所有的海报路径
   $data['images'] = array();
@@ -40,7 +41,7 @@ function add () {
       return;
     }
 
-    // 类型的校验
+    // 类型的校验 判断每一个的格式
     // $images['type'] => ['image/png', 'image/jpg', 'image/gif']
     if (strpos($images['type'][$i], 'image/') !== 0) {
       $GLOBALS['error_message'] = '上传海报文件格式错误';

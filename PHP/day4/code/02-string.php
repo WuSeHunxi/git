@@ -20,7 +20,7 @@ echo '<br>';
 // 这一套 API 不在内置的 1000+ 里面，而是在一个模块（php_mbstring.dll）中
 // 模块成员必须通过配置文件载入模块过后再使用
 // 所有的API 都是 mb_xxxx
-// echo mb_strlen('你好');
+echo mb_strlen('你好');
 
 
 // 配置 PHP 扩展的步骤
