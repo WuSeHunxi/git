@@ -26,7 +26,7 @@
 			$img=$imgname.'.'.$arr[$len];
 			//echo $img;
 			
-			本地流信息  网络源信息
+			//本地流信息  网络源信息
 			
 			
 			$baseurl=getcwd();
@@ -61,17 +61,7 @@
 
 <meta charset="utf-8">
 <form action="test06.php" method="post" enctype="multipart/form-data">
-	上传文件:<input type="file" name="sfile">
-	      <input type="file" name="sfile1">
-	<input type="submit" name="sub" value="上传">
+    上传文件:<input type="file" name="sfile">
+    <input type="file" name="sfile1">
+    <input type="submit" name="sub" value="上传">
 </form>
-
-
-
-
-
-
-
-
-
-
