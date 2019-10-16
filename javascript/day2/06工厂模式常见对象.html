@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>$永远的24k纯帅$</title>
@@ -47,8 +48,8 @@
 
     //如何一次性创建多个对象?把创建对象的代码封装在一个函数中
 
-    //工厂模式创建对象
-    function createObject(name,age) {
+    //工厂模式创建对象 ---> 利用系统创建对象的方法，形成工厂模式创建的对象
+    function createObject(name, age) {
       var obj = new Object();//创建对象
       //添加属性
       obj.name = name;
@@ -60,17 +61,19 @@
       return obj;
     }
     //创建人的对象
-    var per1 = createObject("小芳",20);
+    var per1 = createObject("小芳", 20);
     per1.sayHi();
     //创建一个人的对象
-    var per2 = createObject("小红",30);
+    var per2 = createObject("小红", 30);
     per2.sayHi();
 
 
   </script>
 </head>
+
 <body>
 
 
 </body>
+
 </html>
