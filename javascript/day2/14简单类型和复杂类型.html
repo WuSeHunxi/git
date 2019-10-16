@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>$永远的24k纯帅$</title>
@@ -16,8 +17,8 @@
     //var num=10;//值类型,值在栈上
     //var obj={};//复杂类型,对象在堆,地址(引用)在栈
 
-    //值类型之间传递,传递的是值
-    //引用类型之间传递,传递的是地址(引用)
+    //值类型之间传递,传递的是值，传递的值修改时不会影响原值
+    //引用类型之间传递,传递的是地址(引用)，传递的值修改时会影响原值
 
     //值类型作为函数的参数,传递的是值
     //引用类型作为函数的参数,传递的是地址
@@ -28,22 +29,22 @@
 
 
 
-//    var num=10;
-//    var num2=num;//传递的值
+    //    var num=10;
+    //    var num2=num;//传递的值
 
-//    function f1(x) {
-//      x=100;
-//    }
-//    var num=10;
-//    f1(num);
-//    console.log(num);//
+    //    function f1(x) {
+    //      x=100;
+    //    }
+    //    var num=10;
+    //    f1(num);
+    //    console.log(num);//
 
 
-    var obj={
-      name:"小明"
+    var obj = {
+      name: "小明"
     };
     function f2(obj2) {
-      obj2.name="小红";
+      obj2.name = "小红";
     }
     console.log(obj.name);//
     f2(obj);
@@ -52,8 +53,10 @@
 
   </script>
 </head>
+
 <body>
 
 
 </body>
+
 </html>
