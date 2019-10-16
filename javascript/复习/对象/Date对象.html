@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var dt = new Date();
+        console.log(dt);
+        console.log(dt.toDateString()); // 转化成英文格式的日期
+        console.log(dt.toLocaleDateString()); // 转化成数字格式的日期
+
+        // 得到的结果都是小时 分钟 秒的样式，但是略有不同
+        console.log(dt.toLocaleTimeString()); // (上午/下午)xx:xx:xx
+        console.log(dt.toTimeString()); // 得到的是中国标准时间的样式
+
+        console.log(dt.toString());
+    </script>
+</body>
+
+</html>
