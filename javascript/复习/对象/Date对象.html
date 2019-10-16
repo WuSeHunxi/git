@@ -12,9 +12,11 @@
     <script>
         var dt = new Date();
         console.log(dt);
+        // 得到的是日期
         console.log(dt.toDateString()); // 转化成英文格式的日期
         console.log(dt.toLocaleDateString()); // 转化成数字格式的日期
 
+        // 得到的是时间
         // 得到的结果都是小时 分钟 秒的样式，但是略有不同
         console.log(dt.toLocaleTimeString()); // (上午/下午)xx:xx:xx
         console.log(dt.toTimeString()); // 得到的是中国标准时间的样式
