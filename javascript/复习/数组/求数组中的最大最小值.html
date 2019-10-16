@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 求最小值
+        var arr = [1, 2, 4, 3, 2, 5, 6];
+        var min = arr[0];
+        for (var i = 0; i < arr.length; i++) {
+            if (min > arr[i]) {
+                min = arr[i];
+            }
+        }
+        console.log(min);
+
+        // 求最大值
+        var arr1 = [22, 33, 44, 11];
+        var max = arr1[0];
+        for (var i = 0; i < arr1.length; i++) {
+            if (max < arr1[i]) {
+                max = arr1[i];
+            }
+        }
+        console.log(max);
+    </script>
+</body>
+
+</html>
