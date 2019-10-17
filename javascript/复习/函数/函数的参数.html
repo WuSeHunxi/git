@@ -17,6 +17,22 @@
                 实参：函数在调用的时候小括号里传入的值叫实参，实参可以是变量也可以是数值
                 形参：函数在定义的时候小括号里的变量叫形参
         */
+
+        /**
+         * 
+         * arguments：通常是传入的参数不确定时会使用，arguments代表的就是参数数组
+         * 
+        */
+
+        function getSum() {
+            var sum = 0;
+            for (var i = 0; i < arguments.length; i++) {
+                sum = sum + arguments[i];
+            }
+            return sum;
+        }
+        var result = getSum(1, 2, 3, 4);
+        console.log(result);
     </script>
 </body>
 
