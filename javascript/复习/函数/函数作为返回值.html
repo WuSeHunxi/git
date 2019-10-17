@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 函数作为返回值来使用，此时接受函数的变量也会变成函数，可以进行调用
+        function f1() {
+            console.log("函数返回了一个值");
+            return function () {
+                console.log("hihao");
+            }
+        }
+        var f = f1();// 因为接收了一个函数，所以变成了一个函数
+        f();
+    </script>
+</body>
+
+</html>
