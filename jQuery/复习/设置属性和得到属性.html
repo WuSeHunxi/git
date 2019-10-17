@@ -25,6 +25,14 @@
     <button value="开灯">点击</button>
     <script src="../jquery-1.12.2.min.js"></script>
     <script>
+
+        /**
+        .val() --> 得到属性
+        .val("xxx") --> 设置属性
+        
+        */
+
+        // 通过value的值进行开关的操作
         $(function () {
             $("button").click(function () {
                 if ($(this).val() == "开灯") {
