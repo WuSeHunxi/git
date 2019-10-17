@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div"></div>
+    <script src="../jquery-1.12.2.min.js"></script>
+    <script>
+
+        $(function () {
+
+            // 给DOM元素添加样式
+            $("#div").css({
+                "width": "100px",
+                "height": "100px",
+                "backgroundColor": "pink"
+            });
+        });
+
+        /*
+        页面全部加载完成（图片，视频等）
+            $(document).ready(function(){
+
+            });
+        仅加载了页面中的基本标签
+            $(function(){
+
+            });
+        */
+
+        // 点击事件和样式
+        $("#div").click(function () {
+            console.log("ppp");
+            $(this).css({
+                "backgroundColor": "blue"
+            })
+        })
+    </script>
+</body>
+
+</html>

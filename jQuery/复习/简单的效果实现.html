@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        button {
+            border: 1px solid #fff;
+            border-radius: 10px;
+            height: 30px;
+            width: 50px;
+            background-color: pink;
+            cursor: pointer;
+            line-height: 30px;
+            text-align: center;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button value="开灯">点击</button>
+    <script src="../jquery-1.12.2.min.js"></script>
+    <script>
+        $(function () {
+            $("button").click(function () {
+                if ($(this).val() == "开灯") {
+                    $("body").css({
+                        "backgroundColor": "yellow"
+                    });
+                    $(this).val("关灯");
+                }
+                else {
+                    $("body").css({
+                        "backgroundColor": "green"
+                    });
+                    $(this).val("开灯");
+                }
+
+            })
+        })
+    </script>
+</body>
+
+</html>
