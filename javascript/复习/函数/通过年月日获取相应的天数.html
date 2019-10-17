@@ -10,14 +10,13 @@
 
 <body>
     <script>
-
-        // 函数的返回值 --> 确保函数只能实现一个功能
-        function getSum(x, y) {
-            var sum = x + y;
-            return sum;// 返回的和可以去做其他任何事情，而不是在函数中输出
+        // 获取天数：要判断是否是闰年
+        function isLeapYear(year) {
+            return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
         }
-        var result = getSum(10, 2);
-        console.log(result);
+        function getDays(year, month, day) { // 将传入的参数进行操作
+
+        }
     </script>
 </body>
 
