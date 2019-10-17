@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>title</title>
   <script>
 
 
-    function Person(name,age) {
-      this.name=name;
-      this.age=age;
+    function Person(name, age) {
+      this.name = name;
+      this.age = age;
     }
     //通过原型来添加方法,解决数据共享,节省内存空间
-    Person.prototype.eat=function () {
+    Person.prototype.eat = function () {
       console.log("吃凉菜");
     };
 
-    var p1=new Person("小明",20);
-    var p2=new Person("小红",30);
+    var p1 = new Person("小明", 20);
+    var p2 = new Person("小红", 30);
 
     console.dir(p1);
     console.dir(p2);
     console.dir(Person);
     p1.__proto__.eat();
 
-    console.log(p1.__proto__==Person.prototype);
-
+    // console.log(p1.__proto__==Person.prototype);
+    // p1.__proto__ 是对象
+    console.log(p1.__proto__ instanceof Object);
 
     /*
     * 原型?
@@ -48,8 +50,10 @@
 
   </script>
 </head>
+
 <body>
 
 
 </body>
+
 </html>

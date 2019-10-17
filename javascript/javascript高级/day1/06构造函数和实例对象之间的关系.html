@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>title</title>
@@ -9,16 +10,16 @@
     //小苏这个人,姓名,年龄,性别, 吃饭,打招呼,睡觉
 
     //自定义构造函数----->实例化对象
-    function Person(name,age,sex) {
-      this.name=name;
-      this.age=age;
-      this.sex=sex;
-      this.eat=function () {
+    function Person(name, age, sex) {
+      this.name = name;
+      this.age = age;
+      this.sex = sex;
+      this.eat = function () {
         console.log("吃大蒜拌臭豆腐加榴莲酱");
       };
     }
     //构造函数---->创建对象
-    var per=new Person("小苏",38,"女");
+    var per = new Person("小苏", 38, "女");
     //per.eat();//吃
     //实例对象是通过构造函数来创建
     //实例对象会指向自己的构造函数(暂时理解,是错误的)
@@ -29,32 +30,33 @@
 
     //实例对象的构造器(构造函数)
     //实例对象的构造器是指向Person的,结果是true,所以,这个实例对象per就是通过Person来创建的
-    console.log(per.constructor==Person);//
+    console.log(per.constructor == Person);//
 
-    console.log(per.__proto__.constructor==Person);
-    console.log(per.__proto__.constructor==Person.prototype.constructor);
+    console.log(per.__proto__.constructor == Person);
+    console.log(per.__proto__.constructor == Person.prototype.constructor);
 
 
 
     //构造函数
     function Animal(name) {
-      this.name=name;
+      this.name = name;
     }
     //实例对象
-    var dog=new Animal("大黄");
+    var dog = new Animal("大黄");
     console.dir(dog);//实例对象
     console.dir(Animal);//构造函数的名字
 
-    console.log(dog.__proto__.constructor==Person);
-    console.log(dog.__proto__.constructor==Animal);
+    console.log(dog.__proto__.constructor == Person);
+    console.log(dog.__proto__.constructor == Animal);
 
 
     //判断这个对象是不是这种数据类型
-    console.log(dog.constructor==Animal);
+    console.log(dog.constructor == Animal);
 
     console.log(dog instanceof Person);
 
-
+    console.log(per.constructor);
+    console.log(per.__proto__);
 
     //总结:
     /*
@@ -76,8 +78,10 @@
 
   </script>
 </head>
+
 <body>
 
 
 </body>
+
 </html>
