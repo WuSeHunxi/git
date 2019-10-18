@@ -18,20 +18,40 @@
 <body>
     <input type="button" value="显示效果" id="btn" />
     <div id="div"></div>
+    <script src="common.js"></script>
     <script>
-        function ChangeStyle(btnId, divId, color) {
-            this.btnObj = document.getElementById(btnId);
-            this.divObj = document.getElementById(divId);
-            this.color = color;
+        // function ChangeStyle(btnId, divId, color) {
+        //     this.btnObj = document.getElementById(btnId);
+        //     this.divObj = document.getElementById(divId);
+        //     this.color = color;
+        // }
+        // ChangeStyle.prototype.init = function () {
+        //     var that = this;
+        //     // 这里的this代表的是实例化的对象cs
+        //     this.btnObj.onclick = function () {
+        //         that.divObj.style.backgroundColor = that.color;
+        //     };
+        // };
+        // var cs = new ChangeStyle("btn", "div", "yellow");
+        // cs.init();
+
+        function ChangeStyle(btnObj, divObj, json) {
+            this.btnObj = btnObj;
+            this.divObj = divObj;
+            this.json = json;
         }
+
+        var json = { "width": "500px", "height": "400px", "backgroundColor": "yellow" };
         ChangeStyle.prototype.init = function () {
             var that = this;
-            // 这里的this代表的是实例化的对象cs
             this.btnObj.onclick = function () {
-                that.divObj.style.backgroundColor = that.color;
+                for (var key in that.json) {
+                    that.divObj.style.backgroundColor = that.json[key];
+                }
             };
         };
-        var cs = new ChangeStyle("btn", "div", "yellow");
+
+        var cs = new ChangeStyle(my$("btn"), my$("div"), json);
         cs.init();
     </script>
 </body>
