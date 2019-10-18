@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [1, 2, 3, 4, 5];
+        console.log(arr.join("*")); // 返回的是以*连接起来的字符串
+
+        console.log(arr.map(function (current) {
+            return current + 2; // 这里的current表示的是当前的值
+        }));
+
+        console.log(arr.reverse()); // 反转数组
+
+        console.log(arr.slice(2, 4)); //-->[3,2] 返回的是新数组
+        console.log(arr); // 原数组没有发生改变
+
+        var arr2 = [1, 2, 3, 4, 5];
+        var a = arr2.splice(1, 0, 3); // 原数组中添加了3
+        console.log(arr2);
+        var arr1 = arr2.splice(2, 3); // 删除的是3，4，5 返回的就是被删除的项
+        console.log(arr1);
+    </script>
+</body>
+
+</html>
