@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>title</title>
   <script>
-    function Person(age,sex) {
-      this.age=age;//年龄
-      this.sex=sex;
-      this.eat=function () {
+    function Person(age, sex) {
+      this.age = age;//年龄
+      this.sex = sex;
+      this.eat = function () {
         console.log("构造函数中的吃");
       };
     }
-    Person.prototype.sex="女";
-    Person.prototype.eat=function () {
+    Person.prototype.sex = "女";
+    Person.prototype.eat = function () {
       console.log("原型对象中的吃");
     };
 
 
-    var per=new Person(20,"男");
+    var per = new Person(20, "男");
     console.log(per.sex);//男
-    per.eat();
-    console.dir(per);
+    per.eat();// 在构造函数中吃
+    console.dir(per);// Person
 
 
     /*
@@ -32,8 +33,10 @@
 
   </script>
 </head>
+
 <body>
 
 
 </body>
+
 </html>
