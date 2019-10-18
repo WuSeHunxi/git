@@ -30,7 +30,7 @@
 
     //实例对象的构造器(构造函数)
     //实例对象的构造器是指向Person的,结果是true,所以,这个实例对象per就是通过Person来创建的
-    console.log(per.constructor == Person);//
+    console.log(per.constructor == Person);//该对象是由构造函数创建的
 
     console.log(per.__proto__.constructor == Person);
     console.log(per.__proto__.constructor == Person.prototype.constructor);
@@ -46,11 +46,11 @@
     console.dir(dog);//实例对象
     console.dir(Animal);//构造函数的名字
 
-    console.log(dog.__proto__.constructor == Person);
-    console.log(dog.__proto__.constructor == Animal);
+    console.log(dog.__proto__.constructor == Person);// false
+    console.log(dog.__proto__.constructor == Animal);// true
 
 
-    //判断这个对象是不是这种数据类型
+    //判断这个对象是不是这种数据类型 使用constructor
     console.log(dog.constructor == Animal);
 
     console.log(dog instanceof Person);
