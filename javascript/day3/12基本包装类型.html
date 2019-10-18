@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>$永远的24k纯帅$</title>
@@ -13,38 +14,43 @@
     //string number boolean
 
 
-//    var str="hello";
-//    str=str.replace("ll","HH");
-//    console.log(str);
+    //    var str="hello";
+    //    str=str.replace("ll","HH"); // str变成了基本包装类
+    //    console.log(str);
 
 
-//    var str=new String("hello");
-//    str=str.replace("ll","HH");
-//    console.log(str);
-//    str=null;
+    //    var str=new String("hello");
+    //    str=str.replace("ll","HH");
+    //    console.log(str);
+    //    str=null;
 
-//    var num=10;//number---->
-//    console.log(num.toString());
+    //    var num=10;//number---->
+    //    console.log(num.toString());
 
-
+    // new Boolean(false) 表示的是一个对象
     //如果是一个对象&&true,那么结果是true
     //如果是一个true&&对象,那么结果是对象
+    //    var flag=new Boolean(false);
+    //    var result=true&&flag;
+    //    console.log(result);
 
 
-//    var flag=new Boolean(false);
-//    var result=true&&flag;
-//    console.log(result);
+    //    var num=10;
+    //    var num2=Number("10");//转换,没有new---类型转换
+    //    var num3=new Number("10");//基本包装类型
 
-
-//    var num=10;
-//    var num2=Number("10");//转换,没有new---类型转
-//    var num3=new Number("10");//基本包装类型
-
+    var flag = new Boolean(true);
+    var result = false && flag;
+    var result1 = flag && false;
+    console.log(result); // false
+    console.log(result1); // false
 
   </script>
 </head>
+
 <body>
 
 
 </body>
+
 </html>
