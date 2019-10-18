@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>$永远的24k纯帅$</title>
@@ -8,13 +9,18 @@
 
     //    var a = 25;
     //    function abc (){
+          // 当前这句等价于 var a;
     //      alert(a);//undefined
+            // a=10
     //      var a = 10;
     //    }
     //    abc();
     //    console.log(a);//25
 
 
+    /**
+    *  在变量和函数同时声明的时候，变量一定是在最上面的，然后再是函数声明
+    */
     //  var a;
     //function a() {
     //  console.log('aaaaa');
@@ -59,9 +65,9 @@
   <script>
 
     f1();//-----报错
-   var f1=function () {
+    var f1 = function () {
       console.log(a);
-      var a=10;
+      var a = 10;
     };
 
     function f2() {
@@ -71,8 +77,10 @@
 
   </script>
 </head>
+
 <body>
 
 
 </body>
+
 </html>
