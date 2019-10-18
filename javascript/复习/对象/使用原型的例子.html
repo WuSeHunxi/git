@@ -6,13 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
 </head>
 
 <body>
     <input type="button" value="显示效果" id="btn" />
     <div id="div"></div>
     <script>
+        function ChangeStyle(btnId, divId, color) {
+            this.btnObj = document.getElementById(btnId);
+            this.divObj = document.getElementById(divId);
+            this.color = color;
+        }
+        ChangeStyle.prototype.init = function () {
+            var that = this;
+            // 这里的this代表的是实例化的对象cs
+            this.btnObj.onclick = function () {
 
+                that.divObj.style.backgroundColor = that.color;
+            };
+        };
+        var cs = new ChangeStyle("btn", "div", "yellow");
+        cs.init();
     </script>
 </body>
 
