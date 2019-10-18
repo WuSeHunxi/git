@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>title</title>
@@ -7,13 +8,15 @@
     function Person() {
 
     }
-    Person.prototype.eat=function () {
+    Person.prototype.eat = function () {
       console.log("吃东西");
     };
 
-    var per=new Person();
+    var per = new Person();
     console.dir(per);
     console.dir(Person);
+
+    // 实例对象的__proto__指向的是构造函数的prototype
 
     //实例对象中有__proto__原型
     //构造函数中有prototype原型
@@ -22,19 +25,23 @@
     //实例对象中的__proto__指向的是构造函数的prototype
     //所以,prototype这个对象中__proto__指向的应该是某个构造函数的原型prototype
 
+    //构造函数的prototype的属性__proto__指向的是Object.prototype
+
     //Person的prototype中的__proto__的指向
     //console.log(Person.prototype.__proto__);
 
     //per实例对象的__proto__------->Person.prototype的__proto__---->Object.prototype的__proto__是null
 
-    console.log(per.__proto__==Person.prototype);
-    console.log(per.__proto__.__proto__==Person.prototype.__proto__);
-    console.log(Person.prototype.__proto__==Object.prototype);
+    console.log(per.__proto__ == Person.prototype);// true
+    console.log(per.__proto__.__proto__ == Person.prototype.__proto__);// true
+    console.log(Person.prototype.__proto__ == Object.prototype);// true
     console.log(Object.prototype.__proto__);
   </script>
 </head>
+
 <body>
 
 
 </body>
+
 </html>
