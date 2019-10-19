@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 改变原型的指向时，如何添加方法
+
+        function Person(name) {
+            this.name = name;
+        }
+
+        var per = new Person("lalla");
+
+        Person.prototype = {
+            eat: function () {
+                console.log("eat");
+            }
+        }
+
+        per.eat();
+    </script>
+</body>
+
+</html>
