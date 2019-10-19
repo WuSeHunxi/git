@@ -14,7 +14,7 @@
 
     var per = new Person();
     console.dir(per);
-    console.dir(Person);
+    console.dir(Person.prototype);
 
     // 实例对象的__proto__指向的是构造函数的prototype
 
@@ -35,7 +35,7 @@
     console.log(per.__proto__ == Person.prototype);// true
     console.log(per.__proto__.__proto__ == Person.prototype.__proto__);// true
     console.log(Person.prototype.__proto__ == Object.prototype);// true
-    console.log(Object.prototype.__proto__);
+    console.log(Object.prototype.__proto__);// null 
   </script>
 </head>
 
