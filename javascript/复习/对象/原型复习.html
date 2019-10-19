@@ -16,7 +16,22 @@
          *          实例化对象的__proto__指向的就是原型对象
          * 原型就是属性，且该属性就是对象
          *
+         * 在构造一个原型的时候，需要加上构造器：constructor
+         *
         */
+
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        var per = new Person("papa", 10);
+
+        console.log(per);
+        console.log(per.__proto__);
+        console.log(Person);
+        console.log(Person.prototype);// 构造器指向的就是自己所在的原型对象所在的构造函数
+        console.log(per.__proto__ == Person.prototype);
     </script>
 </body>
 
