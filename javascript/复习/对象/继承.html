@@ -12,10 +12,44 @@
     <script>
         /**
          *
-         * 在js中通过构造函数模拟面向对象的编程思想
+         * 在js中通过构造函数模拟面向对象的编程思想（类）
+         *
+         * 原型的作用：共享数据，节省内存空间
+         *            为了实现继承（改变原型的指向）
          *
          * */
+
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        Person.prototype = {
+            eating: function () {
+                console.log("eating");
+            },
+            dringk: function () {
+                console.log("drink");
+            }
+        }
+
+        function Student(score) {
+            this.score = score;
+        }
+
+        // 学生继承人 --> 改变原型的指向
+        Student.prototype = Person.prototype;
+
+        Student.prototype.study = function () {
+            console.log("study");
+        }
+
+        var stu = new Student(100);
+        console.log(stu);
+        stu.eating();
+
     </script>
+
 </body>
 
 </html>
