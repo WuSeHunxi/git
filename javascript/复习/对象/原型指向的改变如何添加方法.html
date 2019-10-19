@@ -16,7 +16,15 @@
             this.name = name;
         }
 
-        var per = new Person("lalla");
+        function Student(age) {
+            this.age = age;
+        }
+
+        Student.prototype.drink = function () { //先添加了方法
+            console.log("drink");
+        }
+
+        Student.prototype = Person.prototype; // 改变了Students的指向
 
         Person.prototype = {
             eat: function () {
@@ -24,7 +32,12 @@
             }
         }
 
-        per.eat();
+        var per = new Person("lalla");
+        var stu = new Student(10);
+
+        stu.drink();// 无执行，必须要先改变指向才能添加方法
+
+        per.eat();//eat
     </script>
 </body>
 
