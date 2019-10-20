@@ -34,13 +34,42 @@
         // 在原型的继承中，修改了原型对象上引用类型的值，会导致其它实例也跟着受影响；然而修改它的基本类型的值时，发现它不会修改。
         // 为了解决上面的问题，需要使用借用函数，即：call()
 
+
+        /**
+        借用继承
+        */
         function Teacher(name, age, sex, teach) {
             Person.call(this, name, age, sex);
             this.teach = teach;
         }
+
+        //使用借用构造函数只能解决属性值的问题，但是无法访问原型上的函数了
+
+        // 为了解决该问题，需要利用组合继承的方法来实现继承
+
+
+        /**
+        组合继承
+        */
+        Teacher.prototype = new Person();
+        Teacher.prototype.happy = function () {
+            console.log("开心");
+        }
+
         var tea = new Teacher("hah", 10, "false", "ooooo");
         console.log(tea.name);
+        tea.happy();
+        tea.eating();
 
+        /**
+        拷贝继承
+        */
+        var obj = {};
+        for (var key in Person.prototype) {
+            obj[key] = Person.prototype[key];
+        }
+        console.log(obj);
+        console.log(obj.eating());
 
     </script>
 </body>
