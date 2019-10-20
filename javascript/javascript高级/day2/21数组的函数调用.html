@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>title</title>
@@ -7,35 +8,39 @@
 
     //数组可以存储任何类型的数据
 
-    var arr=[
-        function () {
-          console.log("十一假期快乐");
-        },
-        function () {
-          console.log("十一假期开心");
-        }
-        ,
-        function () {
-          console.log("十一假期健康");
-        }
-        ,
-        function () {
-          console.log("十一假期安全");
-        },
-        function () {
-          console.log("十一假期如意");
-        }
+    // 该数组是由匿名函数组成的
+    var arr = [
+      function () {
+        console.log("十一假期快乐");
+      },
+      function () {
+        console.log("十一假期开心");
+      }
+      ,
+      function () {
+        console.log("十一假期健康");
+      }
+      ,
+      function () {
+        console.log("十一假期安全");
+      },
+      function () {
+        console.log("十一假期如意");
+      }
     ];
     //回调函数:函数作为参数使用
+    // 遍历数组
     arr.forEach(function (ele) {
       ele();
     });
 
-
+    console.log(arr);
   </script>
 </head>
+
 <body>
 
 
 </body>
+
 </html>
