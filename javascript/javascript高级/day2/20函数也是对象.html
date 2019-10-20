@@ -35,11 +35,12 @@
     //所有的函数实际上都是Function的构造函数创建出来的实例对象
     var f1 = new Function("num1", "num2", "return num1+num2");
     console.log(f1(10, 20));
-    console.log(f1.__proto__ == Function.prototype);
+    console.log(f1.__proto__ == Function.prototype);//true
 
     // 所以,函数实际上也是对象
 
-    console.dir(f1);
+    console.dir(f1);// 将整个函数打印出来
+    console.log(f1.name);//anonymous（匿名）
 
 
     console.dir(Function);
