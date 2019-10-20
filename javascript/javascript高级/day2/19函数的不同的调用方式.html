@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>title</title>
@@ -15,20 +16,22 @@
     function F1() {
       console.log("我是构造函数,我骄傲");
     }
-    var f=new F1();
+    var f = new F1();
 
-    //对象的方法
+    //对象的方法 --> 在构造函数内部添加的方法
     function Person() {
-      this.play=function () {
+      this.play = function () {
         console.log("玩代码");
       };
     }
-    var per=new Person();
+    var per = new Person();
     per.play();
   </script>
 </head>
+
 <body>
 
 
 </body>
+
 </html>
