@@ -19,15 +19,17 @@
     var p1 = new Person("小明", 20);
     var p2 = new Person("小红", 30);
 
-    console.dir(p1);
-    console.dir(p2);
-    console.dir(Person);
-    p1.__proto__.eat();
+    // console.dir(p1);
+    // console.dir(p2);
+    // console.dir(Person);
+    // p1.__proto__.eat();
 
-    // console.log(p1.__proto__==Person.prototype);
-    // p1.__proto__ 是对象
-    console.log(p1.__proto__ instanceof Object);
+    // // console.log(p1.__proto__==Person.prototype);
+    // // p1.__proto__ 是对象
+    // console.log(p1.__proto__ instanceof Object);
 
+    console.log(p1.__proto__);
+    console.log(Person.prototype);
     /*
     * 原型?
     * 实例对象中有__proto__这个属性,叫原型,也是一个对象,这个属性是给浏览器使用,不是标准的属性----->__proto__----->可以叫原型对象
