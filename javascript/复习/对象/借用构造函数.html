@@ -24,12 +24,24 @@
                 console.log("喝");
             }
         }
-        function Student(study) {
-            this.study = study;
+        // function Student(study) {
+        //     this.study = study;
+        // }
+        // // Student.prototype = new Person("papa", 10, false);
+        // var stu = new Student();
+        // console.log(stu.name);// 此时发现继承了Person这个对象以后，那些继承过来的属性都已经初始化好了，无法再修改了
+
+        // 在原型的继承中，修改了原型对象上引用类型的值，会导致其它实例也跟着受影响；然而修改它的基本类型的值时，发现它不会修改。
+        // 为了解决上面的问题，需要使用借用函数，即：call()
+
+        function Teacher(name, age, sex, teach) {
+            Person.call(this, name, age, sex);
+            this.teach = teach;
         }
-        Student.prototype = new Person("papa", 10, false);
-        var stu = new Student();
-        console.log(stu.name);
+        var tea = new Teacher("hah", 10, "false", "ooooo");
+        console.log(tea.name);
+
+
     </script>
 </body>
 
