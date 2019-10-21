@@ -13,7 +13,7 @@
             // 遍历$q
             foreach($q as $val) { 
                 // PHP_EOL 为常量，用于换行
-                echo $sites[$val] . PHP_EOL;    
+                echo $sites[$val] . PHP_EOL; // 输出键所对应的值   
             }
       } else {
 ?>
