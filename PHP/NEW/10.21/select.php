@@ -2,7 +2,18 @@
 
 <?php
 
-
+if($_GET['REQUEST_METHOD']){
+    if($_GET['select']){
+        $name=$_GET['select'];
+            if($name=='taobao'){
+                echo "淘宝";
+            }else if($name=='google'){
+                echo "谷歌";
+            }else if($name=='baidu'){
+                echo "百度";
+            }
+    }
+}
 
 ?>
 <!DOCTYPE html>
