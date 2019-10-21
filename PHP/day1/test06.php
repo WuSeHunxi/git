@@ -1,6 +1,6 @@
 <?php
 	if(isset($_POST['sub'])){
-		$sfile=$_FILES['sfile'];
+		$sfile=$_FILES['sfile'];// 获取文件参数
 		
 		
 		
@@ -23,16 +23,16 @@
 		}else{
 			//echo "文件OK";
 			$imgname=time();
-			$img=$imgname.'.'.$arr[$len];
+			$img=$imgname.'.'.$arr[$len];// 新的文件名
 			//echo $img;
 			
 			//本地流信息  网络源信息
 			
 			
-			$baseurl=getcwd();
+			$baseurl=getcwd(); //获取当前工作目录
 			//echo $baseurl;
 			//die();
-			$bb=move_uploaded_file($sfile['tmp_name'],$baseurl.'\upload'.$img);
+			$bb=move_uploaded_file($sfile['tmp_name'],$baseurl.'/upload'.$img);
 			if($bb){
 				echo "success";
 			}else{

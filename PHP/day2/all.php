@@ -8,7 +8,7 @@
 		
 		$query=mysqli_query($link,$sql);
 		if($query){
-			//显示当前页
+			//显示当前页 与数据库连接
 			$sql="select * from blog where bid='$bid'";
 			$query=mysqli_query($link,$sql);
 			$arr=mysqli_fetch_array($query);

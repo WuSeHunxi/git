@@ -3,12 +3,12 @@
 if(isset($_POST['sub'])){
     $sfile=$_FILES['sfile'];
     $name=$sfile['name'];
-    $arr=explode('.',$name);
+    $arr=explode('.',$name);// 将文件名分开 
     $len=count($arr)-1;
     $newarr=array('txt','md','exe');
     $flag=true;
     for($i=0;$i<count($newarr);$i++){
-        if($newarr[i]==arr[len]){
+        if($newarr[i]==$arr[len]){
             $flag=false;
         }
     }
