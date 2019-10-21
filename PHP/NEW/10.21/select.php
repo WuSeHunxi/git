@@ -2,8 +2,8 @@
 
 <?php
 
-if($_GET['REQUEST_METHOD']){
-    if($_GET['select']){
+if($_SERVER['REQUEST_METHOD']==="GET"){
+    if(isset($_GET['select'])){
         $name=$_GET['select'];
             if($name=='taobao'){
                 echo "淘宝";

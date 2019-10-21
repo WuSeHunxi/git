@@ -4,7 +4,7 @@
     // 多选的时候不能使用htmlspecialchars()函数
     $q = isset($_POST['q'])? $_POST['q'] : '';
     //判断得到的值是否在下面的关联数组中
-    //$q可能是一个数组
+    //判断$q是不是一个数组
     if(is_array($q)) {
         $sites = array(
             'PHP' => 'php中文网教程: http://www.php.cn',            
