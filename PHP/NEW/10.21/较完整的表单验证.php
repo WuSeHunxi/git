@@ -20,20 +20,25 @@ $name = $email = $gender = $comment = $website = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
+
+    // 检查用户名
     if (empty($_POST["name"]))
     {
         $nameErr = "名字是必需的";
     }
-    else
+    else// 已经填写了名字
     {
+        // 将名字进行检验
         $name = test_input($_POST["name"]);
-        // 检测名字是否只包含字母跟空格
+        // 利用正则表达式检测名字是否只包含字母跟空格
         if (!preg_match("/^[a-zA-Z ]*$/",$name))
         {
             $nameErr = "只允许字母和空格"; 
         }
     }
     
+    
+    // 开始进行邮箱的检查
     if (empty($_POST["email"]))
     {
       $emailErr = "邮箱是必需的";
@@ -48,6 +53,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         }
     }
     
+
+    // 检查网址
     if (empty($_POST["website"]))
     {
         $website = "";
@@ -62,6 +69,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         }
     }
     
+
+    // 检查备注信息
     if (empty($_POST["comment"]))
     {
         $comment = "";
@@ -71,6 +80,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $comment = test_input($_POST["comment"]);
     }
     
+
+    // 检查性别
     if (empty($_POST["gender"]))
     {
         $genderErr = "性别是必需的";
