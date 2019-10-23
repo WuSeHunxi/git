@@ -4,6 +4,7 @@
  * 
  * fopen()--->打开文件
  * fget()--->从文件中逐行读取文件
+ * fgetc()--->从文件中逐字符地读取文件
  * fclose()--->关闭打开的文件
  * feof()--->检查是否已经到达文件末尾
  * 
@@ -23,7 +24,7 @@ fclose($file);
 
 $f=fopen("name.txt","r");
 while(!feof($f)){
-    echo fgets($f)."<br/>";
+    echo fgetc($f)."<br/>";
 }
 fclose($f);
 
