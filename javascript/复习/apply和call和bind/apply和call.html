@@ -24,7 +24,32 @@
         }
 
         f1.apply(null, [1, 2]);// 因为是null，所以this是window
-        f1.call(null, 1, 2);
+        f1.call(null, 1, 2);// 因为是null，所以this是window
+
+        // 改变this的指向
+        var obj = {
+            name: "pappa"
+        }
+        f1.apply(obj, [1, 2]);// 本来f1函数是window对象的，但是传入了obj之后，该函数就变成了obj的了
+
+
+        // 方法改变this的指向
+        function Person(age) {
+            this.age = age;
+        }
+        Person.prototype.sayHi = function () {
+            console.log(this.age);
+        }
+        function Student() {
+
+        }
+
+        var stu = new Student();
+        var per = new Person(10);
+        // 此时的sayHi是per对象的，下面让f1属于stu
+        per.sayHi.apply(stu);
+
+        // 总之，只要是想使用别的对象的方法，并且希望该方法是当前对象的，那么就可以使用apply或者是call来改变this的指向
 
     </script>
 
