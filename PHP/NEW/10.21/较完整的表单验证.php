@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     }
 }
 
-function test_input($data)
+function test_input($data)// 将内容
 {
     $data = trim($data);
     $data = stripslashes($data);
@@ -103,7 +103,9 @@ function test_input($data)
 
     <h2>PHP 表单验证实例</h2>
     <p><span class="error">* 必需字段。</span></p>
+    <!-- $_SERVER["PHP_SELF"]是超级全局变量，返回当前正在执行脚本的文件名，与 document root相关。 -->
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <!-- 这里使用htmlspecialchars()这个函数是因为在提交的时候由预定义的字符，要将这些预定义的字符转化成html文本 -->
         名字: <input type="text" name="name" value="<?php echo $name;?>">
         <span class="error">* <?php echo $nameErr;?></span>
         <br><br>
@@ -125,16 +127,16 @@ function test_input($data)
     </form>
 
     <?php
-echo "<h2>您输入的内容是:</h2>";
-echo $name;
-echo "<br>";
-echo $email;
-echo "<br>";
-echo $website;
-echo "<br>";
-echo $comment;
-echo "<br>";
-echo $gender;
+    echo "<h2>您输入的内容是:</h2>";
+    echo $name;
+    echo "<br>";
+    echo $email;
+    echo "<br>";
+    echo $website;
+    echo "<br>";
+    echo $comment;
+    echo "<br>";
+    echo $gender;
 ?>
 
 </body>
