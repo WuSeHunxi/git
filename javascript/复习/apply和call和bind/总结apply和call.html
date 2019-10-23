@@ -21,7 +21,8 @@
         console.log(f1.__proto__ == Function.prototype);
         // 所有函数都是Function的实例对象
 
-        console.log(Function.prototype);
+        console.dir(Function.prototype);// 由call和apply两个方法
+        // applay和call这两个方法是在f1的原型对象Function.prototype中
 
     </script>
 </body>
