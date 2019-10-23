@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>类尝试</title>
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+}
+input{
+    
+}
+#content{
+    height: 1000px;
+    background-color: lightblue;
+    margin: 0 auto;
+    overflow: hidden;
+}
+#content_inner{
+    width: 1200px;
+    height: 700px;
+    background-color: rgb(130, 167, 201);
+    margin: 0 auto;
+    margin-top: 40px;
+    position: relative;
+}
+#top{
+    width: 100%;
+    height: 70px;
+    background-color: bisque;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+}
+input{
+    outline: none;
+}
+#top>input{
+    width: 400px;
+    height: 50px;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 40px;
+    border: none;
+    opacity: 0.7;
+    /* color: white; */
+    transition: all 0.3s ease;
+}
+#top>input:focus{
+    opacity: 1;
+}
+#top>input::-webkit-input-placeholder{
+    color: lightgray;
+
+}
+#top>button{
+    border: none;
+    width: 50px;
+    height: 50px;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    color: rgb(247, 253, 255);
+    font-weight: bold;
+    font-size: 12px;
+    background-color: lightgray;
+    margin-left: 20px;
+    transition: all 0.2s ease;
+}
+#top>button:hover{
+    background-color: rgb(107, 107, 107);
+}
+#top>button:active{
+    margin-top: 3px;
+}
+#middle{
+    width: 1200px;
+    height: 450px;
+    background-color: rgb(255, 255, 255);
+    /* margin-left: 10px; */
+    margin-top: 20px;
+    display: -webkit-flex;
+    justify-content: space-around;
+    align-items : center;
+    
+}
+#middle > div{
+    width: 350px;
+    height: 350px;
+    background-color: rgb(172, 172, 172);
+    
+}
+#middle > div{
+    cursor: pointer;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction : column;
+
+
+}
+#middle>div>input{
+    opacity: 0.5;
+    position: relative;
+    /* top : -20px; */
+    border: none;
+    top: -10px;
+    margin-top: 20px;
+    width: 200px;
+    height: 40px;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+#middle> div>input:hover{
+    transform: scale(1.1);
+    opacity: 1;
+}
+#middle> div>input:focus{
+    transform: scale(1.1);
+    opacity: 1;
+}
+#bottom{
+    width: 100%;
+    height: 130px;
+    background-color: bisque;
+    position: absolute;
+    bottom: 0px;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#bottom > button{
+    width: 150px;
+    height: 70px;
+    border : none;
+    outline:  none;
+    background-color: lightgray;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+</style>
+
+
+<body>
+    <div id="content">
+        <div id="content_inner">
+            <!-- <input type="text" value="hhh"> -->
+            <div id="top">
+                <input type="text" placeholder="请设置每个页可存的数量">
+                <button onclick="getNum();">submit</button>
+            </div>
+            <div id="middle">
+                <div id="firstProcess">
+                    <input type="text" value="cpu"> 
+                    <input type="text" value="cpu">
+                    <input type="text" value="cpu">
+                    <input type="text" value="io">
+                    <input type="text" value="cpu">
+                </div>
+                <div id="secondProcess">
+                    <input type="text" value="cpu">
+                    <input type="text" value="io">
+                    <input type="text" value="cpu">
+                    <input type="text" value="cpu">
+                    <input type="text" value="cpu">
+                </div>
+                <div id="thirdProcess">
+                    <input type="text" value="cpu">
+                    <input type="text" value="cpu">
+                    <input type="text" value="io">
+                    <input type="text" value="cpu">
+                    <input type="text" value="cpu">
+                </div>
+            </div>
+            <div id="bottom">
+                <button onclick="confirm();">确定</button>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+
+<script>
+    var content = document.getElementById("content");
+    content.style.width = document.body.scrollWidth + 'px';
+    var top = document.getElementById("top");
+    var div = document.getElementsByTagName('div');
+    // var firstProcess = document.getElementById("firstProcess");
+    // console.log(firstProcess);
+    var middle = document.getElementById("middle");
+    // console.log(document.querySelectorAll('#middle input'));
+
+    // num是 每页能储存的个数
+    var num;
+    function getNum(){
+        var tmp = document.querySelectorAll("#top > input")[0].value;
+        if(tmp < '0' || tmp > '9')
+            alert("请输入数字.");
+        else{
+            num = tmp;
+            console.log("num  :  " + num);
+        }
+    }
+    // 页表
+    // var PageTable = [];
+    
+    // 页内偏移
+    // var PageOffset = [];
+    // PageOffset.push([]);
+
+   function confirm(){
+       // 还剩进程数
+       var processNum = middle.children.length;
+    //    console.log("还剩下的进程数目    " + processNum + "个");
+       
+        // 内存
+        var RAM = [];
+
+        // 虚存
+        var VM = [];
+
+        // 存储进程
+        var processArray = [];
+        // console.log(middle.children.length);
+        //记录是否到达了页最大储存项
+        var cnt = 0;
+
+        //回收已经完成的指令
+        var recovery = [];
+
+        // 存储页号 ， 页内偏移的数组
+        var pageOffset = [];
+        
+        
+
+        // 进程类
+        function processClass(instruct){
+            this.instruct = instruct;                       //进程指令
+            this.finish = "no";                             //进程是否完成
+            this.restInstructions = instruct.length;        //进程剩余指令个数
+            // this.status = wait;
+            this.takeNote = 0;
+            this.now = null;
+        }
+
+
+
+        //依次创建    进程对象    将进程对象放入数组内
+        for(let i = 0 ; i < middle.children.length ; i++){  
+            var process = new processClass(middle.children[i].children);
+            processArray.push(process);
+        }
+        // console.log(processArray.length);
+        //将 页号和页内偏移放入 存页号和页内偏移的数组中
+        let i = 0;
+        while(processNum){    //一直循环扫进程
+                if(i == processArray.length)
+                    i = 0;
+            // console.log(num);
+            //依次扫进程
+            // for(let i = 0 ; i < processArray.length ; i++){
+                
+                console.log("第  " + parseInt(i+1) + "  个进程 : ---------------------------------------");
+                console.log("转化为执行态");
+                //重置内存
+                RAM = [];
+                //重置计数器
+                cnt = 0;
+                //重置记录页号和页内偏移的数组
+                pageOffset = [];
+                pageOffset.push([]);
+                // 页号
+                var offsetX = 0;
+                // 页内偏移
+                var offsetY = 0;
+                
+                // console.log(processArray[i].instruct.length);
+                //扫描进程内部的各个指令
+                for(let j = 0 ; j < processArray[i].instruct.length ; j++){
+                    RAM.push(processArray[i].instruct[j].value);
+                    pageOffset[offsetX].push(offsetY);
+                    offsetY++;
+                    cnt++ ;
+                    if(cnt == num){
+                        offsetX++;
+                        offsetY = 0;
+                        cnt = 0;
+                        pageOffset.push([]);
+                    }
+                }
+                console.log(RAM);
+                console.log(pageOffset);
+                let m = 0;
+                let n = 0;
+                //打印页号和页内偏移
+                for(let j = 0 ; j < processArray[i].instruct.length ; j++){
+                    // console.log(m,n);
+                    console.log(processArray[i].instruct[j].value + ":  "  + "页号 :   " + m +" 偏移号 :" +   pageOffset[m][n]);
+                    n++;
+                    if(n == num){
+                        // alert("hhh"); 
+                        n = 0;
+                        m++;
+                        // console.log(m);
+                    }
+                }    
+                //执行指令之后剩余指令数减少 并且看看是不是io
+                for(let j = 0 ; j < RAM.length ; j++){
+                    if(!processArray[i].restInstructions)
+                        break;
+                    processArray[i].restInstructions--;
+                    // console.log(processArray[i].instruct);
+                    // console.log(processArray[i].instruct[processArray[i].takeNote].value);
+                    console.log(processArray[i].instruct[processArray[i].takeNote].value);
+                    if(processArray[i].instruct[processArray[i].takeNote].value == "cpu"){
+                       
+                        processArray[i].now = "cpu";
+                        // alert("hhh");
+                        // console.log(processArray.instruct);
+                        processArray[i].takeNote++;
+                        // console.log(processArray[i].restInstructions);
+                        console.log("正在执行第  "  +  parseInt(i+1)  +"  个进程的第  " +  processArray[i].takeNote + "个指令 : " + RAM[j]  );
+                        // console.log(processArray.instruct);
+                        // continue;
+
+                    }
+                        
+                    else if(processArray[i].instruct[processArray[i].takeNote].value == "io"){
+                        processArray[i].now = "io";
+                        console.log("执行io指令产生中断");
+                        processArray[i].takeNote++;
+                        break;
+                    }
+                }
+                // console.log(processArray[i].takeNote);
+                //判断现在的记录的位置是不是指令的尾部 如果是尾部 就继续循环
+                // if( parseInt(processArray[i].takeNote)  ==  parseInt(processArray[i].instruct.length))
+                //         continue;
+                //判断现在读到的是否是io 如果是io就切换
+                // if(processArray[i].now == "io"){
+                //     i++;
+                //     continue;
+                // }
+                   
+
+                //判断内存的剩余指令是否为0
+                if(!processArray[i].restInstructions){
+                    processNum--;
+                }
+            // }
+                i++;
+        }
+   }
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+</script>
+</html>
