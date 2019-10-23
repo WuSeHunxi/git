@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 通过对象对用方法，产生一个随机数
+        function ShowRandom() {
+            this.number = parseInt(Math.random() * 10 + 1);
+        }
+        ShowRandom.prototype.show1 = function () {
+            window.setInterval(this.show2.bind(this), 1000);
+        }
+        ShowRandom.prototype.show2 = function () {
+            console.log(this.number);
+        }
+        var r = new ShowRandom();
+        r.show1();
+
+    </script>
+</body>
+
+</html>
