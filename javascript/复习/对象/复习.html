@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+        原型实现继承：每个实例对象初始化的时候是一样的
+        借用构造函数实现继承：只能解决属性的问题，无法继承方法
+        组合继承：可以解决方法和属性的问题
+        拷贝继承：将一个对象中的方法和属性都拷贝给另一个对象
+        */
+
+        /**
+        定义对象的方法：自定义构造函数
+                       系统的函数Array()
+                       字面量
+        */
+        // 继承的代码
+        function Animal(age, sex) {
+            this.age = age;
+            this.sex = sex;
+        }
+        Animal.prototype.color = "黄色";
+        Animal.prototype.eat = function () {
+            console.log("Hi~~~~");
+        }
+        function Dog(age, sex, name) {
+            Animal.call(this, age, sex);
+            this.name = name;
+        }
+        Dog.prototype = new Animal();
+        var dog = new Dog("nan", 12, "男");
+        console.log(dog);
+
+
+        var obj = {
+            name: "0100",
+            age: 10
+        }
+
+        var obj2 = new Array();
+
+        function Person(age, sex) {
+            this.age = age;
+            this.sex = sex;
+        }
+    </script>
+</body>
+
+</html>
