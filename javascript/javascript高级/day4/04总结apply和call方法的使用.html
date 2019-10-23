@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>title</title>
@@ -30,21 +31,21 @@
 
     //方法改变this的指向
 
-//    function Person(age) {
-//      this.age = age;
-//    }
-//    Person.prototype.sayHi = function (x, y) {
-//      console.log((x + y) + ":====>" + this.age);//是实例对象
-//    };
-//
-//    function Student(age) {
-//      this.age = age;
-//    }
-//    var per = new Person(10);//实例对象
-//    var stu = new Student(100);//实例对象
-//    //sayHi方法是per实例对象的
-//    per.sayHi.apply(stu, [10, 20]);
-//    per.sayHi.call(stu, 10, 20);
+    //    function Person(age) {
+    //      this.age = age;
+    //    }
+    //    Person.prototype.sayHi = function (x, y) {
+    //      console.log((x + y) + ":====>" + this.age);//是实例对象
+    //    };
+    //
+    //    function Student(age) {
+    //      this.age = age;
+    //    }
+    //    var per = new Person(10);//实例对象
+    //    var stu = new Student(100);//实例对象
+    //    //sayHi方法是per实例对象的
+    //    per.sayHi.apply(stu, [10, 20]);
+    //    per.sayHi.call(stu, 10, 20);
 
 
     //apply和call的使用方法
@@ -65,14 +66,15 @@
 
 
     function f1() {
-      console.log(this+":====>调用了");
+      console.log(this + ":====>调用了");
     }
     //f1是函数,f1也是对象
     console.dir(f1);
     //对象调用方法,说明,该对象中有这个方法
-    f1.apply();
+    f1.apply();// [object Window]:====>调用了
     f1.call();
-    console.log(f1.__proto__==Function.prototype);
+    console.log(f1.__proto__);
+    console.log(f1.__proto__ == Function.prototype);//true
     //所有的函数都是Function的实例对象
     console.log(Function.prototype);//ƒ () { [native code] }
     console.dir(Function);
@@ -80,15 +82,15 @@
 
 
     function Person() {
-      this.sayHi=function () {
+      this.sayHi = function () {
         console.log("您好");
       };
     }
-    Person.prototype.eat=function () {
+    Person.prototype.eat = function () {
       console.log("吃");
     };
 
-    var per=new Person();
+    var per = new Person();
     per.sayHi();
     per.eat();
     console.dir(per);
@@ -99,8 +101,10 @@
 
   </script>
 </head>
+
 <body>
 
 
 </body>
+
 </html>

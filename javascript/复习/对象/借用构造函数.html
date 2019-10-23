@@ -37,7 +37,7 @@
 
 
         /**
-        借用继承
+        借用构造函数实现继承：
         */
         function Teacher(name, age, sex, teach) {
             Person.call(this, name, age, sex);
@@ -50,7 +50,7 @@
 
 
         /**
-        组合继承
+        组合继承：原型继承+借用构造函数继承
         */
         Teacher.prototype = new Person();
         Teacher.prototype.happy = function () {
@@ -67,6 +67,7 @@
         */
         var obj = {};
         for (var key in Person.prototype) {
+            // 将person的内容拷贝到obj中，例如__proto__属性
             obj[key] = Person.prototype[key];
         }
         console.log(obj);

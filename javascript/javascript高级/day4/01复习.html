@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>title</title>
@@ -62,9 +63,10 @@
     * */
     console.dir(Math);
 
+    // this的指向
     setInterval(function () {
       console.log(this);
-    },1000);
+    }, 1000);
 
     function f1() {
       console.log(this);
@@ -74,40 +76,40 @@
 
     function Teacher() {
       console.log(this);
-      this.sayHi=function () {
+      this.sayHi = function () {
         console.log(this);
       };
     }
-    Teacher.prototype.sayHello=function () {
+    Teacher.prototype.sayHello = function () {
       console.log(this);
     };
-    var t=new Teacher();
+    var t = new Teacher();
     t.sayHi();
     t.sayHello();
 
     //字面量的方式创建对象
-    var obj={
-      age:10,
-      sex:"男",
-      sayHi:function () {
+    var obj = {
+      age: 10,
+      sex: "男",
+      sayHi: function () {
         console.log("您好,十一过的快乐吗");
       }
     };
 
     //调用系统的构造函数创建对象
-    var obj2=new Object();
-    obj2.age=20;
-    obj2.sex="男";
-    obj2.sayHi=function () {
+    var obj2 = new Object();
+    obj2.age = 20;
+    obj2.sex = "男";
+    obj2.sayHi = function () {
       console.log("中秋节过的快乐吗");
     };
 
     //自定义构造函数创建对象
 
-    function Person(age,sex) {
-      this.age=age;
-      this.sex=sex;
-      this.sayHi=function () {
+    function Person(age, sex) {
+      this.age = age;
+      this.sex = sex;
+      this.sayHi = function () {
         console.log("今天就上课了,快乐吗");
       };
     }
@@ -116,27 +118,27 @@
 
     //继承的代码
 
-    function Animal(age,sex) {
-      this.age=age;//年龄
-      this.sex=sex;//性别
+    function Animal(age, sex) {
+      this.age = age;//年龄
+      this.sex = sex;//性别
     }
     //通过原型添加属性
-    Animal.prototype.color="黄色";
+    Animal.prototype.color = "黄色";
     //通过原型添加方法
-    Animal.prototype.eat=function () {
+    Animal.prototype.eat = function () {
       console.log("中秋的时候没吃到月饼,但是,吃到了馒头,也是一样的");
     };
 
-    //小狗的构造函数
-    function Dog(age,sex,name) {
+    //小狗的构造函数 小狗的属性也要写在括号内
+    function Dog(age, sex, name) {
       //借用构造函数
-      Animal.call(this,age,sex);
-      this.name=name;
+      Animal.call(this, age, sex);
+      this.name = name;
     }
     //改变原型指向,为了继承方法的
-    Dog.prototype=new Animal();
+    Dog.prototype = new Animal();
 
-    var dog=new Dog(10,"女","小苏");
+    var dog = new Dog(10, "女", "小苏");
     console.log(dog.name);
     console.log(dog.age);
     console.log(dog.sex);
@@ -175,8 +177,10 @@
 
   </script>
 </head>
+
 <body>
 
 
 </body>
+
 </html>
