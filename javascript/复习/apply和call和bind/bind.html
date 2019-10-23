@@ -11,7 +11,7 @@
 <body>
     <script>
         function f1(x, y) {
-            console.log((x + y) + ":===>" + this);
+            console.log((x + y) + ":===>" + this.age);
         }
 
         f1.bind();// 是把f1这个函数复制了一份，把参数传入到f1函数中
@@ -22,6 +22,21 @@
 
         var fff = f1.bind(null);
         fff(1, 1);// 复制之后调用的时候传递参数
+
+
+        /**
+        apply和call是在调用的时候改变了this的指向，而bind是在复制一份的时候改变了this的指向
+        */
+        function Person(age) {
+            this.age = age;
+        }
+        Person.prototype.eat = function () {
+            console.log("我今年：" + this.age + "岁了");
+        }
+        var per = new Person(20);
+        per.eat();
+        var p = f1.bind(per, 10, 1);
+        p();
     </script>
 </body>
 
