@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        var arr = [1, 2, 3, 4];
+
+        // map通过遍历数组，对数组的每一个值进行操作
+        console.log(arr.map(function (current) {
+            return current + 2;
+        }));
+
+        var a = [1, 2, 3, 4];
+
+        // splice()方法参数的个数不同所做出的操作也是不同的
+        var a1 = a.splice(2, 0, 9);// 此时表示添加到原数组中数据
+        console.log(a);
+
+
+
+    </script>
+</body>
+
+</html>
