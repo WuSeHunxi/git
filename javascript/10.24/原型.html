@@ -23,6 +23,22 @@
 
         var per = new Person("papa", 2);
         console.log(per.sex);
+
+
+
+        //原型对象
+        /**
+        构造函数的.prototype--->原型对象
+        实例对象的.__proto__--->原型对象
+        */
+
+        console.log(per.__proto__);//得到的是一个对象，该对象包含的是在原型上添加的属性和方法还有指向构造函数的构造器constructor
+        console.log(Person.prototype);//和上面的是一样的
+
+        //因此
+        console.log(per.__proto__ === Person.prototype);//true
+
+
     </script>
 </body>
 
