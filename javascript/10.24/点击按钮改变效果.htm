@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            background-color: yellow;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <input id="btn" type="button" value="点击改变效果">
+    <div id="box"></div>
+    <script>
+        //利用对象的编程思想实现该效果
+        function ChangeStyle(btn, box, color) {
+            this.btnObj = document.getElementById(btn);
+            this.boxObj = document.getElementById(box);
+            this.color = color;
+        }
+        ChangeStyle.prototype.init = function () {
+            var that = this;
+            this.btnObj.onclick = function () {
+                that.boxObj.style.width = "300px";
+                that.boxObj.style.backgroundColor = that.color;
+            }
+        }
+        var change = new ChangeStyle("btn", "box", "blue");
+        change.init();
+    </script>
+</body>
+
+</html>
