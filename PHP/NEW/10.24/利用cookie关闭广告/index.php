@@ -27,9 +27,11 @@
 </head>
 
 <body>
+    <?php if(empty($_COOKIE['hide_ad'])||$_COOKIE['hide_ad']==='1'){ ?>
     <div class="box">
-        <a href="">不再显示广告</a>
+        <a href="close.php">不再显示广告</a>
     </div>
+    <?php } ?>
 </body>
 
 </html>
