@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 创建对象的时候如果每一个对象的属性和方法都要开辟空间的话，会浪费资源，为了节省资源，达到数据共享的目的，出现了原型这个概念
+
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        Person.prototype.eat = function () {
+            console.log("eat");
+        }
+        Person.prototype.sex = "男";
+
+        var per = new Person("papa", 2);
+        console.log(per.sex);
+    </script>
+</body>
+
+</html>
