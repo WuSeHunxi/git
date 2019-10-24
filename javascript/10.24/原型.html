@@ -36,7 +36,22 @@
         console.log(Person.prototype);//和上面的是一样的
 
         //因此
-        console.log(per.__proto__ === Person.prototype);//true
+        console.log(per.__proto__ === Person.prototype);//trues
+
+        /**
+        改变原型的指向--> 构造函数.prototype
+        */
+
+        function Student(study) {
+            this.study = study;
+        }
+        var obj = Student.prototype;
+        console.log(Student.prototype);
+        Student.prototype = {
+
+        };
+        console.log(obj === Student.prototype);//false，此时上面的操作改变了原型对象指向
+
 
 
     </script>
