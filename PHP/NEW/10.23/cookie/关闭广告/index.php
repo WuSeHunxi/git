@@ -1,9 +1,12 @@
 <?php
 
+// 先执行php在执行html ，就是从头开始执行
+
+// 即便是再次刷新也没有广告了
 if (isset($_GET['action']) && $_GET['action'] === 'close-ad') {
   // 不想看到广告
   setcookie('hide_ad', '1');
-  $_COOKIE['hide_ad'] === '1';
+  $_COOKIE['hide_ad'] ='1';
 }
 
 ?>
