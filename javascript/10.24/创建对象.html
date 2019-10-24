@@ -37,6 +37,13 @@
         }
         var c = new createObj("lal", 12);
         console.log(c.name);
+
+
+        // 对象的循环使用的是for-in
+
+        for (key in obj) {
+            console.log(obj[key]);
+        }
     </script>
 </body>
 
