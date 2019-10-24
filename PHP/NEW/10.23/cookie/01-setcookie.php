@@ -22,6 +22,6 @@ setcookie('key1', 'value1');
 // 不传递就是 会话级别的 Cookie （关闭浏览器就自动删除）
 setcookie('key2', 'value2', time() + 1 * 24 * 60 * 60);
 
-setcookie('key3', 'value3', time() + 1 * 24 * 60 * 60, '/NEW/10.23/cookie/users');
+setcookie('key3', 'value3', time() + 1 * 24 * 60 * 60, '/Git/My-first/PHP/NEW/10.23/cookie/users');
 
-setcookie('key4', 'value4', time() + 1 * 24 * 60 * 60, '', '', true, true);
+setcookie('key4', 'value4', time() + 1 * 24 * 60 * 60, '', '', false, true);
