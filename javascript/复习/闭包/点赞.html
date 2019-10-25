@@ -39,10 +39,15 @@
         function change() {
             var value = 1;
             return function () {
+                // 同一个按钮会接着递增
                 this.value = "赞(" + (value++) + ")";
             };
         }
-
+        for (var i = 0; i < btn.length; i++) {
+            // 每次点击不同的按钮时就会调用change这个函数，value也会重新声明
+            btn[i].onclick = change();
+            // btn[i].onclick();
+        }
     </script>
 </body>
 
