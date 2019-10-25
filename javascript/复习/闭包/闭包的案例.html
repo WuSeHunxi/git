@@ -22,7 +22,7 @@
         f1();//11
 
 
-        //
+        //缓存数据
         function ff() {
             var num = 10;
             return function () {
@@ -30,11 +30,12 @@
                 return num;
             }
         }
-        // 这里的ff调用了一次，因此只声明了一次变量
+        // 这里的ff调用了一次，因此num只声明了一次变量
         var fff = ff();
+        // 缓存了数据
         console.log(fff());//11
-        console.log(fff());//12
-        console.log(fff());//13
+        console.log(fff());//12=11++
+        console.log(fff());//13=12++
     </script>
 </body>
 
