@@ -1,6 +1,29 @@
 <?php
 
-
+if(empty($_COOKIE['num'])||empty($_GET['num'])){
+    $num=rand(0,100);
+    setcookie('num',$num);
+}else{
+    $count=empty($_COOKIE['count']?):(int)$_COOKIE['count'];
+    if($count<10){
+        $result=(int)$_GET['num']-(int)$_COOKIE['num'];
+        if($result==0){
+            $message="猜对了";
+            setcookie("num");
+            setcookie("count");
+        }else if($result>0){
+            $message='太大了';
+        }else{
+            $message="太小了";
+        }
+        setcookie('count',$count+1);
+    }else{
+        //游戏次数超过10次，游戏失败
+        $message="菜鸡";
+        setcookie('num');
+        setcookie('count');
+    }
+}
 
 
 
