@@ -1,9 +1,7 @@
 <?php
 
 
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,25 +11,30 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-    a {
-        float: right;
-        cursor: pointer;
+    .close {
+        width: 100%;
+        height: 200px;
+        background: yellow;
     }
 
-    .box {
-        background: yellow;
-        height: 300px;
-        width: 100%;
+    a {
+        float: right;
     }
     </style>
 </head>
 
 <body>
-    <?php if(empty($_COOKIE['hide_ad'])||$_COOKIE['hide_ad']==='1'){ ?>
-    <div class="box">
-        <a href="close.php">不再显示广告</a>
-    </div>
+    <?php
+        
+    if(empty($_COOKIE['hide_advice'])||$_COOKIE['hide_advice']!="1"){?>
+    <a href="close.php">不再显示</a>
+    <div class="close"></div>
+
+
     <?php } ?>
+    <script>
+    </script>
+
 </body>
 
 </html>
