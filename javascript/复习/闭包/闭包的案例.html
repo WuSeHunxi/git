@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function f1() {
+            var num = 10;
+            num++;
+            console.log(num);
+        }
+        f1();//11-->每次调用的时候都重新声明了num
+        f1();//11
+        f1();//11
+
+
+        //
+        function ff() {
+            var num = 10;
+            return function () {
+                num++;
+                return num;
+            }
+        }
+        var fff = ff();
+        console.log(fff());//11
+        console.log(fff());//12
+        console.log(fff());//13
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 函数闭包
+        function f1() {
+            var num = 10;
+            function f2() {
+                console.log(num);
+            }
+            f2();
+        }
+        f1();
+
+        // 函数闭包缓存数据
+        function ff() {
+            var num = 10;
+            return function () {
+                console.log(num);
+            }
+        }
+        var fff = ff();
+        fff();
+
+        // 属性闭包
+        function f3() {
+            var num = 10;
+            var obj = {
+                age: num
+            };
+            console.log(obj.age);
+        }
+        f3();
+
+        // 属性闭包缓存数据
+        function a() {
+            var num = 111;
+            // 返回对象
+            return obj = {
+                age: num
+            };
+        }
+        var oo = a();
+        console.log(oo.age);
+
+    </script>
+</body>
+
+</html>
