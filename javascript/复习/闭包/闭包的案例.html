@@ -16,6 +16,7 @@
             num++;
             console.log(num);
         }
+        // 这里的f1调用了三次
         f1();//11-->每次调用的时候都重新声明了num
         f1();//11
         f1();//11
@@ -29,6 +30,7 @@
                 return num;
             }
         }
+        // 这里的ff调用了一次，因此只声明了一次变量
         var fff = ff();
         console.log(fff());//11
         console.log(fff());//12
