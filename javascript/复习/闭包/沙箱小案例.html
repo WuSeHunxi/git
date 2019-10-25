@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 将代码都放在沙箱里面，这样可以防止变量名的冲突
+        var str = "ooo";
+        console.log(str);
+        (function () {
+            var str = "ppqp";
+            console.log(str);
+        })();
+    </script>
+</body>
+
+</html>
