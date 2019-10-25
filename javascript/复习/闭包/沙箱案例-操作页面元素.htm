@@ -17,8 +17,20 @@
     <p>PPSJS</p>
     <p>PPSJS</p>
     <script>
+        var dvObj = 20;
+        var pObj = 10;
         (function () {
-
+            function getTag(tag) {
+                return document.getElementsByTagName(tag);
+            }
+            var dvObj = getTag("div");
+            var pObj = getTag("p");
+            for (var i = 0; i < dvObj.length; i++) {
+                dvObj[i].style.backgroundColor = "yellow";
+            }
+            for (var i = 0; i < pObj.length; i++) {
+                pObj[i].style.backgroundColor = "blue";
+            }
         })();
 
     </script>
