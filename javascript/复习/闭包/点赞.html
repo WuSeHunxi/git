@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        li {
+            list-style: none;
+            float: left;
+            margin-right: 30px;
+        }
+
+        input {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <li><input type="button" value="赞(0)"></li>
+    <li><input type="button" value="赞(0)"></li>
+    <li><input type="button" value="赞(0)"></li>
+    <li><input type="button" value="赞(0)"></li>
+    <script>
+        var btn = document.getElementsByTagName("input");
+        var value = 1;
+        for (var i = 0; i < btn.length; i++) {
+            btn[i].onclick = function () {
+                this.value = value++;
+            }
+        }
+    </script>
+</body>
+
+</html>
