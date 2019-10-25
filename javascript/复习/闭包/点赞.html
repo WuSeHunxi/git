@@ -27,11 +27,22 @@
     <script>
         var btn = document.getElementsByTagName("input");
         var value = 1;
-        for (var i = 0; i < btn.length; i++) {
-            btn[i].onclick = function () {
-                this.value = value++;
-            }
+        // for (var i = 0; i < btn.length; i++) {
+        //     btn[i].onclick = function () {
+        //         // 这直接导致value在别人的基础上修改，这是错误的，为了互不影响要使用闭包（记录自己的数据，和别人互不干涉）
+        //         this.value = "赞(" + (value++) + ")";
+        //     }
+        // }
+
+
+        // 定义一个函数，实现闭包，解决上述问题
+        function change() {
+            var value = 1;
+            return function () {
+                this.value = "赞(" + (value++) + ")";
+            };
         }
+
     </script>
 </body>
 
