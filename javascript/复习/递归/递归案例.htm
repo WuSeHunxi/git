@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 求一个数字各个位数上数字的和
+        function getSum(x) {
+            if (x < 10) {
+                return x;
+            }
+            return x % 10 + getSum(parseInt(x / 10));
+        }
+        console.log(getSum(123));
+    </script>
+</body>
+
+</html>
