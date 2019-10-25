@@ -13,12 +13,24 @@
 
         // 求一个数字各个位数上数字的和
         function getSum(x) {
+            // 数字<10是条件
             if (x < 10) {
                 return x;
             }
+            // 每次拿出的都是各位上的数字
             return x % 10 + getSum(parseInt(x / 10));
         }
-        console.log(getSum(123));
+        console.log(getSum(123));//-->3+2+1
+
+
+        // 斐波那契数列
+        function getFeibo(n) {
+            if (n == 1 || n == 2) {
+                return 1;
+            }
+            return getFeibo(n - 1) + getFeibo(n - 2);
+        }
+        getFeibo(3);
     </script>
 </body>
 
