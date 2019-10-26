@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //深拷贝：如果要拷贝的变量是对象中的某一个属性（该属性不是对象），就将该值放到新对象中
+
+        function extend(a, b) {
+            for (var key in a) {
+                var item = a[key];
+                if (item instanceof Array) {
+                    b[key] = [];
+                    extend(item, b[key]);
+                } else if (item instanceof Object) {
+                    b[key] = {};
+                    extend(item, b[key]);
+                } else if () {
+
+                } else {
+
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
