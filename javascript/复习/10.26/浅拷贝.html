@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 写一个函数，把一个对象的属性复制到另一个对象中-->浅拷贝
+        function extend(a, b) {
+            for (var key in b) {
+                a[key] = b[key];
+            }
+            console.dir(a);
+        }
+        var a = {};
+        var b = {
+            name: "aak"
+        };
+        extend(a, b);
+    </script>
+</body>
+
+</html>
