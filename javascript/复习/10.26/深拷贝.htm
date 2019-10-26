@@ -12,22 +12,32 @@
     <script>
         //深拷贝：如果要拷贝的变量是对象中的某一个属性（该属性不是对象），就将该值放到新对象中
 
+        var a = {
+            name: "kka",
+            child: {
+                name: "papp"
+            }
+        };
+        var b = {};
         function extend(a, b) {
             for (var key in a) {
+                // 先获取a中每个属性的值
                 var item = a[key];
                 if (item instanceof Array) {
+                    // 如果该属性是数组，那么就递归
                     b[key] = [];
                     extend(item, b[key]);
                 } else if (item instanceof Object) {
                     b[key] = {};
                     extend(item, b[key]);
-                } else if () {
-
                 } else {
-
+                    b[key] = item;
                 }
             }
         }
+        extend(a, b);
+        console.dir(a);
+        console.dir(b);
     </script>
 </body>
 
