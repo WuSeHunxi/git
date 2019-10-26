@@ -17,7 +17,8 @@
                     document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
                 }
             }
-            xmlhttp.open("POST", "/try/ajax/demo_post2.php", true);
+            // 服务器端的地址
+            xmlhttp.open("POST", "test.php", true);
             xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xmlhttp.send("fname=Henry&lname=Ford");
         }
