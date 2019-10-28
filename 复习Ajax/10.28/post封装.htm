@@ -24,8 +24,9 @@
             // 
 
         }
-        function ajax(url, obj, timeout, success, error) {
+        function ajax(type, url, obj, timeout, success, error) {
             var xmlhttp;
+            var timer;
             var str = objTostr(obj);
             if (window.XMLHttpRequest) {
                 xmlhttp = new XMLHttpRequest();
@@ -33,17 +34,28 @@
                 xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
             }
             if (type === "GET") {
-                xmlhttp.http('GET', url + "?=" + str, true);
+                xmlhttp.http(type, url + "?=" + str, true);
                 xmlhttp.send();
             } else {
-                xmlhttp.open('POST', 'test.php', true);
+                xmlhttp.open(type, 'test.php', true);
                 xmlhttp.setRequestHeader('Content-type', 'application/x-www.form-urlencode');
-                xmlhttp.send('userName=sjsj&pwd=112');
+                xmlhttp.send(str);
+            }
+            xmlhttp.onreadystatechange = function (ev) {
+                if (xmlhttp.readyState == 4) {
+                    //请求完成之后要清除定时器
+                    clearInterval(timer);
+                    if (xmlhttp.status >= 200 && xmlhttp.status < 300 || xmlhttp.status == 304) {
+                        success(xmlhttp);
+                    } else {
+                        error(xmlhttp);
+                    }
+                }
             }
         }
 
         oBtn.onclick = function (ev) {
-            ajax("users.txt", {
+            ajax('POST', "test.php", {
                 "name": "pppa",
                 "password": "112"
             }, 3000, function (xmlhttp) {

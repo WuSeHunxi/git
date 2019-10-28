@@ -1,4 +1,5 @@
 <?php
 echo "post ajax";
-echo $_POST['user'];
-echo $_POST['aa'];
+
+// echo $_POST['userName'];
+// echo $_POST['aa'];
