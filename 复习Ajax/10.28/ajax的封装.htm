@@ -9,22 +9,27 @@
 </head>
 
 <body>
+    <button>发送请求</button>
     <script>
 
         function objTostr(obj) {
             var res = [];
+            obj.t = new Date().getTime();
             for (var key in obj) {
                 res.push(key + "=" + obj[key]);
             }
             return res.join("&");
+            // 
+
         }
 
         // Ajax封装
-        function ajax(url, obj, success, error) {
+        function ajax(url, obj, timeout, success, error) {
             // 将对象转换成字符串
             var str = objTostr(obj);
             var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open('GET', url + "?t=" + (new Date().getTime()), true);
+            var timer;
+            xmlhttp.open('GET', url + "?" + str, true);
             xmlhttp.send();
             xmlhttp.onreadystatechange = function (ev) {
                 if (xmlhttp.readyState == 4) {
@@ -35,8 +40,26 @@
                     }
                 }
             }
+            //判断外界是否传入了超时时间
+            if (timeout) { //-->超时了就要停止请求（执行定时器发生的内容）
+                timer = setInterval(function () {
+                    xmlhttp.abort();
+                    clearInterval(timer);
+                }, timeout);
+            }
         }
 
+        var oBtn = document.getElementsByTagName("button")[0];
+        oBtn.onclick = function (ev) {
+            ajax("users.txt", {
+                "name": "pppa",
+                "password": "112"
+            }, function (xmlhttp) {
+                console.log(xmlhttp.responseText);
+            }, function (xmlhttp) {
+                console.log("请求失败");
+            });
+        }
     </script>
 </body>
 
