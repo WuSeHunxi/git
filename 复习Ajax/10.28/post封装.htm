@@ -33,7 +33,7 @@
             } else {
                 xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
             }
-            if (type === "GET") {
+            if (type.toLowerCase() === "GET") {
                 xmlhttp.http(type, url + "?=" + str, true);
                 xmlhttp.send();
             } else {
