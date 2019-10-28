@@ -22,10 +22,11 @@
             } else {
                 xhr = new ActiveXObject('Microsoft.XMLHTTP');
             }
+            // console.log(xhr);
             xhr.open('GET', 'users.txt?t=' + (new Date().getTime()), true);
             xhr.send();
             if (xhr.readyState == 4) {
-                if (xhr.status == 200) {
+                if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
                     xhr.onreadystatechange = function () {
                         console.log(xhr.responseText);
                     }
