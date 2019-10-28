@@ -15,11 +15,21 @@
         // 获取随机数--->拼接成参数
 
         oBtn.onclick = function () {
-            var xhr = null;
+            // console.log("pp");
+            var xhr;
             if (window.XMLHttpRequest) {
                 xhr = new XMLHttpRequest();
             } else {
                 xhr = new ActiveXObject('Microsoft.XMLHTTP');
+            }
+            xhr.open('GET', 'users.txt?t=' + (new Date().getTime()), true);
+            xhr.send();
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    xhr.onreadystatechange = function () {
+                        console.log(xhr.responseText);
+                    }
+                }
             }
         }
         /**
