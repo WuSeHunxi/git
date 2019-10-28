@@ -10,9 +10,21 @@
 
 <body>
     <script>
-        function ajax(url, success, error) {
+
+        function objTostr(obj) {
+            var res = [];
+            for (var key in obj) {
+                res.push(key + "=" + obj[key]);
+            }
+            return res.join("&");
+        }
+
+        // Ajax封装
+        function ajax(url, obj, success, error) {
+            // 将对象转换成字符串
+            var str = objTostr(obj);
             var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open('GET', url, true);
+            xmlhttp.open('GET', url + "?t=" + (new Date().getTime()), true);
             xmlhttp.send();
             xmlhttp.onreadystatechange = function (ev) {
                 if (xmlhttp.readyState == 4) {
@@ -24,6 +36,7 @@
                 }
             }
         }
+
     </script>
 </body>
 
