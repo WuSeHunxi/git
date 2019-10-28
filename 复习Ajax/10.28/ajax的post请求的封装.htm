@@ -11,17 +11,17 @@
 <body>
     <button>发送请求</button>
     <script>
-        var oBtn = document.getElementsByTagName("button")[0];
+
         // Ajax封装
-        function ajax(url, obj, timeout, success, error) {
+        function ajax(url, timeout, success, error) {
             // 将对象转换成字符串
-            var str = objTostr(obj);
+            // var str = objTostr(obj);
             var xmlhttp = new XMLHttpRequest();
             var timer;
             xmlhttp.open('POST', 'test.php', true);
             // 该行代码必须要在send和open之间
             xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            xmlhttp.send();
+            xmlhttp.send('userName=zhangsan&aa=pp');
             xmlhttp.onreadystatechange = function (ev) {
                 if (xmlhttp.readyState == 4) {
                     //请求完成之后要清除定时器
@@ -41,6 +41,14 @@
                     clearInterval(timer);
                 }, timeout);
             }
+        }
+        var oBtn = document.getElementsByTagName("button")[0];
+        oBtn.onclick = function (ev) {
+            ajax("test.php", 3000, function (xmlhttp) {
+                console.log(xmlhttp.responseText);
+            }, function (xmlhttp) {
+                console.log("请求失败");
+            });
         }
     </script>
 </body>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function objTostr(obj) {
+            var res = [];
+            obj.t = new Date().getTime();
+            for (var key in obj) {
+                // 在url中不可以出现中文，如果出现中文要如下操作（转码）
+                res.push(encodeURIComponent(key) + "=" + encodeURIComponent(obj[key]));
+            }
+            return res.join("&");
+            // 
+
+        }
+        function ajax(url, obj, timeout, success, error) {
+            var xmlhttp;
+            var str = objTostr(obj);
+            if (window.XMLHttpRequest) {
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
+            }
+            if (type === "GET") {
+                xmlhttp.http('GET', url + "?=" + str, true);
+                xmlhttp.send();
+            } else {
+                xmlhttp.open('POST', 'test.php', true);
+                xmlhttp.setRequestHeader('Content-type', 'application/x-www.form-urlencode');
+                xmlhttp.send('userName=sjsj&pwd=112');
+            }
+        }
+    </script>
+</body>
+
+</html>
