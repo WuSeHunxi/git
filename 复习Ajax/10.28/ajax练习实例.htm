@@ -55,6 +55,20 @@
         var oDes = document.querySelector("#des");
         var oImg = document.querySelector("shoes");
         var oBtn = document.querySelectorAll('button');
+        oBtn[0].onclick = function () {
+            ajax({
+                type: "get",
+                url: "test.php",
+                data: { "name": this.setAttribute("name") },
+                timeout: 3000,
+                success: function (xhr) {
+                    alert(xhr.responseText);
+                },
+                error: function (xhr) {
+                    alert(xhr.status);
+                }
+            })
+        }
     </script>
 </body>
 
