@@ -23,8 +23,9 @@
                 //     console.log("eee");
                 // }
 
-                // 判断是否请求成功
+                // 请求完成
                 if (xmlhttp.readyState === 4) {
+                    // 判断是否请求成功
                     if (xmlhttp.status >= 200 && xmlhttp.status < 300 || xmlhttp.stsatus === 304) {
                         console.log("接收到数据");
                     } else {

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>发送请求</button>
+    <script>
+        var oBtn = document.getElementsByTagName("button")[0];
+        // 获取随机数--->拼接成参数
+
+        oBtn.onclick = function () {
+            var xhr = null;
+            if (window.XMLHttpRequest) {
+                xhr = new XMLHttpRequest();
+            } else {
+                xhr = new ActiveXObject('Microsoft.XMLHTTP');
+            }
+        }
+        /**
+        GET方法中的url参数是为了获取同一个地址文件中的最新数据
+        */
+
+    </script>
+</body>
+
+</html>
