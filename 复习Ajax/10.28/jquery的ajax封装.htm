@@ -15,14 +15,14 @@
         var oBtn = document.querySelector("button");
         oBtn.onclick = function () {
             $.ajax({
-                type: "POST",
+                type: "GET",
                 url: "test.php",
                 data: "name=zhangsan&pwd=112",
-                sucess: function (msg) {
-                    console.log("msg");
+                success: function (msg) {
+                    alert(msg);
                 },
                 error: function () {
-                    console.log("请求失败");
+                    alert("znznn");
                 }
             })
         }
