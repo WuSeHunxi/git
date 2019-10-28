@@ -9,8 +9,10 @@
 </head>
 
 <body>
+    <button>发送请求</button>
     <script>
 
+        var oBtn = document.getElementsByTagName("button")[0];
         function objTostr(obj) {
             var res = [];
             obj.t = new Date().getTime();
@@ -38,6 +40,17 @@
                 xmlhttp.setRequestHeader('Content-type', 'application/x-www.form-urlencode');
                 xmlhttp.send('userName=sjsj&pwd=112');
             }
+        }
+
+        oBtn.onclick = function (ev) {
+            ajax("users.txt", {
+                "name": "pppa",
+                "password": "112"
+            }, 3000, function (xmlhttp) {
+                console.log(xmlhttp.responseText);
+            }, function (xmlhttp) {
+                console.log("请求失败");
+            });
         }
     </script>
 </body>
