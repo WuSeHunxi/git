@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>发送请求</button>
+    <script>
+        var oBtn = document.getElementsByTagName("button")[0];
+        // Ajax封装
+        function ajax(url, obj, timeout, success, error) {
+            // 将对象转换成字符串
+            var str = objTostr(obj);
+            var xmlhttp = new XMLHttpRequest();
+            var timer;
+            xmlhttp.open('POST', 'test.php', true);
+            // 该行代码必须要在send和open之间
+            xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xmlhttp.send();
+            xmlhttp.onreadystatechange = function (ev) {
+                if (xmlhttp.readyState == 4) {
+                    //请求完成之后要清除定时器
+                    clearInterval(timer);
+                    if (xmlhttp.status >= 200 && xmlhttp.status < 300 || xmlhttp.status == 304) {
+                        success(xmlhttp);
+                    } else {
+                        error(xmlhttp);
+                    }
+                }
+            }
+            //判断外界是否传入了超时时间
+            if (timeout) { //-->超时了就要停止请求（执行定时器发生的内容）
+                timer = setInterval(function () {
+
+                    xmlhttp.abort();
+                    clearInterval(timer);
+                }, timeout);
+            }
+        }
+    </script>
+</body>
+
+</html>

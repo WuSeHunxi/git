@@ -16,7 +16,8 @@
             var res = [];
             obj.t = new Date().getTime();
             for (var key in obj) {
-                res.push(encodeURIComponent(key) + "=" + encodeURIComponent(pbj[key]));
+                // 在url中不可以出现中文，如果出现中文要如下操作（转码）
+                res.push(encodeURIComponent(key) + "=" + encodeURIComponent(obj[key]));
             }
             return res.join("&");
             // 
