@@ -16,7 +16,7 @@
             var res = [];
             obj.t = new Date().getTime();
             for (var key in obj) {
-                res.push(key + "=" + obj[key]);
+                res.push(encodeURIComponent(key) + "=" + encodeURIComponent(pbj[key]));
             }
             return res.join("&");
             // 
@@ -33,6 +33,7 @@
             xmlhttp.send();
             xmlhttp.onreadystatechange = function (ev) {
                 if (xmlhttp.readyState == 4) {
+                    //请求完成之后要清除定时器
                     clearInterval(timer);
                     if (xmlhttp.status >= 200 && xmlhttp.status < 300 || xmlhttp.status == 304) {
                         success(xmlhttp);
