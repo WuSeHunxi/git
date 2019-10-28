@@ -33,6 +33,7 @@
             xmlhttp.send();
             xmlhttp.onreadystatechange = function (ev) {
                 if (xmlhttp.readyState == 4) {
+                    clearInterval(timer);
                     if (xmlhttp.status >= 200 && xmlhttp.status < 300 || xmlhttp.status == 304) {
                         success(xmlhttp);
                     } else {
@@ -43,6 +44,7 @@
             //判断外界是否传入了超时时间
             if (timeout) { //-->超时了就要停止请求（执行定时器发生的内容）
                 timer = setInterval(function () {
+
                     xmlhttp.abort();
                     clearInterval(timer);
                 }, timeout);
@@ -54,7 +56,7 @@
             ajax("users.txt", {
                 "name": "pppa",
                 "password": "112"
-            }, function (xmlhttp) {
+            }, 3000, function (xmlhttp) {
                 console.log(xmlhttp.responseText);
             }, function (xmlhttp) {
                 console.log("请求失败");
