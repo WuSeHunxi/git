@@ -56,13 +56,17 @@
         var oImg = document.querySelector("shoes");
         var oBtn = document.querySelectorAll('button');
         oBtn[0].onclick = function () {
-            ajax({
+            $.ajax({
                 type: "get",
                 url: "test.php",
                 data: { "name": this.setAttribute("name") },
                 timeout: 3000,
                 success: function (xhr) {
-                    alert(xhr.responseText);
+                    var res = xhr.responseText.split('|');
+                    oTitles.innerHTML = res[0];
+                    oDes.innerHTML = res[1];
+
+
                 },
                 error: function (xhr) {
                     alert(xhr.status);
