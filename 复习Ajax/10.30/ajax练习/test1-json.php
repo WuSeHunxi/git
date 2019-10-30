@@ -13,4 +13,4 @@
 
 
 // echo 10;
-echo file_get_contents("jjj.txt");
+echo file_get_contents(filename:"jjj.txt");

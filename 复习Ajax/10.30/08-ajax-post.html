@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>08-ajax-post</title>
     <script src="myAjax2.js"></script>
     <script>
         window.onload = function (ev) {
+
+            /**
+            如果发送的post请求不发数据的话，请求头不需要写
+            如果post请求中发送了数据就必须要有请求头
+            */
 
             var oBtn = document.querySelector("button");
             oBtn.onclick = function (ev1) {
@@ -37,9 +43,9 @@
                 }
                 */
 
-                ajax("POST", "08-ajax-post.php",{
-                    "userName":"lnj",
-                    "userPwd":"321"
+                ajax("POST", "08-ajax-post.php", {
+                    "userName": "lnj",
+                    "userPwd": "321"
                 }, 3000, function (xhr) {
                     alert(xhr.responseText);
                 }, function (xhr) {
@@ -49,7 +55,9 @@
         }
     </script>
 </head>
+
 <body>
-<button>发送请求</button>
+    <button>发送请求</button>
 </body>
+
 </html>

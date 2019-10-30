@@ -12,21 +12,35 @@
 
     <!-- 失去焦点的时候发送请求 -->
     <h2>用户注册</h2>
+    <h3>状态</h3>
     <!-- 这里的name属性不是必须的，只有表单的name属性才是必须的 -->
     <input type="text" name="" id="" placeholder="请输入用户名">
 
 
-    <script>
-        document.querySelector('input').onblur = function () {
-            var xhr = new XMLHttpRequest();
-            xhr.open('get', 'index.php?name=' + this.value);
-            xhr.onload = function () {
-                console.log(xhr.responseText);
-            }
-            xhr.send();
-        }
 
-    </script>
 </body>
 
 </html>
+<script>
+    document.querySelector('input').onblur = function () {
+        document.querySelector('h3').innerHTML = "验证中";
+        var xhr = new XMLHttpRequest();
+        xhr.open('get', 'index.php?name=' + this.value);
+        xhr.onload = function () {
+            document.querySelector("h2").innerHTML = xhr.responseText;
+            document.querySelector("h3").innerHTML = "验证完毕";
+
+        }
+        xhr.send(null);
+        // if (xhr.readyState == 4) {
+        //     if (xhr.status == 200) {
+        //         xhr.onreadystatechange = function () {
+        //             alert(xhr.responseText);
+        //         }
+        //     }
+        // }
+
+
+    }
+
+</script>

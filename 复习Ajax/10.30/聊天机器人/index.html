@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: yellowgreen;
+        }
+
+        ul {
+            width: 400px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>聊天机器人</h2>
+    <input type="text" name="" id="">
+    <input type="button" value="发送">
+    <h3>聊天框</h3>
+    <ul></ul>
+    <script>
+        // 点击的时候发送请求
+        document.querySelector("input[type=button]").onclick = function () {
+            // 创建聊天框
+            // 请求之前
+            var myLi = document.createElement("li");
+            myLi.innerHTML = document.querySelector("input[type=text]").value;
+            myLi.style.backgroundColor = "hotpink";
+            document.querySelector("ul").appendChild(myLi);
+
+            // 发送请求
+            var xhr = new XMLHttpRequest();
+            // 不需要发送数据，因为不发送请求的话就能够获取到
+            xhr.open('get', 'index.php', true);
+            xhr.onload = function () {
+                console.log(xhr.responseText);
+
+                // 请求回来之后
+                var herLi = document.createElement("li");
+                herLi.innerHTML = xhr.responseText;
+                herLi.style.backgroundColor = 'skyblue';
+                document.querySelector('ul').appendChild(herLi);
+            }
+            xhr.send();
+        }
+    </script>
+</body>
+
+</html>
