@@ -52,10 +52,12 @@
             var oDes = document.querySelector("#des");
             var oImg = document.querySelector("img");
             var oBtns = document.querySelectorAll("button");
+            // console.log(oBtns[0].getAttribute("name"));
             oBtns[0].onclick = function () {
                 ajax({
                     type: "get",
                     url: "text.php",
+                    //提交的数据
                     data: {
                         "name": this.getAttribute("name")
                     },
@@ -68,12 +70,53 @@
                         oTitle.innerHTML = data[0];
                         oDes.innerHTML = data[1];
                         //src是一个属性，在设置的时候利用setAttribute()
-                        oImg.setAttribute("src", res[2]);
+                        oImg.setAttribute("src", data[2]);
                     },
                     error: function () {
                         alert("请求失败");
                     }
+                });
+            }
+            oBtns[1].onclick = function () {
+                ajax({
+                    type: "get",
+                    url: 'text.php',
+                    data: {
+                        "name": this.getAttribute("name")
+                    },
+                    timeout: 3000,
+                    success: function (xhr) {
+                        var res = xhr.responseText;
+                        var data = res.split('|');
+                        oTitle.innerHTML = data[0];
+                        oDes.innerHTML = data[1];
+                        oImg.setAttribute('src', data[2]);
+                    },
+                    error: function (xhr) {
+                        alert(xhr.status + "请求失败");
+                    }
                 })
+            }
+            oBtns[2].onclick = function () {
+                ajax({
+                    type: "get",
+                    url: "text.php",
+                    data: {
+                        "name": this.getAttribute("name")
+                    },
+                    timeout: 3000,
+                    success: function (xhr) {
+                        var res = xhr.responseText;
+                        var data = res.split('|');
+                        //开始设置
+                        oTitle.innerHTML = data[0];
+                        oDes.innerHTML = data[1];
+                        oImg.setAttribute('src', data[2]);
+                    },
+                    error: function (xhr) {
+                        alert(xhr.status + "请求失败");
+                    }
+                });
             }
         }
     </script>
