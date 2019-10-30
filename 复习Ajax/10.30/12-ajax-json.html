@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>12-ajax-json</title>
@@ -10,8 +11,8 @@
             var oBtn = document.querySelector("button");
             oBtn.onclick = function (ev1) {
                 ajax({
-                    type:"get",
-                    url:"12-ajax-json.php",
+                    type: "get",
+                    url: "12-ajax-json.php",
                     success: function (xhr) {
                         // console.log(xhr.responseText);
                         var str = xhr.responseText;
@@ -31,7 +32,9 @@
         }
     </script>
 </head>
+
 <body>
-<button>发送请求</button>
+    <button>发送请求</button>
 </body>
+
 </html>

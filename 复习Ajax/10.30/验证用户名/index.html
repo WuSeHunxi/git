@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 失去焦点的时候发送请求 -->
+    <h2>用户注册</h2>
+    <!-- 这里的name属性不是必须的，只有表单的name属性才是必须的 -->
+    <input type="text" name="" id="" placeholder="请输入用户名">
+
+
+    <script>
+        document.querySelector('input').onblur = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('get', 'index.php?name=' + this.value);
+            xhr.onload = function () {
+                console.log(xhr.responseText);
+            }
+            xhr.send();
+        }
+
+    </script>
+</body>
+
+</html>

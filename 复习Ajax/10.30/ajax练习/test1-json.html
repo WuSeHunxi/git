@@ -53,18 +53,30 @@
         var oImg = document.querySelector("img");
         var oBtns = document.querySelectorAll("button");
         oBtns[0].onclick = function (e) {
+            var self = this;
             ajax({
                 type: 'get',
-                url: 'text-json.php',
+                url: 'test1-json.php',
                 data: {
-
+                    "name": this.getAttribute("name")
                 },
-                timeout: 2000,
+                timeout: 3000,
                 success: function (xhr) {
-
+                    // var res = xhr.responseText;
+                    // console.log(res);
+                    var name = self.getAttribute("name");
+                    var str = xhr.responseText;
+                    // 将数据解码转化成javascript对象
+                    var obj = JSON.parse(str);
+                    // console.log(obj);
+                    var subObj = obj[name];//得到每一条
+                    // console.log(subObj);
+                    oTitle.innerHTML = subObj.title;
+                    oDes.innerHTML = subObj.des;
+                    oImg.setAttribute("src", subObj.image);
                 },
                 error: function (xhr) {
-
+                    alert(xhr.status + "请求失败");
                 }
             });
         }
