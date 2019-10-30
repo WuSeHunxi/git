@@ -14,20 +14,29 @@
         <div class="message">
             <div class="robot clearfix">
                 <a href="#" class="f_l">机</a>
-                <p class="f_l"></p>
+                <p class="f_l">我要吃西兰花</p>
             </div>
         </div>
-        <div class="control"></div>
+        <!-- <div id="hidden_self" class="self clearfix" style="display: none;">
+            <div class="robot clearfix">
+
+            </div>
+        </div> -->
+        <div class="control">
+            <input type="text" class="inputBox f_l">
+            <input type="button" value="发送" class="sendButton f_r">
+        </div>
+        <!-- <div id="hidden_self" class="self clearfix" style="display:none">
+            <a href="#" class="f_r">人</a>
+            <p class="f_r">5678986</p>
+        </div> -->
     </div>
-    <div id="hidden_self" class="self clearfix" style="display:none">
-        <a href="#" class="f_r">人</a>
-        <p class="f_r">5678986</p>
-    </div>
+
 
     <script src="jquery-1.12.4.js"></script>
     <script>
         $(function () {
-            4(".sendButton").click(function () {
+            $(".sendButton").click(function () {
                 var $cloneSelf = $(".self").first().clone();
                 $('.message').append($cloneSelf);
                 $cloneSelf.show();
@@ -38,6 +47,15 @@
                 var xhr = new XMLHttpRequest();
                 // 不需要接受数据，请求过来就会随即返回一条数据，因此不需要加请求头
                 xhr.open('post', 'chat.php');
+                xhr.onload = function () {
+                    console.log(xhr.responseText);
+
+                    //机器人 --->克隆机器人的聊天框
+                    var $cloneRobot = $('.robot').first().clone();
+                    $('.robot').first().clone().appendTo('.message');
+                    $cloneRobot.find('p').html(xhr.responseText);
+                }
+                xhr.send(null);
 
             })
         });
