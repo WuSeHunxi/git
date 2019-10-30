@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        div {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+            margin: 50px auto;
+            text-align: center;
+            background: #ccc;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+            display: block;
+            margin: 10px auto 10px;
+            border: 1px solid #000;
+        }
+
+        p {
+            text-align: center;
+            background: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p id="title">商品标题的名称</p>
+        <img src="" alt="">
+        <p id="des">商品描述信息</p>
+        <button name="nz">女装</button>
+        <button name="bb">包包</button>
+        <button name="tx">品牌鞋</button>
+    </div>
+    <script src="myAjax2.js"></script>
+    <script>
+        window.onload = function (ev) {
+            var oTitle = document.querySelector("#title");
+            var oDes = document.querySelector("#des");
+            var oImg = document.querySelector("img");
+            var oBtns = document.querySelectorAll("button");
+            oBtns[0].onclick = function () {
+                ajax({
+                    type: "get",
+                    url: "text.php",
+                    data: {
+                        "name": this.getAttribute("name")
+                    },
+                    timeout: 3000,
+                    success: function (xhr) {
+                        var res = xhr.responseText;
+                        // console.log(res);
+                        var data = res.split('|');
+                        // console.log(data);
+                        oTitle.innerHTML = data[0];
+                        oDes.innerHTML = data[1];
+                        //src是一个属性，在设置的时候利用setAttribute()
+                        oImg.setAttribute("src", res[2]);
+                    },
+                    error: function () {
+                        alert("请求失败");
+                    }
+                })
+            }
+        }
+    </script>
+</body>
+
+</html>
