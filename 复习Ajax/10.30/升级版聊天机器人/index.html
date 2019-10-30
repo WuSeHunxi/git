@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>在线机器人</h1>
+    <div class="container">
+        <div class="message">
+            <div class="robot clearfix">
+                <a href="#" class="f_l">机</a>
+                <p class="f_l"></p>
+            </div>
+        </div>
+        <div class="control"></div>
+    </div>
+    <div id="hidden_self" class="self clearfix" style="display:none">
+        <a href="#" class="f_r">人</a>
+        <p class="f_r">5678986</p>
+    </div>
+
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            4(".sendButton").click(function () {
+                var $cloneSelf = $(".self").first().clone();
+                $('.message').append($cloneSelf);
+                $cloneSelf.show();
+                $cloneSelf.find('p').html($('.inputBox').val());
+
+
+                //ajax请求
+                var xhr = new XMLHttpRequest();
+                // 不需要接受数据，请求过来就会随即返回一条数据，因此不需要加请求头
+                xhr.open('post', 'chat.php');
+
+            })
+        });
+    </script>
+</body>
+
+</html>
