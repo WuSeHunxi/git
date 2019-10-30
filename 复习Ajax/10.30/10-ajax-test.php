@@ -15,7 +15,7 @@ echo $product["title"];
 echo "|";
 echo $product["des"];
 echo "|";
-echo $product["image"];
+echo $product["image"];// 将这些数据用'|'连接起来
 */
 
 /*
@@ -25,4 +25,3 @@ echo file_get_contents("10-ajax-test.xml");
 */
 
 echo file_get_contents("10-ajax-test.txt");
-

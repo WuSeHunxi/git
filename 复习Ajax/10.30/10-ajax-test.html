@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>10-ajax-test</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
         }
-        div{
+
+        div {
             width: 300px;
             height: 300px;
             border: 1px solid #000;
@@ -16,14 +18,16 @@
             text-align: center;
             background: #ccc;
         }
-        img{
+
+        img {
             width: 200px;
             height: 200px;
             display: block;
             margin: 10px auto 10px;
             border: 1px solid #000;
         }
-        p{
+
+        p {
             text-align: center;
             background: pink;
         }
@@ -42,9 +46,9 @@
                 var self = this;
                 // 4.发送Aajx请求到服务器
                 ajax({
-                    type:"get",
-                    url:"10-ajax-test.php",
-                    data:{"name":this.getAttribute("name")},
+                    type: "get",
+                    url: "10-ajax-test.php",
+                    data: { "name": this.getAttribute("name") },
                     timeout: 3000,
                     success: function (xhr) {
                         /*
@@ -68,9 +72,10 @@
                         */
                         var name = self.getAttribute("name");
                         var str = xhr.responseText;
+                        // 将数据解码转化成javascript对象
                         var obj = JSON.parse(str);
                         // console.log(obj);
-                        var subObj = obj[name];
+                        var subObj = obj[name];//得到每一条
                         // console.log(subObj);
                         oTitle.innerHTML = subObj.title;
                         oDes.innerHTML = subObj.des;
@@ -90,14 +95,16 @@
         }
     </script>
 </head>
+
 <body>
-<div>
-    <p id="title">商品标题名称</p>
-    <img src="" alt="">
-    <p id="des">商品描述信息</p>
-    <button name="nz">女装</button>
-    <button name="bb">包包</button>
-    <button name="tx">拖鞋</button>
-</div>
+    <div>
+        <p id="title">商品标题名称</p>
+        <img src="" alt="">
+        <p id="des">商品描述信息</p>
+        <button name="nz">女装</button>
+        <button name="bb">包包</button>
+        <button name="tx">拖鞋</button>
+    </div>
 </body>
+
 </html>
