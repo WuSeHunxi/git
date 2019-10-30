@@ -59,7 +59,7 @@
             $.ajax({
                 type: "get",
                 url: "test.php",
-                data: { "name": this.setAttribute("name") },
+                data: { "name": $(this).setAttribute("name") },
                 timeout: 3000,
                 success: function (xhr) {
                     var res = xhr.responseText.split('|');
