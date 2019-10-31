@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <style>
+    body {
+      background-color: #C91623;
+    }
+    .show-box{
+      width: 666px;
+      margin: 20px auto;
+      /* height: 666px; */
+      min-height: 66px;
+      border-radius: 20px;
+      border: 1px solid #000;
+      box-shadow: 0 0 30px skyblue;
+    }
+    td{
+      border: 1px solid #000;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>lol数据解析</h2>
+  <input type="button" value='获取LOL JSON数据'>
+
+  <!--  展示数据的容器  -->
+  <div class="show-box"></div>
+</body>
+
+</html>
+<script>
+  /*
+      易错点
+        1.onreadystatechange 多次 添加判断
+        2.拼接字符串时 使用=号
+        3. innerHTML(html) js jQ弄混了
+  */
+  // 注册事件
+  document.querySelector('input').onclick = function () {
+    //1.创建异步对象
+    var xhr = new XMLHttpRequest();
+    //2.设置请求行
+    xhr.open('get', 'backHero.php');
+    //3.设置请求头(get请求可以省略)
+
+    //4.注册状态改变事件
+    xhr.onreadystatechange = function () {
+      if(xhr.readyState==4&&xhr.status==200){
+        // 转化为对应的 js对象
+        var result = JSON.parse(xhr.responseText);
+        // 字符串拼接
+        var html = '<table>';
+
+        // 循环 tr td
+        for(var i =0;i<result.length;i++){
+          var currentObj = result[i];
+          html+='<tr>';
+          html+='<td>'+currentObj.shop_name+'</td>';
+          html+='<td><img src="'+currentObj.shop_logo+'"></td>';
+          html+='<td><img src="'+currentObj.pic_url+'"></td>';
+
+          html+='</tr>';
+        }
+        // table
+        html+='</table>';
+        // 设置到页面上
+        document.querySelector('.show-box').innerHTML = html;
+      }
+    }
+    //5.发送请求
+    xhr.send(null);
+  }
+</script>
+  <!-- // 注册点击事件
+    //1.创建异步对象
+    //2.设置请求行
+    //3.设置请求头(get请求可以省略)
+    //4.注册状态改变事件
+      //4.1判断状态&请求是否成功并使用数据
+        // 解析JSON数据
+        // 准备拼接字符串
+        // table - 开头
+        // 循环生成tr
+          // 获取当前循环的对象
+          // tr -开头
+          // td -开头跟结尾
+          // tr -结尾
+        // table - 结尾
+        // 设置到页面上
+    //5.发送请求 -->
