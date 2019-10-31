@@ -12,7 +12,7 @@
     <button>发送请求</button>
     <script>
         window.onload = function () {
-            var Botn = document.querySelector("button");
+            var oBtn = document.querySelector("button");
             oBtn.onclick = function () {
                 var xhr;
                 if (window.XMLHttpRequest) {
@@ -21,10 +21,13 @@
                     xhr = new ActiveXObject("Microsoft.XMLHTTP");
                 }
                 xhr.open('get', 'ajax-get.php', true);
-                xhr.send(null);
+                xhr.send();
                 if (xhr.readyStatus == 4) {
                     if (xhr.status == 200) {
-                        console.log(xhr.responseText);
+                        // console.log(xhr.responseText);
+                        xhr.onreadystatechange = function () {
+                            console.log(xhr.responseText);
+                        }
                     }
                 }
             }
