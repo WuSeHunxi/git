@@ -1,5 +1,5 @@
 <?php
-echo "post ajax";
+$products=array('nz'=>array('title':'甜美装','des'=>'美少女战士')
+          array('title')
 
-echo $_GET['name'];
-// echo $_GET['pwd'];
+)
