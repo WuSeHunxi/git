@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 101 Template</title>
+
+  <!-- Bootstrap -->
+  <link href="lib/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+  <style>
+    .thumbnail {
+      width: auto;
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h2 class="">明星数据展示</h2>
+      </div>
+      <div class="panel-body">
+        <div class="jumbotron">
+          <h1>宋慧乔</h1>
+
+          <a href="#" class="thumbnail">
+            <img src="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=2602109396,2877482886&fm=58" alt="...">
+          </a>
+          <p>美美哒美美哒美美哒美美哒美美哒美美哒美美哒美美哒美美哒美美哒美美哒美美哒美美哒美美哒美美哒</p>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <input class='btn btn-info btn-lg' type="button" value='周林林'>
+        <input class='btn btn-info btn-lg' type="button" value='彭林'>
+        <input class='btn btn-info btn-lg' type="button" value='林立群'>
+        <input class='btn btn-info btn-lg' type="button" value='西兰花'>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="lib/js/jquery-1.12.4.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="lib/js/bootstrap.min.js"></script>
+
+<!--  自己的js代码  -->
+<script>
+  $(function () {
+      // 绑定点击事件
+      $('input').click(function(){
+
+        // 更换 姓名
+        $('h1').html($(this).val());
+
+        //1.创建异步对象
+        var xhr = new XMLHttpRequest();
+        //2.设置请求行
+        xhr.open('get','getStar.php?name='+$(this).val());
+        //3.设置请求头(get请求可以省略)
+        //4.注册状态改变事件
+        xhr.onreadystatechange = function(){
+          //4.1判断状态&请求是否成功并使用数据
+          if(xhr.readyState==4&&xhr.status==200){
+            console.log(xhr.responseText);
+            // 修改对应的 dom元素的 内容
+            // $('img').attr('src',xhr.responseText);
+
+            // 切割数据
+            var result =  xhr.responseText.split('||||');
+            console.log(result); 
+            // 分别设置给 img  p
+            $('img').attr('src',result[0]);
+            $('p').html(result[1]);
+          }
+        }
+        //5.发送请求
+        xhr.send(null);
+      })
+  })
+</script>
