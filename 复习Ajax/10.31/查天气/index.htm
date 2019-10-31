@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>天气预报</h2>
+    <input type="text" class="inputWeacher" name="city" id="city" placeholder="查询的城市">
+    <input type="button" value="查询">
+    <script>
+        /**
+         * 点击按钮--点击事件
+         * 获取输入的城市--dom.value
+         * 查询天气预报--ajax 调用接口
+         * 数据回来之后--渲染到页面上（在回调函数中渲染）
+         *
+         *
+        */
+        // http://flash.weather.com.cn/wmaps/xml/china.xml
+        document.querySelector('input[type=button]').oncclick = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('get', 'http://wthrcdn.etouch.cn/WeatherApi?city=' + document.querySelector('.inputWeacher').value);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    console.log(xhr.responseXML);
+                }
+            }
+            xhr.send(null);
+        }
+    </script>
+</body>
+
+</html>

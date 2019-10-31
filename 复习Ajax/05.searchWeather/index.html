@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+</head>
+<body>
+  <h2>天气预报</h2>
+  <!-- 输入框  -->
+  <input type="text" placeholder="查询的城市">
+  <!-- 按钮  -->
+  <input type="button" value='查询'>
+</body>
+</html>
+<script>
+  /*
+    点击按钮 -- 点击事件
+    获取输入的城市 -- dom.value
+    查询天气预报 -- ajax 调用接口
+    数据回来之后 渲染到页面上 
+      回调函数
+  */
+  document.querySelector('input[type=button]').onclick = function(){
+    //1.创建异步对象
+    var xhr= new XMLHttpRequest();
+    //2.设置请求行
+    // api 接口文档
+    xhr.open('get', 'http://wthrcdn.etouch.cn/WeatherApi?city=' + document.querySelector('input[type=text]').value);
+    //3.设置请求头(get请求可以省略)
+    //4.注册状态改变事件
+    xhr.onreadystatechange = function(){
+      //4.1判断状态&请求是否成功并使用数据
+      if(xhr.readyState == 4 && xhr.status==200){
+        console.log(xhr.responseXML);
+      }
+
+    }
+    //5.发送请求
+    xhr.send(null);
+  }
+
+</script>
+<!--
+    xml的缺点
+        传输的数据量大 ==>现在的网络这么好 这个不是最主要的缺点
+        解析略微有点复杂 
+    目前使用最频繁的是 JSON
+  -->
