@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        $(function () {
+
+            // 点击的时候发送请求
+            $('input').click(function () {
+                var xhr = new XMLHttpRequest();
+                xhr.open('get', 'bigData.php?name=' + this.value, true);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && status == 200) {
+                        console.log(xhr.responseText);
+                    }
+                }
+                xhr.send(null);
+                // 上述代码搞定了浏览器端
+            })
+        })
+    </script>
+</body>
+
+</html>
