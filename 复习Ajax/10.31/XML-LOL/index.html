@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+</head>
+
+<body>
+  <h2>获取XML英雄数据 并解析</h2>
+  <input type="button" value="获取XML英雄数据_ajax">
+</body>
+
+</html>
+<script>
+  // 点击 按钮 获取 xml数据 并解析
+  document.querySelector('input').onclick = function () {
+    //1.创建异步对象
+    var xhr = new XMLHttpRequest();
+    //2.设置请求行
+    xhr.open('get', 'getHeros.php');
+    //3.设置请求头(get请求可以省略)
+    //4.注册状态改变事件
+    xhr.onreadystatechange = function () {
+      //4.1判断状态&请求是否成功并使用数据
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        // console.log(xhr.responseXML);
+        // 解析 XML数据
+        var allHero = xhr.responseXML.querySelectorAll('hero');
+        // console.log(allHero);
+
+        // 循环 挨个 取出来
+        // 创建ul
+        var ulDom = document.createElement('ul');
+        // 添加到body中
+        document.body.appendChild(ulDom);
+        for (var i = 0; i < allHero.length; i++) {
+          // 当前循环的那个英雄
+          var currentHero = allHero[i];
+          // 路径
+          var icon = currentHero.querySelector('icon').innerHTML;
+          // 名字
+          var name = currentHero.querySelector('name').innerHTML;
+          console.log(icon + '||' + name);
+          // 创建li
+          var liDom = document.createElement('li');
+          liDom.innerHTML = '<img src="' + icon + '">--<span>' + name + '</span>';
+          // 添加到ul中
+          ulDom.appendChild(liDom);
+        }
+        
+      }
+    }
+    //5.发送请求
+    xhr.send(null);
+  }
+</script>
