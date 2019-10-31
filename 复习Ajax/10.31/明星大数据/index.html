@@ -40,10 +40,10 @@
                 </div>
             </div>
             <div class="panel-footer">
-                <input class='btn btn-info btn-lg' type="button" value='周林林'>
-                <input class='btn btn-info btn-lg' type="button" value='彭林'>
-                <input class='btn btn-info btn-lg' type="button" value='林立群'>
-                <input class='btn btn-info btn-lg' type="button" value='西兰花'>
+                <input class='btn btn-info btn-lg' type="button" value='赵丽颖'>
+                <input class='btn btn-info btn-lg' type="button" value='吴世勋'>
+                <input class='btn btn-info btn-lg' type="button" value='金正贤'>
+                <input class='btn btn-info btn-lg' type="button" value='金世正'>
             </div>
         </div>
     </div>
@@ -57,10 +57,11 @@
 
             // 点击的时候发送请求
             $('input').click(function () {
+                $('h1').html($(this).val());
                 var xhr = new XMLHttpRequest();
-                xhr.open('get', 'bigData.php?name=' + this.value, true);
+                xhr.open('get', 'bigData.php?name=' + $(this).val(), true);
                 xhr.onreadystatechange = function () {
-                    if (xhr.readyState == 4 && status == 200) {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
                         console.log(xhr.responseText);
                         var result = xhr.responseText.split('|');
                         $('img').attr('src', result[0]);
