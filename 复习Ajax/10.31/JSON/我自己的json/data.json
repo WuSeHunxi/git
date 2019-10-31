@@ -1,0 +1,22 @@
+[
+    {
+        "name": "赵丽颖",
+        "age": "33",
+        "img": "img/zly.jpg"
+    },
+    {
+        "name": "吴世勋",
+        "age": "24",
+        "img": "img/wsx.jpg"
+    },
+    {
+        "name": "金正贤",
+        "age": "25",
+        "img": "img/jzx.jpg"
+    },
+    {
+        "name": "金世正",
+        "age": "22",
+        "img": "img/jsz.jpg"
+    }
+]

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        button {
+            height: 30px;
+            width: 100px;
+            border-radius: 20px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 30px;
+            outline: none;
+            border: 1px solid #ccc;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .container {
+            background-color: hotpink;
+            margin: 0 auto;
+            width: 600px;
+            min-height: 100px;
+            opacity: 0.5;
+            cursor: pointer;
+        }
+
+        li {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button>点击就有惊喜</button>
+    <div class="container"></div>
+    <script>
+        document.querySelector("button").onclick = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('get', 'data.php', true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // console.log(xhr.responseText);
+                    var res = JSON.parse(xhr.responseText);
+                    // console.log(res);
+                    var ul = document.createElement("ul");
+                    document.querySelector("div").appendChild(ul);
+                    for (var i = 0; i < res.length; i++) {
+                        var li = document.createElement("li");
+                        ul.appendChild(li);
+                        li.innerHTML = "<img src=" + res[i].img + ">" + "<span>" + res[i].name + "--" + res[i].age + "</span>";
+                    }
+                }
+            }
+            xhr.send(null);
+        }
+    </script>
+</body>
+
+</html>
