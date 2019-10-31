@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+</head>
+<body>
+  <h2>JSON基本使用</h2>
+</body>
+</html>
+<script>
+  /*
+    1.JSON是一种数据的格式
+    2.JSON跟编程语言没有关系
+    3.JSON的载体是字符串
+    4.基本上所有的编程语言都支持JSON
+    5. 语法简洁 基本上所有的编程语言 都提供了对应的方法 来解析JSON
+    6. JSON格式的字符串 转化完毕之后 会变成 数组 对象
+  */ 
+
+    // JSON的写法 -- 用来表示对象
+    // 对象使用 {} 
+    // 属性名 必须使用 "" 包裹
+    // 属性值 必须使用 "" 包裹  如果属性值是数值 可以不使用双引号
+    var JSONObject = '{"name":"刘亦菲","skill":"失忆"}';
+    console.log(JSONObject);
+    // 转化为 对应的 对象(数组)
+    var obj = JSON.parse(JSONObject);
+    console.log(obj);
+    console.log(obj.name+'|'+obj.skill);
+
+    // JSON的写法 -- 用来表示数组 [] 中括号即可
+    var JSONArr = '["绿色的花菜","大蒜","大葱","番茄","圣女果"]';
+    console.log(JSONArr);
+    // 转化为 对应的 数组(对象)
+    var arr = JSON.parse(JSONArr);
+    console.log(arr);
+    console.log(arr[2]);
+
+    // JSON的写法 -- 对象数组
+    var JSONObjArr = '{"name":"彭林","skill":"约跑","runfriends":["周林林","林立群","飞哥"]}';
+    console.log(JSONObjArr);
+    // 转化为对应的 对象 数组
+    var result = JSON.parse(JSONObjArr);
+    console.log(result);
+    console.log(result.runfriends[1]);
+
+    // 错误 总结
+    
+    // JSON的载体是  ==> 字符串
+    var JSONString = '{"name":"jack"}';
+
+    // 属性名 属性值 必须使用 双引号包裹
+    var JSONString2 = "{\"name\":\"jack\"}";
+
+    // 对象 键值对 之间使用 ,  ;
+
+</script>

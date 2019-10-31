@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-    <meta charset="UTF-8">
-    <title>title</title>
+  <meta charset="UTF-8">
+  <title>title</title>
 </head>
+
 <body>
   <h2>天气预报</h2>
   <!-- 输入框  -->
-  <input type="text" placeholder="查询的城市">
+  <input type="text" id="city" placeholder="查询的城市">
   <!-- 按钮  -->
   <input type="button" value='查询'>
 </body>
+
 </html>
 <script>
   /*
@@ -20,17 +23,18 @@
     数据回来之后 渲染到页面上 
       回调函数
   */
-  document.querySelector('input[type=button]').onclick = function(){
+  document.querySelector('input[type=button]').onclick = function () {
     //1.创建异步对象
-    var xhr= new XMLHttpRequest();
+    var xhr = new XMLHttpRequest();
     //2.设置请求行
     // api 接口文档
-    xhr.open('get', 'http://wthrcdn.etouch.cn/WeatherApi?city=' + document.querySelector('input[type=text]').value);
+    // http://v.juhe.cn/weather/index?format=2&cityname=%E8%8B%8F%E5%B7%9E&key=您申请的KEY
+    xhr.open('get', 'http://v.juhe.cn/weather/index?format=2&cityname=' + document.querySelector("#city").value + '&key=zaqxsw45698');
     //3.设置请求头(get请求可以省略)
     //4.注册状态改变事件
-    xhr.onreadystatechange = function(){
+    xhr.onreadystatechange = function () {
       //4.1判断状态&请求是否成功并使用数据
-      if(xhr.readyState == 4 && xhr.status==200){
+      if (xhr.readyState == 4 && xhr.status == 200) {
         console.log(xhr.responseXML);
       }
 
