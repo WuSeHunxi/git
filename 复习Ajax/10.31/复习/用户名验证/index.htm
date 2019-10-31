@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>注册</h1>
+    <input type="text" name="name" id="name">
+    <script>
+        var input = document.querySelector("input");
+        input.onblur = function () {
+            var xhr = new XMLHttpRequest();
+            // 必须要发送数据才能够获取到
+            xhr.open('get', 'check.php?name=' + this.value, true);
+            xhr.onload = function () {
+                document.querySelector('h1').innerHTML = xhr.responseText;
+            }
+            xhr.send();
+        }
+    </script>
+</body>
+
+</html>
