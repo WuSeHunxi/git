@@ -19,10 +19,17 @@
             xhr.send();
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4) {
-                    if (xhr.state >= 200 && xhr.state < 300 || xhr.state === 304) {
-                        alert("接收到了响应数据");
+                    // if (xhr.state >= 200 && xhr.state < 300 || xhr.state === 304) {
+                    //     // alert("接收到了响应数据");
+                    //     console.log(xhr.responseText);
+                    // } else {
+                    //     // alert("没有接收到响应数据");
+                    //     console.log(xhr.status);
+                    // }
+                    if (xhr.status == 200) {
+                        console.log(xhr.responseText);
                     } else {
-                        alert("没有接收到响应数据");
+                        console.log(xhr.status);
                     }
                 }
             }

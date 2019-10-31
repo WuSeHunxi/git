@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>05-ajax-get</title>
@@ -10,13 +11,11 @@
             var oBtn = document.querySelector("button");
             oBtn.onclick = function (ev1) {
                 var xhr;
-                if (window.XMLHttpRequest)
-                {// code for IE7+, Firefox, Chrome, Opera, Safari
-                    xhr=new XMLHttpRequest();
+                if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                    xhr = new XMLHttpRequest();
                 }
-                else
-                {// code for IE6, IE5
-                    xhr=new ActiveXObject("Microsoft.XMLHTTP");
+                else {// code for IE6, IE5
+                    xhr = new ActiveXObject("Microsoft.XMLHTTP");
                 }
                 // var xhr = new XMLHttpRequest();
                 /*
@@ -27,15 +26,15 @@
                 console.log(Math.random());
                 console.log(new Date().getTime());
                 */
-                xhr.open("GET","05-ajax-get.txt?t="+(new Date().getTime()),true);
+                xhr.open("GET", "05-ajax-get.txt?t=" + (new Date().getTime()), true);
                 xhr.send();
                 xhr.onreadystatechange = function (ev2) {
-                    if(xhr.readyState === 4){
-                        if(xhr.status >= 200 && xhr.status < 300 ||
-                        xhr.status === 304){
+                    if (xhr.readyState === 4) {
+                        if (xhr.status >= 200 && xhr.status < 300 ||
+                            xhr.status === 304) {
                             // alert("请求成功");
                             alert(xhr.responseText);
-                        }else{
+                        } else {
                             alert("请求失败");
                         }
                     }
@@ -44,7 +43,9 @@
         }
     </script>
 </head>
+
 <body>
-<button>发送请求</button>
+    <button>发送请求</button>
 </body>
+
 </html>
