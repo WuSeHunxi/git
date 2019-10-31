@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>发送请求</button>
+    <script>
+        var oBtn = document.querySelector("button");
+        // var xhr = null;
+        oBtn.onclick = function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open("get", "ajax-get.php", true);
+            xhr.send();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.state >= 200 && xhr.state < 300 || xhr.state === 304) {
+                        alert("接收到了响应数据");
+                    } else {
+                        alert("没有接收到响应数据");
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
