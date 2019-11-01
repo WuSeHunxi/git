@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="lol-panel panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">lol_英雄_基础版本</h3>
+        </div>
+        <div class="panel-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <a href="javascript:void(0)" name='' class="thumbnail">
+                            <img src="./api/img/zly.jpg" alt="...">
+                            <span>青钢影-卡蜜尔</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <input class='btn btn-info btn-lg getData' type="button" value='加载数据'>
+            <input class='heroNum' type="text" placeholder="请输入英雄的个数">
+        </div>
+    </div>
+
+
+    <!--  模态框  -->
+    <div class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">模板页</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="jumbotron">
+                        <h1><span>青钢影</span>--<span class="label label-default">卡蜜尔</span></h1>
+                        <img src="./api/img/zly.jpg" alt="..." class="img-thumbnail">
+                        <p>
+                            tags:战士, 近战 </p>
+                        <p>
+                            卡蜜尔是一位优雅的特工精英，也是一台精密的人形兵器。 </p>
+                        <a class="btn btn-primary btn-lg" href="#" role="button">详细攻略</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <script src="lib/js/jquery-1.12.4.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="lib/js/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            document.querySelector(".getData").onclick(function () {
+                var xhr = new XMLHttpRequest();
+                xhr.open('get', 'api/HeroInfo_List_get.php', true);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        var res = JSON.parse(xhr.responseText);
+                        for (var i = 0; i < res.data.length; i++) {
+                            var $cloneCol = $('.col-xs-4').first().clone();
+                            $cloneCol.find('img').attr("src", res.data[i].champion_icon);
+                            $cloneCol.find('span').html(res.data[i].champion_name);
+                            $cloneCol.appendTo('.row');
+                        }
+                    }
+                }
+                xhr.send(null);
+            })
+
+            document.querySelector(".row").onclick(function () {
+                var xhr = new XMLHttpRequest();
+                xhr.open('post', 'api/HeroInfo_details_post.php', true);
+                xhr.onreadystatechange = function () {
+                    var res = JSON.parse(xhr.responseText);
+
+                }
+                xhr.send(null);
+            })
+        });
+    </script>
+</body>
+
+</html>

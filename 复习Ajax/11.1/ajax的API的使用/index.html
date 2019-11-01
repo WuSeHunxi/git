@@ -63,15 +63,18 @@
     <script src="lib/js/bootstrap.min.js"></script>
     <script>
         $(function () {
+
             $('.getData').click(function () {
+                // console.log($('.col-xs-4'));
                 var xhr = new XMLHttpRequest();
                 xhr.open('get', './api/HeroInfo_List_get.php?num=' + $('.heroNum').val());
                 xhr.onreadystatechange = function () {
                     if (xhr.readyState == 4 && xhr.status == 200) {
                         var dataObj = JSON.parse(xhr.responseText);
-                        console.log(dataObj.data);
                         for (var i = 0; i < dataObj.data.length; i++) {
+
                             var $cloneCol = $('.col-xs-4').first().clone();
+                            console.log($cloneCol);
                             $cloneCol.find('img').attr('src', dataObj.data[i].champion_icon);
                             $cloneCol.find('span').html(dataObj.data[i].champion_name);
                             $cloneCol.appendTo('.row');
@@ -91,8 +94,8 @@
                         var dataObj = JSON.parse(xhr.responseText);
                         $('.jumbotron').find('span').first().html(dataObj.data.champion_title);
                         $('.jumbotron').find('span').last().html(dataObj.data.champion_name);
-                        $('.jumbotron').find('span').attr('src', dataObj.data.champion_icon);
-                        $('.jumbotron').find('span').first().html(dataObj.data.champion_tags);
+                        $('.jumbotron').find('img').attr('src', dataObj.data.champion_icon);
+                        $('.jumbotron').find('p').first().html(dataObj.data.champion_tags);
                         $('.jumbotron').find('p').last().html(dataObj.data.champion_info);
                         // a标签的href
                         $('.jumbotron').find('a').attr('href', dataObj.data.champion_url);
