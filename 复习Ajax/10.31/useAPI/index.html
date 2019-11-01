@@ -56,7 +56,7 @@
           <div class="col-xs-4">
             <a href="javascript:void(0)" name='' class="thumbnail">
               <img src="./api/images/1480473717181.png" alt="...">
-              <span>青钢影-卡蜜尔</span>        
+              <span>青钢影-卡蜜尔</span>
             </a>
           </div>
         </div>
@@ -74,7 +74,8 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+              aria-hidden="true">&times;</span></button>
           <h4 class="modal-title">模板页</h4>
         </div>
         <div class="modal-body">
@@ -111,7 +112,7 @@
     $('.getData').click(function () {
       //1.创建异步对象
       var xhr = new XMLHttpRequest();
-      //2.设置请求行
+      //2.设置请求行   发送了参数
       xhr.open('get', './api/HeroInfo_List_get.php?num=' + $('.heroNum').val());
       //3.设置请求头(get请求可以省略)
       //4.注册状态改变事件
@@ -120,10 +121,12 @@
         if (xhr.readyState == 4 && xhr.status == 200) {
           // 解析数据
           var dataObj = JSON.parse(xhr.responseText);
-          // 循环生成对应的结构
+          // 循环生成对应的结构---> 点击的时候会先是相应个数的Li，因此为了成功显示使用的是克隆，而不是创建Li
           // dataObj.data 数据在data这个数组中
+          // console.log(dataObj.data);  数组
+          // console.log(dataObj); -->得到的是服务器处理好的数据对象
           for (var i = 0; i < dataObj.data.length; i++) {
-            // 克隆结构
+            // 克隆结构     --->为了防止重复，只克隆第一个
             var $cloneCol = $('.col-xs-4').first().clone();
             // 更改内容
             $cloneCol.find('img').attr('src', dataObj.data[i].champion_icon);
@@ -140,6 +143,9 @@
       xhr.send(null);
     })
 
+
+    //出现蒙版的情况
+
     // 为row中的 a标签绑定点击事件
     // 因为a标签是动态生成的 为了一劳永逸 直接绑定给 row 指定由 a触发
     $('.row').on('click', 'a', function () {
@@ -153,27 +159,27 @@
       //4.注册状态改变事件
       xhr.onreadystatechange = function () {
         //4.1判断状态&请求是否成功并使用数据
-        if(xhr.readyState==4&&xhr.status==200){
+        if (xhr.readyState == 4 && xhr.status == 200) {
           // console.log(xhr.responseText);
           // 解析数据
           var dataObj = JSON.parse(xhr.responseText);
           console.log(dataObj);
 
-          // 修改内容
-          // 外号
+          // 修改内容  每一小块所包含的内容
+          // 外号  第一个span
           $('.jumbotron').find('span').first().html(dataObj.data.champion_title);
-          // 名字
+          // 名字  第二个span
           $('.jumbotron').find('span').last().html(dataObj.data.champion_name);
           // 图片
-          $('.jumbotron').find('img').attr('src',dataObj.data.champion_icon);
+          $('.jumbotron').find('img').attr('src', dataObj.data.champion_icon);
           // 位置
           $('.jumbotron').find('p').first().html(dataObj.data.champion_tags);
           // 个性签名
           $('.jumbotron').find('p').last().html(dataObj.data.champion_info);
           // a标签的href
-          $('.jumbotron').find('a').attr('href',dataObj.data.champion_url);
-          
-          
+          $('.jumbotron').find('a').attr('href', dataObj.data.champion_url);
+
+
 
           // 弹出模态框
           $('.modal').modal('show');
@@ -181,7 +187,7 @@
 
       }
       //5.发送请求
-      xhr.send('name='+$(this).find('span').html());
+      xhr.send('name=' + $(this).find('span').html());
     })
   })
 </script>
