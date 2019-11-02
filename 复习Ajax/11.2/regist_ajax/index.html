@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+</head>
+
+<body>
+  <h2>jQuery的ajax</h2>
+  <input class='get' type="button" value='get请求'>
+  <input class='post' type="button" value='post请求'>
+  <input class='ajax' type="button" value='ajax请求'>
+  <input class='ajax_extend' type="button" value='$.ajax使用补充'>
+</body>
+
+</html>
+<!-- 导入jQuery   -->
+<script src="./js/jquery-1.12.4.min.js"></script>
+<script>
+  //自己的js
+  // get请求
+  $('.get').click(function () {
+    // $.get('../00.backData/01.backSendData.php','name=rose&husband=robot',function(data){
+    //   alert(data);
+    // })
+
+    // 支持传入js对象
+    $.get('../00.backData/01.backSendData.php',{name:'黑猫警长',skill:'抓老鼠'}, function (data) {
+      alert(data);
+    })
+  })
+  // post请求
+  $('.post').click(function () {
+    // 支持传入js对象
+    $.post('../00.backData/01.backSendData.php',{name:'飞天小女警',skill:'自由飞翔'}, function (data) { 
+      alert(data);
+    })
+  })
+
+  // 可以自己选择 get 还是post
+  $('.ajax').click(function(){
+    $.ajax({
+      url:'../00.backData/backXML.php',
+      // type:'post',
+      // date:'memeda',
+      success:function(data){
+        console.log(data);
+      }
+    })
+  })
+
+  // $.ajax使用补充
+  $('.ajax_extend').click(function(){
+    /*
+      type 如果不设置 默认的请求方法是? get
+        如果用get请求 那么 可以不写 type属性
+      success
+        在请求成功才会触发
+        如果出现 服务器告诉浏览器返回的类型 跟 jQuery内部实际转换的类型不匹配 会无法触发
+      error
+        当请求出现问题 会触发这个回调函数
+      complete
+        请求完成会触发
+    */
+    $.ajax({
+        // url:'../00.backData/01.backSendData.php',
+        // data:{s
+        //   name:'喜洋洋',
+        //   skill:'卖萌'
+        // },
+        // url:'../00.backData/backXML.php',
+        url:'../00.backData/backJSON.php',
+        success:function(data){
+          console.log(data);
+        },
+        // 形参可以改名字 这里直接使用默认的即可
+        // 参数1 异步对象
+        // 参数2 错误信息
+        // 参数3 错在哪里
+        error:function(XMLHttpRequest, textStatus, errorThrown){
+          console.log('失败了哦');
+          console.log(XMLHttpRequest);
+          console.log(textStatus);
+          console.log(errorThrown);
+        },
+        complete:function(){
+          console.log('请求完成了');
+        }
+    })
+  })
+</script>
