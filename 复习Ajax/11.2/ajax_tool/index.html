@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+</head>
+<body>
+  <h2>测试工具函数</h2>
+  <input class='get' type="button" value='测试get'>
+  <input class='post' type="button" value='测试post'>
+  <input class='ajax_test' type="button" value='测试ajax_test'>
+  <input class='ajax' type="button" value='测试ajax'>
+  <input class='json' type="button" value='获取json'>
+  <input class='xml' type="button" value='获取xml'>
+</body>
+</html>
+<!-- 导入 js   -->
+<script  src="./ajax.js"></script>
+<!-- 自己的js  -->
+<script>
+  // get请求
+  document.querySelector('.get').onclick = function(){
+    // 直接调用 get方法
+    //function get(url, data, success)
+    get('../00.backData/01.backSendData.php','name=jack&friend=rose',function(data){
+      console.log(data);
+    })
+  }
+
+  // post请求
+  document.querySelector('.post').onclick = function(){
+    // 直接调用 get方法
+    //function post(url, data, success)
+    post('../00.backData/01.backSendData.php','name=rose&friend=青椒',function(data){
+      alert(data);
+    })
+  }
+
+  // ajax 自选get post
+  document.querySelector('.ajax_test').onclick = function(){
+    // ajax_test('../00.backData/01.backSendData.php','get','name=葫芦娃&food=胡萝卜',function(data){
+    //   alert('葫芦娃');
+    //   alert(data);
+    // })
+    ajax_test('../00.backData/01.backSendData.php','post','name=蛇精&food=爷爷',function(data){
+      alert('蛇精');
+      alert(data);
+    })
+  }
+
+  // ajax 只传递一个参数
+  document.querySelector('.ajax').onclick = function(){
+    ajax({
+      type:'get',
+      data:'skill=爱吃西兰花和芹菜蹦蹦跳跳好可爱&name=兔子',
+      success:function(data){
+        document.body.innerHTML = data;
+      },
+      url:'../00.backData/01.backSendData.php'
+    });
+  }
+
+  // 获取json
+  document.querySelector('.json').onclick = function(){
+    ajax({
+      type:'get',
+      url:'../00.backData/backJSON.php',
+      success:function(data){
+        console.log(data);
+      }
+    })
+  }
+
+  // 获取 xml
+    document.querySelector('.xml').onclick = function(){
+    ajax({
+      type:'post',
+      url:'../00.backData/backXML.php',
+      success:function(data){
+        console.log(data);
+      }
+    })
+  }
+</script>
