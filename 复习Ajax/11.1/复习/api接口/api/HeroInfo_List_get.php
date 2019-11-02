@@ -17,7 +17,7 @@ if(array_key_exists('num',$_GET)){
     else if($num==1){
         $num=1;
          // 读取json数据
-        $jsonString = file_get_contents('data/heros_list.json');
+        $jsonString = file_get_contents('data/myList.json');
         
         // 转化为 数组
         $jsonArr = json_decode($jsonString,true);

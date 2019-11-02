@@ -1,0 +1,18 @@
+[
+    {
+        "champion_icon": "./api/img/zly.jpg",
+        "champion_name": "赵丽颖"
+    },
+    {
+        "champion_icon": "./api/img/wsx.jpg",
+        "champion_name": "吴世勋"
+    },
+    {
+        "champion_icon": "./api/img/jzx.jpg",
+        "champion_name": "金正贤"
+    },
+    {
+        "champion_icon": "./api/img/jsz.jpg",
+        "champion_name": "金世正"
+    }
+]

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link href="lib/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -62,7 +63,7 @@
     <script src="lib/js/bootstrap.min.js"></script>
     <script>
         $(function () {
-            document.querySelector(".getData").onclick(function () {
+            document.querySelector(".getData").click(function () {
                 var xhr = new XMLHttpRequest();
                 xhr.open('get', 'api/HeroInfo_List_get.php', true);
                 xhr.onreadystatechange = function () {
@@ -79,12 +80,25 @@
                 xhr.send(null);
             })
 
-            document.querySelector(".row").onclick(function () {
+            document.querySelector(".row").click(function () {
                 var xhr = new XMLHttpRequest();
                 xhr.open('post', 'api/HeroInfo_details_post.php', true);
                 xhr.onreadystatechange = function () {
                     var res = JSON.parse(xhr.responseText);
+                    $('.jumbotron').find('span').first().html(dataObj.data.champion_title);
+                    // 名字  第二个span
+                    $('.jumbotron').find('span').last().html(dataObj.data.champion_name);
+                    // 图片
+                    $('.jumbotron').find('img').attr('src', dataObj.data.champion_icon);
+                    // 位置
+                    $('.jumbotron').find('p').first().html(dataObj.data.champion_tags);
+                    // 个性签名
+                    $('.jumbotron').find('p').last().html(dataObj.data.champion_info);
+                    // a标签的href
+                    $('.jumbotron').find('a').attr('href', dataObj.data.champion_url);
 
+                    // 弹出模态框
+                    $('.modal').modal('show');
                 }
                 xhr.send(null);
             })
