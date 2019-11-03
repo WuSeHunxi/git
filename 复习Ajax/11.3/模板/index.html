@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>SMZDM</title>
+	<style>
+		.items {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		.item {
+			/*float: left;*/
+			width: 320px;
+			/*height: 320px;*/
+			border: 1px solid #0094ff;
+			overflow: hidden;
+			margin: 10px 20px;
+		}
+
+		.item .title {
+			display: block;
+			width: 100%;
+			position: relative;
+		}
+
+		.title img {
+			display: block;
+			width: 100%;
+		}
+
+		.title span {
+			position: absolute;
+			right: 20px;
+			bottom: 0px;
+			width: 50px;
+			text-align: center;
+			background-color: lightgray;
+			color: gray;
+			font-size: 13px;
+			border-radius: 5px 5px 0 0;
+		}
+
+		.content {
+			padding: 10px 0;
+		}
+
+		.content a {
+			text-decoration: none;
+			color: black;
+			font-family: "微软雅黑";
+			font-size: 16px;
+		}
+
+		.content p {
+			color: gray;
+			font-size: 13px;
+			font-family: "微软雅黑";
+			margin-bottom: 0;
+		}
+
+		.f_l {
+			float: left;
+		}
+
+		.f_r {
+			float: right;
+		}
+
+		.clearfix::before,
+		.clearfix::after {
+			content: '';
+			display: block;
+			line-height: 0;
+			height: 0;
+			clear: both;
+			visibility: hidden;
+		}
+
+		.clearfix {
+			zoom: 1;
+		}
+
+		.info {
+			line-height: 25px;
+		}
+
+		.info img {
+			width: 20px;
+			height: 20px;
+			vertical-align: middle;
+			margin-right: 10px;
+		}
+
+		.info a {
+			color: gray;
+			text-decoration: none;
+			font-size: 12px;
+			height: 20px;
+			line-height: 20px;
+			margin: 0 10px;
+		}
+
+		.getMore {
+			width: 100px;
+			height: 100px;
+			border: none;
+			text-align: center;
+			background-color: hotpink;
+			line-height: 100px;
+			cursor: pointer;
+			font-size: 20px;
+			font-weight: 900;
+		}
+
+		.getSome {
+			width: 100px;
+			height: 100px;
+			border: none;
+			text-align: center;
+			line-height: 100px;
+			cursor: pointer;
+			background-color: yellowgreen;
+			font-size: 20px;
+			font-weight: 900;
+		}
+
+		.controls {
+			display: flex;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="controls">
+		<div class="getMore">获取一条
+		</div>
+		<div class="getSome">获取多条
+		</div>
+	</div>
+	<div class="items">
+		<!--div作为容器-->
+
+	</div>
+</body>
+
+</html>
+
+<!--
+		使用模板引擎的步骤
+			1.定义模板
+			2.根据数据挖坑 起名字
+			3.导入模板引擎
+			4.在适当的时候 根据数据 完成 填充的操作
+		获取数据 不刷新页面 ajax
+	-->
+
+<script type='text/html' id='template'>
+	<div class="item clearfix">
+		<a href="#" class='title'>
+					<img src="{{img}}" alt="" />
+					<span>{{time}}</span>
+				</a>
+		<div class="content">
+			<a href="#">{{title}}</a>
+			<p>{{novel}}</p>
+		</div>
+		<div class="info clearfix">
+			<a href="#" class='f_l'><img src="{{icon}}" alt="" />{{name}}</a>
+			<a href="#" class='f_r'>信息:{{messNum}}</a>
+			<a href="#" class='f_r'>❤:{{starNum}}</a>
+			<a href="#" class='f_r'>赞:{{goodNum}}</a>
+		</div>
+	</div>
+</script>
+
+
+<!--  导入 jQuery  -->
+<script src="./js/jquery-1.12.4.min.js"></script>
+<script  src="./js/template-web.js"></script>
+<script>
+	$(function () {
+		$('.getSome').click(function () {
+			$.ajax({
+				url: '_api/smzdm_getSome.php',
+				data: {
+					num: 6
+				},
+				success: function (data) {
+					console.log(data);
+					for(var i=0;i<data.items.length;i++){
+						// 当前循环的对象
+						var currentObj = data.items[i];
+						// 填坑 填充完毕的内容 添加到页面上
+						$(".items").append(template('template',currentObj));
+					}
+				}
+			})
+		})
+	})
+</script>
