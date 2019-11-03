@@ -47,7 +47,7 @@
                             <td>用户名:</td>
                             <td><input class='inputName' type="text" name="" value="" /></td>
                             <td>
-                                <span class='tips' >占位文本</span>
+                                <span class='tips'>占位文本</span>
                             </td>
                         </tr>
                         <tr>
@@ -143,20 +143,21 @@
         })
 
         // 需求3
-        $('.sub').click(function(){
-            if($(this).hasClass('disabled')==true){
+        $('.sub').click(function () {
+            if ($(this).hasClass('disabled') == true) {
                 alert('哥们,别点了');
                 return;
             }
             $('.cover').show();
+            // console.log(!$(this).hasClass('disabled'));
             ajax({
-                url:'_api/register.php',
-                type:'post',
-                data:'name='+$('.inputName').val(),
-                success:function(data){
+                url: '_api/register.php',
+                type: 'post',
+                data: 'name=' + $('.inputName').val(),
+                success: function (data) {
                     $('.cover').hide();
                     $('.tips').html(data).fadeIn(1000).delay(1000).fadeOut(1000);
-                    // 添加禁用的类名即可
+                    // 点击完了就要添加禁用类名 添加禁用的类名即可
                     $('.sub').addClass('disabled');
                 }
             })
