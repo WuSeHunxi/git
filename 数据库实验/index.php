@@ -6,9 +6,9 @@
     <title> </title>
 
     <style>
-        ul li {
-            margin: 10px;
-        }
+    ul li {
+        margin: 10px;
+    }
     </style>
 </head>
 

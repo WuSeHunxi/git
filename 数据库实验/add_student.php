@@ -10,7 +10,7 @@
     <h1>添加学生</h1>
     <hr />
 
-    <form action="add_student_do.jsp" method="post">
+    <form action="add_student_do.php" method="post">
         账号: <input name="stuName"> <br />
         密码: <input name="password"> <br />
         性别: <input name="gender" maxlength="1"> <br />

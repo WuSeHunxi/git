@@ -30,33 +30,3 @@ if ($affected_rows <= 0) {
 header('Location: search_all_do.php');
 
 ?>
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<style>
-a {
-    display: block;
-    width: 50px;
-    height: 30px;
-    background-color: yellow;
-}
-</style>
-
-<body>
-    <h1>删除某个学生的全部信息 事务</h1>
-    <hr />
-
-    <form action="del_student_do.php">
-        学生id: <input name="id" value="<?php echo $item['id'] ?>">
-        <a class="btn" href="delete_student_do.php?id=<?php echo $item['id'] ?>">删除</a>
-    </form>
-
-    <hr />
-
-</body>
-
-</html>

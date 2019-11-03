@@ -43,17 +43,15 @@ if(!$query){
             <th>学校等级(来自level_info表)</th>
             <th>等级备注(来自level_info表)</th>
         </tr>
-        <?php foreach ($stu as $key) { ?>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><?php echo $item['id']; ?></td>
+            <td><?php echo $item['name']; ?></td>
+            <td><?php echo $item['gender']; ?></td>
+            <td><?php echo $item['school']; ?></td>
+            <td><?php echo $item['adress']; ?></td>
+            <td><?php echo $item['level']; ?></td>
+            <td><?php echo $item['note']; ?></td>
         </tr>
-        <?php } ?>
     </table>
     <h1>学生班级信息</h1>
     <hr />
@@ -64,13 +62,12 @@ if(!$query){
             <th>添加时间</th>
         </tr>
 
-        <?php foreach ($stu as $key) { ?>
         <tr>
             <td></td>
             <td></td>
             <td></td>
         </tr>
-        <?php } ?>
+
     </table>
 </body>
 
