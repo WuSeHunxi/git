@@ -123,7 +123,8 @@
     $(function () {
         // 需求1
         $('.inputName').blur(function () {
-            $('.cover').show();
+            // $('.cover').show();
+            document.querySelector('.cover').style.display = 'none';
             // 发送请求
             ajax({
                 type: 'get',
@@ -140,9 +141,11 @@
                     }
                 }
             })
+
         })
 
         // 需求3
+        //要在点击的时候判断是否能点击
         $('.sub').click(function () {
             if ($(this).hasClass('disabled') == true) {
                 alert('哥们,别点了');

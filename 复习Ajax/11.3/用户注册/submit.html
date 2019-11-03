@@ -6,6 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/init.css" />
+    <link rel="stylesheet" type="text/css" href="./css/register.css" />
+    <style>
+        .sub.disabled {
+            /* background-color: gray !important; */
+            background: gray !important;
+            cursor: not-allowed !important;
+        }
+
+        .cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/loading.gif') no-repeat center, gray;
+            opacity: .7;
+            display: none;
+        }
+
+        .tips {
+            position: absolute;
+            font-size: 20px;
+            transform: translateY(-10px);
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -51,7 +78,46 @@
         </div>
     </div>
     <div class="cover"></div>
+    <script src="js/ajax.js"></script>
+    <!-- <script src="./js/jquery-1.12.4.min.js"></script> -->
     <script>
+        /**
+         *
+         * 用户注册
+         *     需求1：失去焦点
+         *           开启遮罩层
+         *           发送ajax
+         *           请求回来了
+         *           关闭遮罩层
+         *           显示结果
+         *
+         *     需求2：点击按钮注册
+         *            先判断能否点击
+         *            开启遮罩层
+         *            发送ajax
+         *            请求回来了
+         *            关闭遮罩层
+         *            显示结果
+         *            禁用点击按钮
+         *
+         *
+        */
+        document.querySelector(".inputName").onblur = function () {
+            // console.log("pp");
+            // $('.cover').show();
+            console.log(document.querySelector('.cover'));
+            document.querySelector(".cover").style.dispaly = 'block';
+            ajax({
+                type: "get",
+                url: '_api/01.check.php',
+                data: 'name=' + document.querySelector('.inputName').value,
+                success: function (data) {
+
+                    document.querySelector('.cover').style.dispaly = 'none';
+                    // document.querySelector(".sub").removeAttribute('disabled');
+                }
+            })
+        }
 
     </script>
 </body>
