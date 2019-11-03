@@ -34,6 +34,7 @@ for($i = 0;$i<count($randomKeyArr);$i++){
     $items[$i] = $arr[$randomKeyArr[$i]];
 }
 
+
 echo json_encode(array(
 'message'=>$message,
 'items'=>$items

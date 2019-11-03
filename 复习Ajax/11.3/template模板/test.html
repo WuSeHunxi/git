@@ -146,6 +146,8 @@
 
     </div>
     <script src="js/template-web.js"></script>
+
+    <!-- 模板 -->
     <script type="text/html" id="template">
         <div class="item clearfix">
             <a href="#" class="title">
@@ -160,20 +162,26 @@
                 <a href="#" class="f_l"><img src="{{icon}}" alt="">{{name}}</a>
                 <a href="#" class="f_r">信息：{{messNum}}</a>
                 <a href="#" class="f_r">❤：{{startNum}}</a>
-                <a href="#" class="f_r">赞：{{gooNum}}</a>
+                <a href="#" class="f_r">赞：{{goodNum}}</a>
             </div>
         </div>
     </script>
     <script src="js/jquery-1.12.4.min.js"></script>
     <script>
         $(function () {
-            $.ajax({
-                type: 'get',
-                url: '_api/smzdm_getSome.php',
-                data: { num: 6 },
-                success: function (data) {
-
-                }
+            $('.getSome').click(function () {
+                $.ajax({
+                    type: 'get',
+                    url: '_api/smzdm_getSome.php',
+                    data: { num: 6 },
+                    success: function (data) {
+                        console.log(data);
+                        for (var i = 0; i < data.items.length; i++) {
+                            var currentObj = data.items[i];
+                            $('.items').append(template('template', currentObj));
+                        }
+                    }
+                })
             })
         });
 
