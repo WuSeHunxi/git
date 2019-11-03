@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script src="js/template-web.js" id="template"></script>
+    <script src="text/html">
+        <ul>
+            <li>姓名：{{ name }}</li>
+            <li>年龄：{{ age }}</li>
+            <li>爱好：{{ hibbt }}</li>
+        </ul>
+    </script>
+    <script>
+        var data = {
+            name: "哈哈",
+            age: 10,
+            hibbt: "eat"
+        };
+        var result = ('template', data);
+        console.log(result);
+    </script>
+</body>
+
+</html>
