@@ -10,12 +10,13 @@
 
 <body>
 
-    <script src="js/template-web.js" id="template"></script>
-    <script src="text/html">
+    <script src="js/template-web.js"></script>
+    <script type="text/html" id="template">
         <ul>
             <li>姓名：{{ name }}</li>
             <li>年龄：{{ age }}</li>
             <li>爱好：{{ hibbt }}</li>
+
         </ul>
     </script>
     <script>
@@ -24,7 +25,7 @@
             age: 10,
             hibbt: "eat"
         };
-        var result = ('template', data);
+        var result = template('template', data);
         console.log(result);
     </script>
 </body>
