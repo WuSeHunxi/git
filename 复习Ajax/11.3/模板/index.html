@@ -178,7 +178,7 @@
 
 <!--  导入 jQuery  -->
 <script src="./js/jquery-1.12.4.min.js"></script>
-<script  src="./js/template-web.js"></script>
+<script src="./js/template-web.js"></script>
 <script>
 	$(function () {
 		$('.getSome').click(function () {
@@ -188,12 +188,13 @@
 					num: 6
 				},
 				success: function (data) {
+					// 得到的请求后的数据
 					console.log(data);
-					for(var i=0;i<data.items.length;i++){
+					for (var i = 0; i < data.items.length; i++) {
 						// 当前循环的对象
 						var currentObj = data.items[i];
 						// 填坑 填充完毕的内容 添加到页面上
-						$(".items").append(template('template',currentObj));
+						$(".items").append(template('template', currentObj));
 					}
 				}
 			})
