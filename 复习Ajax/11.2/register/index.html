@@ -123,8 +123,7 @@
     $(function () {
         // 需求1
         $('.inputName').blur(function () {
-            // $('.cover').show();
-            document.querySelector('.cover').style.display = 'none';
+            $('.cover').show();
             // 发送请求
             ajax({
                 type: 'get',

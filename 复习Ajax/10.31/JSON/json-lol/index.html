@@ -15,7 +15,7 @@
       /* height: 666px; */
       min-height: 66px;
       border-radius: 20px;
-      border: 1px solid #000;
+      border: 1px solid #000; 
       box-shadow: 0 0 30px skyblue;
     }
 
@@ -85,7 +85,7 @@
 
         // 拼接好了 table
         console.log(html);
-        // 设置到页面上
+        // 设置到页面上   字符串加到页面上，只有dom元素才能使用appendChild()                      
         document.querySelector('.show-box').innerHTML = html;
         // document.querySelector('.show-box').innerHTML(html);
       }
