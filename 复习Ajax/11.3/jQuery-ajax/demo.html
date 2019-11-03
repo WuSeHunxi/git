@@ -15,17 +15,26 @@
     <script src="js/jquery-1.12.4.min.js"></script>
     <script>
         $(function () {
-            $('.get').onclick = function () {
+            $('.get').click(function () {
                 $.get('01.backSendData.php', { name: 'aajj', age: 12 }, function (data) {
                     alert(data);
                 })
-            }
-            $('.post').onclick = function () {
-
-            }
-            $('.ajax').onclick = function () {
-
-            }
+            })
+            $('.post').click(function () {
+                $.post('01.backSendData.php', { name: "idjd" }, function (data) {
+                    console.log(data);
+                })
+            })
+            $('.ajax').click(function () {
+                $.ajax({
+                    type: 'get',
+                    url: '01.backSendData.php',
+                    data: { name: "papa" },
+                    success: function (data) {
+                        console.log(data);
+                    }
+                })
+            })
 
         });
     </script>
