@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
     <style>
         .item {
             width: 640px;
@@ -105,10 +106,49 @@
     <script src="js/jquery-1.12.4.min.js"></script>
     <script src="js/template-web.js"></script>
     <script id="template" type="text/html">
-
+        <div class="item">
+            <a href="#" class="cover"><img src="{{path}}" alt=""></a>
+            <div class="bottom">
+                <a href="#">{{name}}</a>
+                <div class="rightBox">
+                    <span class="icon-heart">{{start}}</span>
+                    <span class="icon-comment">{{message}}</span>
+                </div>
+            </div>
+        </div>
     </script>
     <script>
-
+        $(function () {
+            $('getMore').click(function () {
+                $.ajax({
+                    url: '_api/luowang.php',
+                    data: {
+                        index: 3
+                    },
+                    success: function (data) {
+                        var result = template('template', data.item);
+                        $('.container').append(result);
+                    }
+                })
+            });
+            // 获取多条
+            $('#getSome').click(function () {
+                $.ajax({
+                    url: '_api/luowang_getSome.php',
+                    data: {
+                        num: Math.floor((16 * Math.random()))
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        // 循环 填坑
+                        for (var i = 0; i < data.items.length; i++) {
+                            // 填坑 使用
+                            $('.container').append(template('template', data.items[i]));
+                        }
+                    }
+                })
+            })
+        })
     </script>
 </body>
 
