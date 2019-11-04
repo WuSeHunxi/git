@@ -11,13 +11,25 @@
 <body>
     <h2>JSONP接口演示</h2>
     <input type="button" value="图片">
-    <input type="button" value="">
+    <input type="button" value="手机归属地">
     <script src="jquery-1.12.4.min.js"></script>
     <script>
         $(function () {
-            $('.input').first().click(function () {
+            $('input').first().click(function () {
                 $.ajax({
                     url: 'https://api.asilu.com/query/image/baidu/',
+                    success: function (data) {
+                        console.log(data);
+                    },
+                    dataType: 'jsonp'
+                })
+            })
+            $('input').eq(1).click(function () {
+                $.ajax({
+                    url: 'https://api.asilu.com/phone/',
+                    data: {
+                        phone: '15180120422'
+                    },
                     success: function (data) {
                         console.log(data);
                     },
