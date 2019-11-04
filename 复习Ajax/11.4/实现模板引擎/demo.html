@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="template-web.js"></script>
+    <script id="template" type='text/html'>
+        <ul>
+            <li>{{name}}</li>
+            <li>{{age}}</li>
+            <li>{{love}}</li>
+        </ul>
+    
+    </script>
+    <script>
+        /**
+         * 
+         * 模板引擎的使用：
+         *      先设置好模板
+         *      写好界面
+         *      挖好坑
+         *      取到数据，利用模板函数将坑填好
+         *      再将模板加入页面即可
+         * 
+        */
+        var data = {
+            name: '吴世勋',
+            age: '25岁',
+            love: '爱那心怡'
+        };
+        var result = template('template', data);
+        console.log(result);
+    </script>
+</body>
+
+</html>
