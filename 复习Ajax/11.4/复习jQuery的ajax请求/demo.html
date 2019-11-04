@@ -9,12 +9,34 @@
 </head>
 
 <body>
-    <input type="button" value="get请求">
-    <input type="button" value="post请求">
-    <input type="button" value="ajax请求">
+    <input type="button" class="get" value="get请求">
+    <input type="button" class="post" value="post请求">
+    <input type="button" class="ajax" value="ajax请求">
     <script src="../jsonp/jquery-1.12.4.min.js"></script>
     <script>
+        $(function () {
+            $('.get').click(function () {
+                $.get('demo.php', { name: 'ppsj' }, function (data) {
+                    alert(data);
+                })
+            })
 
+            $('.post').click(function () {
+                $.post('demo.php', { name: 'djd' }, function (data) {
+                    console.log(data);
+                })
+            })
+
+            // 当$.ajax不写type的时候，默认的是get请求
+            $.ajax({
+                type: 'get',
+                url: 'demo.php',
+                data: { name: 'ppp' },
+                success: function (data) {
+                    console.log(data);
+                }
+            })
+        });
     </script>
 </body>
 
