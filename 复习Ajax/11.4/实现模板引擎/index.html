@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script id="template" type="text/html">
+        <ul>
+            <li>{{name}}</li>
+            <li>{{skill}}</li>
+        </ul>
+    </script>
+    <script>
+        var str = document.querySelector("#template").innerHTML;
+        var data = {
+            name: '吴世勋',
+            skill: '贵族'
+        }
+        var reg = /{{(\w+)}}/;
+        var result = reg.exec(str);
+        while (result) {
+            str = str.replace(result[0], data[result[1]]);
+            result = reg.exec(str);
+        }
+        console.log(str);
+    </script>
+</body>
+
+</html>
