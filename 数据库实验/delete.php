@@ -27,6 +27,6 @@ if ($affected_rows <= 0) {
   exit('<h1>删除失败</h1>');
 }
 
-header('Location: search_all_do.php');
+header('Location: text.php');
 
 ?>

@@ -26,8 +26,10 @@ a {
     <hr />
 
     <form action="delete.php" method='get'>
-        学生id: <input name="id" value="<?php echo $item['id']; ?>" placeholder='输入删除id'>
-        <a class="btn" href="delete_student_do.php?id=<?php echo $$_GET['id']; ?>">删除</a>
+        学生id: <input name="id" value="" placeholder='输入删除id'>
+        <?php while ($item = mysqli_fetch_assoc($query)): ?>
+        <a class="btn" href="delete.php?id=<?php echo $item['id']; ?>">删除</a>
+        <?php } ?>
     </form>
 
     <hr />
