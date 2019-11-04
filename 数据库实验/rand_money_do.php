@@ -6,8 +6,9 @@ if (!$conn) {
   exit('<h1>连接数据库失败</h1>');
 }
 
+$sql= mysqli_query('call mc();');
 // 2. 开始查询
-$query = mysqli_query($conn, '{call proc_getname_byid(?)};');
+$query = mysqli_query($conn, 'select * from student_money;');
 
 if (!$query) {
   exit('<h1>查询数据失败</h1>');

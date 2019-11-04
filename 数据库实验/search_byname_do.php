@@ -1,5 +1,8 @@
 <?php
 
+$start=time();
+$name=$_POST['stuname'];
+// var_dump($_POST);
 $conn = mysqli_connect('localhost', 'root', 'root', 'testsql');
 
 if (!$conn) {
@@ -7,11 +10,14 @@ if (!$conn) {
 }
 
 // 2. 开始查询
-$query = mysqli_query($conn, '{call proc_getname_byid(?)};');
+$query = mysqli_query($conn, "select * from student where stuname='{$name}'");
 
 if (!$query) {
   exit('<h1>查询数据失败</h1>');
 }
+
+$end=time();
+$time=$end-$start;
 
 
 ?>
@@ -28,21 +34,22 @@ if (!$query) {
     <h1>根据名称(索引列) 进行查询</h1>
     <hr />
 
-    <form action="search_byname_do.jsp" method="post">
-        学生账号(字符串): <input name="stuName" value="<?php echo $item['stuname']; ?>">
+    <form action="search_byname_do.php" method="post">
+        学生账号(字符串): <input type="text" name="stuname" id="stuname">
         <input type="submit" value="查询 ">
     </form>
 
     <hr />
+    <?php if(isset($name)){ ?>
     <?php while($item = mysqli_fetch_assoc($query)){ ?>
     学生的的ID是: <label><?php echo $item['id']; ?></label> <br />
     学生的名字是: <label><?php echo $item['stuname']; ?></label> <br />
     学生的性别是: <label><?php echo $item['gender']; ?></label> <br />
     学生的密码是: <label><?php echo $item['password']; ?></label> <br />
 
-    本次查询,一共用时 <label>${time} 毫秒</label> <br />
+    本次查询,一共用时 <label><?php echo $time; ?> 毫秒</label> <br />
     <?php } ?>
-
+    <?php } ?>
     <!-- 创建索引  alter table student add index index_name (stuname) -->
 
 
