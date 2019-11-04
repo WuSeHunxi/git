@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .item {
+            width: 640px;
+            background-color: #eee;
+            margin-top: 50px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .item .cover {
+            display: block;
+        }
+
+        .item .cover img {
+            display: block;
+        }
+
+        .item .bottom {
+            height: 35px;
+            position: relative;
+        }
+
+        .item .bottom a {
+            text-decoration: none;
+            line-height: 35px;
+            font-family: '微软雅黑';
+            margin-left: 20px;
+            color: gray;
+        }
+
+        .item .bottom .rightBox {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            height: 100%;
+        }
+
+        .item .bottom .rightBox span {
+            line-height: 35px;
+            margin: 0 20px;
+            font-size: 15px;
+            /* font-family: "微软雅黑"; */
+            color: gray;
+        }
+
+        .item .bottom .rightBox span::before {
+            margin-right: 10px;
+            color: #dd5a64;
+        }
+
+        .left-control {
+            position: fixed;
+            right: 100px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        #getMore {
+            width: 100px;
+            height: 100px;
+            border: none;
+            text-align: center;
+            line-height: 100px;
+            cursor: pointer;
+        }
+
+        #getSome {
+            width: 100px;
+            height: 100px;
+            border: none;
+            text-align: center;
+            line-height: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="left-control">
+        <h2>加载一张</h2>
+        <div id="getMore" class="icon-download icon-4x"></div>
+        <h2>加载多长</h2>
+        <div id="getSome" class="icon-download icon-4x"></div>
+    </div>
+    <div class="container">
+        <div class="item">
+            <a href="#"><img src="images/vol.859.jpg" alt=""></a>
+            <div class="bottom">
+                <a href="#">vol.847 用一首歌来想你</a>
+                <div class="rightBox">
+                    <span class="icon-heart">18854</span>
+                    <span class="icon-comment">299</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/template-web.js"></script>
+    <script id="template" type="text/html">
+
+    </script>
+    <script>
+
+    </script>
+</body>
+
+</html>
