@@ -1,6 +1,8 @@
 <?php
 
 // 接收要删除的数据 ID
+
+var_dump($_GET['id']);
 if (empty($_GET['id'])) {
   exit('<h1>必须传入指定参数</h1>');
 }
@@ -15,7 +17,7 @@ if (!$conn) {
 }
 
 // 2. 开始查询
-$query = mysqli_query($conn, 'delete from student_money where studentId in (' . $id . ');');
+$query = mysqli_query($conn, "delete from student_money where studentId='{$id}';");
 
 if (!$query) {
   exit('<h1>查询数据失败</h1>');
@@ -27,6 +29,6 @@ if ($affected_rows <= 0) {
   exit('<h1>删除失败</h1>');
 }
 
-header('Location: text.php');
+header('Location: test.php');
 
 ?>
