@@ -15,6 +15,13 @@
     <script src="jquery-1.12.4.min.js"></script>
     <script>
         $(function () {
+
+            /**
+             * 
+             * 利用接口实现ajax的请求
+             * 
+            */
+
             $('input').first().click(function () {
                 $.ajax({
                     url: 'https://api.asilu.com/query/image/baidu/',
@@ -33,6 +40,7 @@
                     success: function (data) {
                         console.log(data);
                     },
+                    // 
                     dataType: 'jsonp'
                 })
             })

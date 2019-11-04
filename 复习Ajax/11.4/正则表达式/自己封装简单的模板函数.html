@@ -16,13 +16,18 @@
         </ul>
     </script>
     <script>
-        function template(url, data) {
-            var str = document.querySelector('#template').innerHTML;
+        function template(id, data) {
+            var str = document.querySelector('#' + id).innerHTML;
             var reg = /{{(\w)}}/;
             var result = reg.exec(str);
-            console.log(result);
+
+            var result = regexec(str);
+            while (result) {
+                str = str.replace(result[0], data[result[1]]);
+                result = reg.exec(str);
+            }
         }
-        template({ name: '吴世勋', love: '爱那心怡' });
+
     </script>
 </body>
 

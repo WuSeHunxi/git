@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+</head>
+<body>
+  <h2>JSONP接口演示</h2>
+  <input type="button" value='妹子图'>
+  <input type="button" value='手机归属地'>
+</body>
+</html>
+<script  src="./jquery-1.12.4.min.js"></script>
+<script>
+  $(function(){
+    // 按钮1绑定点击事件
+    $('input').first().click(function(){
+      $.ajax({
+        url:'https://api.asilu.com/query/image/baidu/',
+        success:function(data){
+          console.log(data)
+        },
+        dataType:'jsonp'
+      })
+    })
+      // 按钮2绑定点击事件
+    $('input').eq(1).click(function(){
+      $.ajax({
+        url:'https://api.asilu.com/phone/',
+        data:{
+          phone:'15180120422'
+        },
+        success:function(data){
+          console.log(data)
+        },
+        dataType:'jsonp'
+      })
+    })
+  })
+</script>
