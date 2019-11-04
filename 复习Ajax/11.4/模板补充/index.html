@@ -14,6 +14,7 @@
 <!-- 导入模板引擎 -->
 <script src="./js/template-web.js"></script>
 <!-- 逻辑语句 条件 -->
+<!-- 可以在模板中写类似js的语句 在{{}}里面写即可 -->
 <script id='ifTemplate' type="text/html">
   <ul>
     {{if male=='女'}}
@@ -38,7 +39,7 @@
 <script>
   var person1 = {
     male: '女',
-    name: '郑爽',
+    name: '古力娜扎',
     skill: '身材好'
   };
   var person2 = {
@@ -59,11 +60,11 @@
 </script>
 <script>
   var person = {
-    name:'犬夜叉',
-    skill:'变犬',
-    info:'<a href="https://baike.baidu.com/item/%E7%8A%AC%E5%A4%9C%E5%8F%89/26878?fr=aladdin">犬夜叉</a>'
+    name: '犬夜叉',
+    skill: '变犬',
+    info: '<a href="https://baike.baidu.com/item/%E7%8A%AC%E5%A4%9C%E5%8F%89/26878?fr=aladdin">犬夜叉</a>'
   }
-  document.body.innerHTML = template('norTemplate',person);
+  document.body.innerHTML = template('norTemplate', person);
 
 </script>
 <!-- 循环语句 -->
@@ -71,12 +72,14 @@
   <ul>
     <li>{{name}}</li>
     <li>兄弟们
+      <!-- brother是数组 -->
         {{each brother}}
           <li>{{$value}}</li>
         {{/each}}
     </li>
     <li>家人们
       <ol>
+        <!-- family是数组，但是内部还是对象 -->
         {{each family}}
         <li>{{$value.name}}---{{$value.skill}}</li>
         {{/each}}
@@ -85,23 +88,23 @@
   </ul>
 </script>
 <script>
-   var person = {
-     name:'大娃',
-     brother:[
-       '二娃',
-       '三娃',
-       '水娃',
-       '火娃',
-       '千里眼娃',
-       '瓜娃子'
-     ],
-     family:[
-       {name:'爷爷',skill:'被抓'},
-       {name:'穿山甲',skill:'到底说了什么'},
-       {name:'小蝴蝶',skill:'撩--葫芦娃'}
-     ]
-   }
+  var person = {
+    name: '大娃',
+    brother: [
+      '二娃',
+      '三娃',
+      '水娃',
+      '火娃',
+      '千里眼娃',
+      '瓜娃子'
+    ],
+    family: [
+      { name: '爷爷', skill: '被抓' },
+      { name: '穿山甲', skill: '到底说了什么' },
+      { name: '小蝴蝶', skill: '撩--葫芦娃' }
+    ]
+  }
 
-   console.log(template('eachTemplate',person));
+  console.log(template('eachTemplate', person));
 
 </script>
