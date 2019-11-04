@@ -8,12 +8,12 @@ if (!$conn) {
 }
 
 if($_SERVER['REQUEST_METHOD']==='GET'){
-	$id=$_GET['id'];
+	$id=isset($_GET['id'])?$_GET['id']:'';
 }
 
 
 // 2. 开始查询
-$query = mysqli_query($conn, "{call proc_getname_byid({$_GET['stuId']})};");
+$query = mysqli_query($conn, "{call proc_getstudent_byid({$id})};");
 
 if (!$query) {
   exit('<h1>查询数据失败</h1>');
@@ -36,7 +36,7 @@ if (!$query) {
     <hr />x
 
     <form action="search_byid_do.php" method="get">
-        学生id (整型): <input name="id" value="输入id值">
+        学生id (整型): <input type="text" name="id" id="id" value="请输入id值">
         <input type="submit" value="查询 ">
     </form>
 
@@ -45,7 +45,7 @@ if (!$query) {
     学生的名字是: <label><?php echo $item['stuname']; ?></label> <br />
     学生的性别是: <label><?php echo $item['gender']; ?></label> <br />
     学生的密码是: <label><?php echo $item['password']; ?></label> <br />
-    学生的的ID是: <label><?php echo $item['stuId']; ?></label>
+    学生的的ID是: <label><?php echo $item['id']; ?></label>
     <?php } ?>
 
 </body>

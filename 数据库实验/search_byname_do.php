@@ -1,7 +1,7 @@
 <?php
 
 $start=time();
-$name=$_POST['stuname'];
+$name=isset($_POST['stuname']) ? $_POST['stuname'] :'';
 // var_dump($_POST);
 $conn = mysqli_connect('localhost', 'root', 'root', 'testsql');
 
@@ -28,19 +28,26 @@ $time=$end-$start;
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <style>
+    body {
+        background-image: url('img/bg.jpeg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    </style>
 </head>
 
 <body>
     <h1>根据名称(索引列) 进行查询</h1>
     <hr />
 
-    <form action="search_byname_do.php" method="post">
+    <form method="post" action="search_byname_do.php">
         学生账号(字符串): <input type="text" name="stuname" id="stuname">
         <input type="submit" value="查询 ">
     </form>
 
     <hr />
-    <?php if(isset($name)){ ?>
+    <?php if(isset($name)&&$name!=''){ ?>
     <?php while($item = mysqli_fetch_assoc($query)){ ?>
     学生的的ID是: <label><?php echo $item['id']; ?></label> <br />
     学生的名字是: <label><?php echo $item['stuname']; ?></label> <br />
