@@ -22,6 +22,27 @@ if (!$query) {
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+    body {
+        background-image: url('img/gif.gif');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    h1 {
+        width: 400px;
+    }
+
+    table {
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        left: 50%;
+        top: 50%;
+        margin-left: -200px;
+        margin-top: -200px;
+    }
+    </style>
 </head>
 
 <body>

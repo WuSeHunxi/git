@@ -6,11 +6,21 @@
     <title> </title>
     <link rel="stylesheet" href="style.css">
     <style>
+    body {
+        background-image: url('img/winner.gif');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    h1 {
+        color: #fff;
+        margin-top: 100px;
+    }
+
     ul {
         width: 400px;
         height: 300px;
-        border: 1px solid #ccc;
-        margin: 10px auto;
+        margin: 30px auto;
     }
 
     ul li {
@@ -21,7 +31,7 @@
 
 <body>
 
-    <h1>学生管理系统</h1>
+    <h1>❤学生管理系统❤</h1>
     <hr />
 
     <ul>

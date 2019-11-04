@@ -22,8 +22,19 @@ if (!$query) {
     <title></title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <style>
+    body {
+        background-image: url('img/ktexo.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
     table {
-        margin-left: 520px;
+        margin-left: 500px;
+    }
+
+    td {
+        width: 80px;
+        height: 30px;
     }
     </style>
 </head>

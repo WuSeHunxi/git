@@ -26,6 +26,13 @@ if (!$query) {
     <title></title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <style>
+    body {
+        background-image: url('img/exo.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: #fff;
+    }
+
     table {
         margin-left: 200px;
     }
