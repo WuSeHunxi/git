@@ -11,16 +11,17 @@
 <body>
     <script src="js/template-web.js"></script>
     <script type="text/html" id="template">
+        {{if(male=='女')}}
         <ul>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>{{name}}</li>
+            <li>{{age}}</li>
         </ul>
+        {{else if male=='男'}}
         <ul>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>{{name}}</li>
+            <li>{{age}}</li>
         </ul>
+        {{/if}}
     </script>
     <script>
         var man = {
@@ -33,6 +34,10 @@
             name: '那心怡',
             age: 22
         };
+        var result = template('template', man);
+        var result2 = template('template', woman);
+        console.log(result);
+        console.log(result2);
     </script>
 </body>
 
