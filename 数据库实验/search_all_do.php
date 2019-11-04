@@ -8,7 +8,7 @@ if (!$conn) {
 }
 
 // 2. 开始查询
-$query = mysqli_query($conn, 'select a.id,a.stuname,a.gender , b.schoolName,b.address ,c.levelName,c.note from student a left join school b  on a.schoolId=b.id  left join level_info c on b.levelId=c.i;');
+$query = mysqli_query($conn, 'select student.id,student.stuname,student.gender , school.schoolName,school.address ,level_info.levelName,level_info.note from student  left join school   on student.schoolId=school.id  left join level_info  on school.levelId=level_info.id;');
 
 
 if (!$query) {
@@ -24,7 +24,7 @@ if (!$query) {
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
@@ -45,10 +45,10 @@ if (!$query) {
         <?php while($item=mysqli_fetch_assoc($query)){ ?>
         <tr>
             <td><?php echo $item['id']; ?></td>
-            <td><?php echo $item['stuName']; ?></td>
+            <td><?php echo $item['stuname']; ?></td>
             <td><?php echo $item['gender']; ?></td>
             <td><?php echo $item['schoolName']; ?></td>
-            <td><?php echo $item['adress']; ?></td>
+            <td><?php echo $item['address']; ?></td>
             <td><?php echo $item['levelName']; ?></td>
             <td><?php echo $item['note']; ?></td>
         </tr>

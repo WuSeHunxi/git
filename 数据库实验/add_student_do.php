@@ -1,20 +1,22 @@
 <?php
 
 
-$name=$_POST['name'];
+$stuname=$_POST['stuname'];
+$password=$_POST['password'];
 $gender=$_POST['gender'];
-$id=$_POST['id'];
-$school=$_POST['school'];
-$adress=$_POST['adress'];
-$level=$_POST['level'];
-$note=$_POST['note'];
+$schoolId=$_POST['schoolId'];
+var_dump($_POST);
 
 $conn=mysqli_connect('localhost', 'root', 'root', 'testsql');
+
 if(!$conn){
     exit("<h1>数据库连接失败</h1>");
 }
 
-$query=mysqli_query($conn,'insert into user values('{$id}','{$name}','{$gender}','{$school}','{$adress}','{$level}','{$note}')');
+$s=mysqli_query($conn,'select student_Id,gradeName,addTime from student_grade;');
+$sql=mysqli_query($conn,'select student.id,student.stuname,student.gender , school.schoolName,school.address ,level_info.levelName,level_info.note from student  left join school   on student.schoolId=school.id  left join level_info  on school.levelId=level_info.id;');
+$query=mysqli_query($conn,"insert into student(stuName, password,gender,schoolId) values ('{$stuname}','{$password}','{$gender}','{$schoolId}');");
+
 if(!$query){
     exit("<h1>数据库查询失败</h1>");
 }
@@ -24,7 +26,7 @@ if(!$query){
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head>c
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -43,15 +45,18 @@ if(!$query){
             <th>学校等级(来自level_info表)</th>
             <th>等级备注(来自level_info表)</th>
         </tr>
+        <?php while($item = mysqli_fetch_array($sql)){ ?>
         <tr>
+
             <td><?php echo $item['id']; ?></td>
-            <td><?php echo $item['name']; ?></td>
+            <td><?php echo $item['stuname']; ?></td>
             <td><?php echo $item['gender']; ?></td>
-            <td><?php echo $item['school']; ?></td>
-            <td><?php echo $item['adress']; ?></td>
-            <td><?php echo $item['level']; ?></td>
+            <td><?php echo $item['schoolName']; ?></td>
+            <td><?php echo $item['address']; ?></td>
+            <td><?php echo $item['levelName']; ?></td>
             <td><?php echo $item['note']; ?></td>
         </tr>
+        <?php }?>
     </table>
     <h1>学生班级信息</h1>
     <hr />
@@ -61,13 +66,13 @@ if(!$query){
             <th>年级</th>
             <th>添加时间</th>
         </tr>
-
+        <?php while($item = mysqli_fetch_array($s)){ ?>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><?php echo $item['student_Id']; ?></td>
+            <td><?php echo $item['gradeName']; ?></td>
+            <td><?php echo $item['addTime']; ?></td>
         </tr>
-
+        <?php }?>
     </table>
 </body>
 
