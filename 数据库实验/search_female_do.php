@@ -21,6 +21,11 @@ if (!$query) {
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+    table {
+        margin-left: 520px;
+    }
+    </style>
 </head>
 
 <body>

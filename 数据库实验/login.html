@@ -7,13 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style type="text/css">
+        body {
+            background-color: #ccc;
+            opacity: 0.8;
+        }
+
         html {
             font-size: 12px;
         }
 
         fieldset {
             width: 520px;
-            margin: 0 auto;
+            margin: 200px auto;
         }
 
         legend {
@@ -42,6 +47,7 @@
 </head>
 
 <body>
+    <h1>您好！请先登录</h1>
     <fieldset>
         <legend>用户注册</legend>
         <form name="RegForm" method="post" action="reg.php" onSubmit="return InputCheck(this)">

@@ -4,10 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <title> </title>
-
+    <link rel="stylesheet" href="style.css">
     <style>
+    ul {
+        width: 400px;
+        height: 300px;
+        border: 1px solid #ccc;
+        margin: 10px auto;
+    }
+
     ul li {
-        margin: 10px;
+        margin-bottom: 10px;
     }
     </style>
 </head>

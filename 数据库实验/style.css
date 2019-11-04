@@ -1,0 +1,40 @@
+h1 {
+    width: 300px;
+    height: 30px;
+    margin: 20px auto;
+}
+
+body {
+    background-color: yellow;
+    opacity: 0.7;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bolder;
+    color: blue;
+    transition: 0.3s;
+}
+
+a:hover {
+    font-size: 20px;
+    color: #000;
+}
+
+li {
+    list-style: none;
+}
+
+tr {
+    text-align: center;
+}
+
+td {
+    text-align: center;
+    line-height: 30px;
+    width: 50px;
+    height: 30px;
+    border: 1px solid #ccc;
+}
