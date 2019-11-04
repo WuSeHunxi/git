@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script id="template" type="text/html">
+        <ul>
+            <li>{{name}}</li>
+            <li>{{age}}</li>
+        </ul>
+    </script>
+    <script>
+        var str = document.querySelector('#template').innerHTML;
+        var data = {
+            name: '吴世勋',
+            age: 25
+        };
+    </script>
+</body>
+
+</html>
