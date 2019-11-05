@@ -180,9 +180,11 @@
 			$.ajax({
 				url: "_api/smzdm_getSome.php",
 				data: {
+					// 生成1-6的随机数 有几条
 					num: Math.floor(6 * Math.random()) + 1
 				},
 				success: function (data) {
+					// 数据是后台返回来的，不知道后台如何处理这些数据
 					console.log(data);
 					console.log(template('template', data));
 					$('.items').append(template('template', data));
