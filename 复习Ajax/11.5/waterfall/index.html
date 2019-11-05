@@ -24,7 +24,21 @@
 
     </script>
     <script>
+        $(function () {
+            $('p').click(function () {
+                $(this).html('.');
+                var $this = $(this);
+                var time = null;
+                time = setInterval(function () {
+                    var str = $this.html();
+                    if (str.length > 5) {
+                        str = '';
+                    }
+                    str += '.';
 
+                }, 100);
+            });
+        })
     </script>
 </body>
 
