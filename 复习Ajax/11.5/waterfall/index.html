@@ -9,12 +9,25 @@
 </head>
 
 <body>
+    <p>正在加载</p>
+    <script src="js/jquery-1.12.4.min.js"></script>
     <script id='template' type="text/html">
 
 
     </script>
     <script>
-
+        var time = null;
+        $('p').click(function () {
+            $(this).html('.');
+            $this = $(this);
+            time = setInterval(function () {
+                $this.html() += '.';
+                if ($this.length > 5) {
+                    $this.html() = '';
+                }
+                $this
+            }, 200);
+        })
     </script>
 </body>
 
