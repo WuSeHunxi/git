@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        li {
+            list-style: none;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="template-web.js"></script>
+    <script id="template" type="text/html">
+        {{if sex=='男'}}
+        <ul>
+            <li>{{name}}</li>
+            <li>{{love}}</li>
+        </ul>
+        {{ else if sex=='女'}}
+        <ul>
+            <li>{{name}}</li>
+        </ul>
+        {{/if}}
+    </script>
+    <script>
+        var data1 = {
+            name: '吴世勋',
+            love: '爱❤',
+            sex: '男'
+        };
+        var data2 = {
+            name: '那心怡',
+            sex: '女'
+        };
+
+        var result = template('template', data1);
+        var result2 = template('template', data2);
+        document.body.innerHTML += result;
+        document.body.innerHTML += result2;
+
+    </script>
+</body>
+
+</html>
