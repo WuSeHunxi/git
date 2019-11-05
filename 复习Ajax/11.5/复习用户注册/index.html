@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="./css/init.css" />
+    <link rel="stylesheet" type="text/css" href="./css/register.css" />
     <title>Document</title>
     <style>
         .sub.disabled {
@@ -56,7 +58,7 @@
             </div>
         </div>
     </div>
-    <div class=" left">
+    <div class=" quickreg">
         <h2>快速注册</h2>
         <div class="apps">
             <a class="qq" href="javascript:void(0)"></a>
@@ -65,11 +67,52 @@
             <a class="tent" href="javascript:void(0)"></a>
             <a class="douban" href="javascript:void(0)"></a>
         </div>
-        <div class="nowlog"><a href="./login.html"></a></div>
+        <div class="nowlog"><a href="./login.html">已有账户，现在去登录</a></div>
     </div>
+    <div id="footer">
+        <div class="copy">
+            <p>网站开发测试中...</p>
+            <p>版权所有 爱旅行 www.ailvxing.cc</p>
+        </div>
+    </div>
+    <div class="cover"></div>
+
     <script src="js/jquery-1.12.4.min.js"></script>
     <script src="js/ajax.js"></script>
+    <script>
+        $(function () {
+            $('.inputName').blur(function () {
+                $('.cover').show();
+                ajax({
+                    url: '',
+                    type: 'post',
+                    data: {},
+                    success: function (data) {
+                        console.log(data);
+                        $('.cover').hide();
+                        $('.sub').removeClass('disabled');
+                    }
+                })
+            });
 
+            $('.sub').click(function () {
+                if () {
+                    $('.sub').addClass('disabled');
+                    return;
+                }
+                $('.cover').show();
+                ajax({
+                    url: '',
+                    type: '',
+                    data: {},
+                    success: function () {
+
+                    }
+                });
+
+            });
+        })
+    </script>
 </body>
 
 </html>
