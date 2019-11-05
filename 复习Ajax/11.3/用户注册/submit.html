@@ -79,7 +79,7 @@
     </div>
     <div class="cover"></div>
     <script src="js/ajax.js"></script>
-    <!-- <script src="./js/jquery-1.12.4.min.js"></script> -->
+    <script src="./js/jquery-1.12.4.min.js"></script>
     <script>
         /**
          *
@@ -102,22 +102,43 @@
          *
          *
         */
-        document.querySelector(".inputName").onblur = function () {
+        $('.inputName').blur(function () {
             // console.log("pp");
-            // $('.cover').show();
+            $('.cover').show();
             // console.log(document.querySelector('.cover'));
-            document.querySelector(".cover").style.dispaly = 'block';
+            // document.querySelector(".cover").style.dispaly = 'block';
             ajax({
                 type: "get",
                 url: '_api/01.check.php',
                 data: 'name=' + document.querySelector('.inputName').value,
                 success: function (data) {
 
-                    document.querySelector('.cover').style.dispaly = 'none';
+                    $('.cover').hide();
                     // document.querySelector(".sub").removeAttribute('disabled');
+                    $('.tips').html(data.message).fadeIn(1000).delay(2000).fadeOut();
+                    if (data.status == 'can') {
+                        $('.sub').removeClass('disabled');
+                    }
                 }
             })
-        }
+        })
+        $('.sub').click(function () {
+            if ($(this).hasClass('disabled') == true) {
+                alert('哥们，别点了');
+                return;
+            }
+            $('.cover').show();
+            ajax({
+                url: '_api/register.php',
+                type: 'post',
+                data: 'name=' + $('.inputName').val(),
+                success: function (data) {
+                    $('.cover').hide();
+                    $('.tips').html(data).fadeIn(1000).delay(2000).fadeOut(1000);
+                    $('.sub').addClass('disabled');
+                }
+            })
+        })
 
     </script>
 </body>
