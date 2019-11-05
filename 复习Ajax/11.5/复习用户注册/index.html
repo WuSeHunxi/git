@@ -46,7 +46,7 @@
                     <table>
                         <tr>
                             <td>用户名：</td>
-                            <td><input type="text" name="name" id="name"></td>
+                            <td><input type="text" name="name" class="inputName"></td>
                             <td><span class="tips"></span></td>
                         </tr>
                         <tr>
@@ -84,9 +84,9 @@
             $('.inputName').blur(function () {
                 $('.cover').show();
                 ajax({
-                    url: '',
-                    type: 'post',
-                    data: {},
+                    type: 'get',
+                    url: '_api/01.check.php',
+                    data: 'name=' + $('.inputName').val(),
                     success: function (data) {
                         console.log(data);
                         $('.cover').hide();
