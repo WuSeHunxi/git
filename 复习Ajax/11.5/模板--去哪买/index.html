@@ -152,24 +152,27 @@
 <script src="./js/template-web.js"></script>
 <!-- 定义模板 挖坑 -->
 <script id='template' type="text/html">
+	<!-- 循环遍历后台得到的数据 -->
 	{{each items}}
-		<div class="item clearfix">
-			<a href="#" class='title'>
-					<img src="{{$value.article_pic_url}}" alt="" />
-					<span>{{$value.article_publishtime}}</span>
-				</a>
-			<div class="content">
-				<a href="#">{{$value.article_title}}</a>
-				<p>{{@$value.article_content}}</p>
-			</div>
-			<div class="info clearfix">
-				<a href="#" class='f_l'><img src="imgs/icon01.jpg" alt="" />烤红薯</a>
-				<a href="#" class='f_r'>信息:0</a>
-				<a href="#" class='f_r'>❤:0</a>
-				<a href="#" class='f_r'>赞:0</a>
-			</div>
-		</div>
-	{{/each}}
+<div class="item clearfix">
+	<a href="#" class='title'>
+		<img src="{{$value.article_pic_url}}" alt="" />
+		<!-- 取到循环中的每一项 -->
+		<span>{{$value.article_publishtime}}</span>
+	</a>
+	<div class="content">
+		<a href="#">{{$value.article_title}}</a>
+		<!-- 原文输出加上@ -->
+		<p>{{@$value.article_content}}</p>
+	</div>
+	<div class="info clearfix">
+		<a href="#" class='f_l'><img src="imgs/icon01.jpg" alt="" />烤红薯</a>
+		<a href="#" class='f_r'>信息:0</a>
+		<a href="#" class='f_r'>❤:0</a>
+		<a href="#" class='f_r'>赞:0</a>
+	</div>
+</div>
+{{/each}}
 </script>
 <script>
 	$(function () {
@@ -181,8 +184,8 @@
 				},
 				success: function (data) {
 					console.log(data);
-					console.log(template('template',data));
-					$('.items').append(template('template',data));
+					console.log(template('template', data));
+					$('.items').append(template('template', data));
 				}
 			})
 		})
