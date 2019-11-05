@@ -90,23 +90,27 @@
                     success: function (data) {
                         console.log(data);
                         $('.cover').hide();
-                        $('.sub').removeClass('disabled');
+                        $('.tips').html(data.message).fadeIn(1000).delay().fadeOut(2000);
+                        if (data.status == 'can') {
+                            $('.sub').removeClass('disabled');
+                        }
                     }
                 })
             });
 
             $('.sub').click(function () {
-                if () {
-                    $('.sub').addClass('disabled');
+                if ($(this).hasClass('disabled') == true) {
+                    alert('哥们,别点了');
                     return;
                 }
                 $('.cover').show();
                 ajax({
-                    url: '',
-                    type: '',
-                    data: {},
+                    url: '_api/register.php',
+                    type: 'post',
+                    data: 'name=' + $('.inputName').val(),
                     success: function () {
-
+                        $('.tips').html(data).fadeIn(1000).delay(2000), fadeOut(1000);
+                        $('.cover').addClass('disabled');
                     }
                 });
 
