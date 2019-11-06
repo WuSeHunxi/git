@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+</head>
+<body>
+  <h2>jQuery格式化表单数据</h2>
+  <form action="">
+    <input name='name' type="text" placeholder="用户名">
+    <input name='tel' type="text" placeholder="电话">
+    <input name='email' type="text" placeholder="邮箱">
+    <input name='address' type="text" placeholder="地址">
+  </form>
+</body>
+</html>
+<script  src="./jquery-1.12.4.js"></script>
+<script>
+  $(function(){
+    $('h2').click(function(){
+      var data = $('form').serialize();
+      console.log(data);2
+    })
+  })
+</script>
