@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="utf-8">
+  <!-- ie 按照 最新的 方式渲染 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- 视口 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 101 Template</title>
+
+  <!-- Bootstrap -->
+  <!--<link href="lib/css/bootstrap.min.css" rel="stylesheet">-->
+  <!-- bootstrap的 样式 -->
+  <link href="lib/css/bootstrap.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!-- 兼容 ie9
+    html5shiv html5的新语义标签
+    respond 低版本的ie中 不支持 媒体查询 @media
+   -->
+  <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <style>
+    h1 {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 20px;
+    }
+
+    .zombie-panel table th {
+      text-align: center;
+      background-color: #eee;
+    }
+
+    .zombie-panel table td {
+      text-align: center;
+    }
+    /* 清除 底部的样式 */
+
+    .zombie-panel .pagination {
+      margin: 0;
+    }
+
+    .zombie-panel {
+      position: relative;
+    }
+
+    #editModal .modal-dialog {
+      position: relative;
+    }
+
+    #coverModal {
+      background: url('img/loading.gif')no-repeat center;
+    }
+
+    a.disabled {
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 最外层的容器 -->
+  <div class="container">
+    <!-- 顶部标题 -->
+    <h1>人员管理_自己的<small>--版本9.0</small></h1>
+    <!-- 面板 -->
+    <div class="zombie-panel panel panel-default">
+      <!-- 顶部 -->
+      <div class="panel-heading">
+        <h3 class="panel-title">信息列表</h3>
+      </div>
+      <!-- 内容区域 -->
+      <div class="panel-body">
+        <!-- 表格 -->
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th width='10%'>序号</th>
+              <th width='15%'>姓名</th>
+              <th width='15%'>年龄</th>
+              <th width='20%'>学校</th>
+              <th width='20%'>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!--<tr>
+              <td>1</td>
+              <td>水桶僵尸</td>
+              <td>18</td>
+              <td>zombie1</td>
+              <td>僵尸大学</td>
+              <td>
+                <button class='btn btn-default btn-xs glyphicon glyphicon-remove'></button>
+                <button class='btn btn-default btn-xs glyphicon glyphicon-edit'></button>
+              </td>
+            </tr>-->
+          </tbody>
+        </table>
+      </div>
+      <!-- 底部区域 -->
+      <div class="panel-footer">
+        <nav class='clearfix' aria-label="Page navigation">
+          <!-- 分页器 -->
+          <ul class="pagination pull-right">
+            <li>
+              <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">/</a></li>
+            <li><a href="#">1</a></li>
+            <li>
+              <a href="javascript:void(0)" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+          <!-- 新增按钮 -->
+          <button data-toggle="modal" data-target="#addModal" class='btn btn-danger'>新增</button>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- 新增模态框 #addModal -->
+  <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">新增窗口</h4>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="addname">姓名</label>
+              <input type="text" name='name' class="form-control" id="addname" placeholder="请输入真实姓名">
+            </div>
+            <div class="form-group">
+              <label for="addpassword">密码</label>
+              <input type="password" name='password' class="form-control" id="addpassword" placeholder="请输入密码">
+            </div>
+            <div class="form-group">
+              <label for="addschool">学校</label>
+              <input type="text" class="form-control" name='school' id="addschool" placeholder="请输入学校">
+            </div>
+            <div class="form-group">
+              <label for="addage">年龄</label>
+              <input type="text" name='age' class="form-control" id="addage" placeholder="请输入年龄">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">保&nbsp;存</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 修改模态框模态框 #addModal -->
+  <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">修改窗口</h4>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="editname">姓名</label>
+              <input type="text" name='name' class="form-control" id="editname" placeholder="请输入真实姓名">
+            </div>
+            <div class="form-group">
+              <label for="editpassword">密码</label>
+              <input type="password" name='password' class="form-control" id="editpassword" placeholder="请输入密码">
+            </div>
+            <div class="form-group">
+              <label for="editschool">学校</label>
+              <input type="text" class="form-control" name='school' id="editschool" placeholder="请输入学校">
+            </div>
+            <div class="form-group">
+              <label for="editage">年龄</label>
+              <input type="text" name='age' class="form-control" id="editage" placeholder="请输入年龄">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">保存</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 删除模态框 #removeModal -->
+  <div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">删除窗口</h4>
+        </div>
+        <div class="modal-body">
+          <h2>你真的想清楚了，删了可就没有了哦😁</h2>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">我想好了</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 遮挡用 模态框  -->
+  <div class="modal fade" id="coverModal" tabindex="-1" role="dialog" data-backdrop='static' aria-labelledby="myModalLabel">
+  </div>
+</body>
+
+</html>
+<!--  jQ  -->
+<script src="./lib/js/jquery-1.12.4.js"></script>
+<!-- bs的js -->
+<script src="./lib/js/bootstrap.min.js"></script>
+<!-- 模板引擎 -->
+<script src="./lib/js/template-web.js"></script>
+<!-- 定义模板 -->
+<script id='template' type="text/html">
+  {{each list}}
+  <tr>
+    <td>{{$value.id}}</td>
+    <td>{{$value.name}}</td>
+    <td>{{$value.age}}</td>
+    <td>{{$value.school}}</td>
+    <td>
+      <button data-toggle="modal" data-target="#removeModal" class="btn btn-default btn-xs glyphicon glyphicon-remove"></button>
+      <button class="btn btn-default btn-xs glyphicon glyphicon-edit"></button>
+    </td>
+  </tr>
+  {{/each}}
+</script>
+<!-- 
+    导入的文件
+      jQ
+      bootstrap的js
+      模板引擎
+
+    需求们
+      需求1 页面打开获取数据 第一页
+          页面dom元素创建完毕 入口函数  jQuery
+            弹出遮罩层 modal 
+            无刷新获取数据  ajax
+              数据请求回来之后  回调函数
+                关闭遮罩层 modal
+                渲染到页面上 art-template - 引入 - 挖坑 - 起名字 - 填坑 - 添加
+                计算总页数 根据返回的数据 自己计算
+      需求2 点击下一页 获取下一页的数据
+            准备变量 记录页码
+            点击的时候 翻页
+              判断是否有disabled 类名 有 
+                提示用户 
+                return
+              页码++
+              弹出遮罩层
+              无刷新获取数据
+                数据请求回来之后
+                  关闭遮罩层
+                  渲染到页面上
+                  修改当前页
+                  如果是最后一页 
+                    禁用下一页点击
+      需求3 点击上一页 获取上一页的数据
+            准备变量 记录页码
+            点击的时候 翻页
+              判断是否有disabled 类名 有 
+                提示用户 
+                return
+              页码--
+              弹出遮罩层
+              无刷新获取数据
+                数据请求回来之后
+                  关闭遮罩层
+                  渲染到页面上
+                  修改当前页
+                  如果是第一页 
+                    禁用上一页点击
+      需求4 点击删除按钮 删除这一行
+          变量  删除id
+          绑定给 tbody 点击事件 让内部的 删除按钮触发
+            获取点击的x 对应的 序号即可
+            把获取到的id 保存到 定义的变量中
+          绑定给删除弹框的 确认按钮
+            无刷新删除数据 跟上面的点击事件共享一个 id
+              使用变量 删除id 调用 删除接口即可
+                接口调用成功 回调函数触发之后 
+      需求5 点击新增弹框的 新增按钮 新增数据
+            绑定点击事件
+              无刷新 新增数据 ajax
+                调用 jQuery的 格式化表单的代码
+                数据新增成功之后
+                  再次获取 当前这一页的数据
+                    getData();
+      需求6 点击页面中的 编辑框 获取当前这一条数据
+           绑定点击事件 tbody 指定 编辑按钮触发
+           弹出遮罩层
+           获取当前这一行的id
+              无刷新 获取这一行的数据 ajax
+                  请求响应回来之后
+                    修改修改框框的内容
+                    弹出修改框框
+      需求7 点击编辑框的保存按钮 提交数据
+            绑定点击事件
+              无刷新提交数据
+                数据提交成功之后
+                  重新获取当前这一页的数据
+                    getData();
+
+
+ -->
+<script>
+  // 定义变量 记录页码
+  var my_pageNum = 1;
+
+  // 获取数据的函数
+  function getData() {
+    //  开弹框
+    $('#coverModal').modal('show');
+    // 无刷新获取数据
+    $.ajax({
+      url: 'http://127.0.0.1/2017-8-18/00.API/api_cors/findUsers.php',
+      data: {
+        pageNum: my_pageNum,
+        pageSize: 5
+      },
+      success: function (data) {
+        console.log(data);
+        // 关弹框
+        $('#coverModal').modal('hide');
+        // 渲染页面
+        $('tbody').html(template('template', data));
+        // 计算总页数
+        var totalPage = Math.ceil(data.total / data.pageSize)
+        // 设置总页数
+        $('.pagination li:eq(3) a').html(totalPage);
+        // 设置当前页
+        $('.pagination li:eq(1) a').html(data.pageNum);
+        // 如果是最后一页
+        if (data.pageNum == totalPage) {
+          // 添加禁用的类
+          $('a[aria-label="Next"]').addClass('disabled');
+        } else {
+          // 如果不是最后一页
+          $('a[aria-label="Next"]').removeClass('disabled');
+        } // 如果是第一页
+        if (data.pageNum == 1) {
+          // 添加禁用的类
+          $('a[aria-label="Previous"]').addClass('disabled');
+        } else {
+          // 如果不是第一页
+          $('a[aria-label="Previous"]').removeClass('disabled');
+
+        }
+      }
+    })
+  }
+
+  // 需求1
+  $(function () {
+    // 默认获取一次数据
+    getData();
+
+    // 需求2 点击下一页
+    $('a[aria-label="Next"]').click(function () {
+      if ($(this).hasClass('disabled') == true) {
+        alert('哥们,别点了,后面木有了哦---O(∩_∩)O哈哈~');
+        return;
+      }
+      // 页码++
+      my_pageNum++;
+      // 获取数据
+      getData();
+    })
+
+    // 需求3 点击上一页
+    $('a[aria-label="Previous"]').click(function () {
+      // 判断是否有类名
+      if ($(this).hasClass('disabled') == true) {
+        alert('哥们,别点了,前面没有了哦 ^_^');
+        return;
+      }
+      // 页码--
+      my_pageNum--;
+      // 获取数据
+      getData();
+    })
+
+    // 需求4-1 为tbody绑定点击事件 指定 删除按钮触发
+    var removeId;
+    $('tbody').on('click', '.glyphicon-remove', function () {
+      // 老爸 的 兄弟们 的 第一个 的内容
+      removeId = $(this).parent().siblings().first().html();
+      // console.log(removeId);
+    })
+
+    // 需求4-2 点击确认删除按钮
+    $('#removeModal .btn-danger').click(function () {
+      console.log('删除' + removeId);
+      //  开弹框
+      $('#coverModal').modal('show');
+      // 无刷新删除数据
+      $.ajax({
+        url: "http://127.0.0.1/2017-8-18/00.API/api_cors/removeUser.php",
+        type: 'post',
+        data: {
+          id: removeId
+        },
+        success: function (data) {
+          // 重新获取当前页数据
+          getData();
+        }
+      })
+    })
+
+    // 需求5 点击新增数据
+    $('#addModal .btn-primary').click(function () {
+      //  开弹框
+      $('#coverModal').modal('show');
+      console.log($("#addModal form").serialize());
+      $.ajax({
+        url: 'http://127.0.0.1/2017-8-18/00.API/api_cors/saveUser.php',
+        type: "post",
+        //   $("#addModal form").serialize() 格式化之后的结果是
+        // key=value&key2=value2
+        data: $("#addModal form").serialize(),
+        success: function (data) {
+          console.log(data);
+          // 获取数据
+          getData();
+        }
+      })
+    })
+
+    // 需求6
+    // 编辑id
+    var editId;
+    $('tbody').on('click', '.glyphicon-edit', function () {
+      //  开弹框
+      $('#coverModal').modal('show');
+      // 自己的 父亲的 兄弟 第一个 内容
+      editId = $(this).parent().siblings().first().html();
+      console.log(editId);
+      // 获取对应的数据
+      $.ajax({
+        url: 'http://127.0.0.1/2017-8-18/00.API/api_cors/getOneUser.php',
+        data: {
+          id: editId
+        },
+        success: function (data) {
+          console.log(data);
+          //  关弹框
+          $('#coverModal').modal('hide');
+          // 修改弹框中的 内容
+          $('#editModal form input[name=name]').val(data.list[0].name);
+          $('#editModal form input[name=age]').val(data.list[0].age);
+          $('#editModal form input[name=school]').val(data.list[0].school);
+          $('#editModal form input[name=password]').val(data.list[0].password);
+          // 弹框
+          $("#editModal").modal('show');
+        }
+      })
+    })
+
+    // 需求7 保存数据
+    $('#editModal .btn-primary').click(function () {
+      //  开弹框
+      $('#coverModal').modal('show');
+      // 格式化表单
+      var sendData = $('#editModal form').serialize();
+      // key1=value1&key2=value2&id=editId;
+      sendData += '&id=';
+      sendData += editId;
+      // console.log(sendData);
+      $.ajax({
+        url: 'http://127.0.0.1/2017-8-18/00.API/api_cors/modifyUser.php',
+        data: sendData,
+        type: 'post',
+        success: function (data) {
+          console.log(data);
+          getData();
+        }
+      })
+    })
+  })
+</script>
