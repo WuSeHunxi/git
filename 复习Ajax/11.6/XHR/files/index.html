@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <style>
+    form {
+      border: 1px solid #000;
+    }
+    .progress{
+      width: 400px;
+      height: 30px;
+      border: 1px solid gray;
+      margin: 10px 0 ;
+    }
+    .step{
+      height: 100%;
+      width: 0;
+      background-color: yellowgreen;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>XMR2.0</h2>
+  <!-- 技术是在不停的升级,XMLHttpRequest
+      1. 快速格式化表单数据
+      2. ajax上传文件
+      3. 上传进度监控
+  -->
+  <form action="">
+    <input type="text" name="name" placeholder="用户名">
+    <input type="text" name="email" placeholder="邮箱">
+    <input type="text" name="address" placeholder="地址">
+    <input type="file" name="icon">
+  </form>
+  <input type="button" value='ajax发送数据'>
+  <div class="progress">
+    <div class="step"></div>
+  </div>
+</body>
+
+</html>
+<script>
+  // 点击事件
+  document.querySelector('input[type=button]').onclick = function () {
+    // ajax请求
+    var xhr = new XMLHttpRequest();
+    // 快速格式化表单数据 要使用 post
+    xhr.open('post', 'backData.php');
+    // 如果使用自动化表单 不需要设置请求头
+    // 回调函数
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        console.log(xhr.responseText);
+      }
+    }
+    // 格式化表单
+    // 兼容性问题 使用频率 不是很高了解的知识点
+    var sendData = new FormData(document.querySelector('form'));
+
+    // 上传回调函数
+    xhr.upload.onprogress = function (event) {
+      // console.log(event);
+      var percent = event.loaded / event.total * 100 + '%';
+      console.log(percent);
+      document.querySelector('.step').style.width = percent;
+    }
+
+    xhr.send(sendData);
+  }
+</script>
