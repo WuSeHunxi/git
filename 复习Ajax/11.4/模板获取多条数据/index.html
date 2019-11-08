@@ -121,36 +121,37 @@
 				回调函数
 			4.使用
 	-->
+
+
 <!--  导入模板引擎  -->
 <script src='./js/template-web.js'></script>
 <!-- 定义模板  -->
 <script type='text/html' id='template'>
-	
 	<div class="item">
-				<a href="#" class="cover"><img src="{{path}}" alt=""></a>
-				<div class="bottom">
-					<a href="#">{{name}}</a>
-					<div class="rightBox">
-						<span class="icon-heart">{{star}}</span>
-						<span class="icon-comment">{{message}}</span>
-					</div>
+		<a href="#" class="cover"><img src="{{path}}" alt=""></a>
+		<div class="bottom">
+			<a href="#">{{name}}</a>
+			<div class="rightBox">
+				<span class="icon-heart">{{star}}</span>
+				<span class="icon-comment">{{message}}</span>
 			</div>
+		</div>
 	</div>
 </script>
 
 <script>
 	// 获取数据
-	$(function(){
-		$('#getMore').click(function(){
+	$(function () {
+		$('#getMore').click(function () {
 			$.ajax({
-				url:'_api/luowang.php',
-				data:{
-					index:3
+				url: '_api/luowang.php',
+				data: {
+					index: 3
 				},
-				success:function(data){
+				success: function (data) {
 					console.log(data);
 					// 填坑
-				 var result =	template('template',data.item);
+					var result = template('template', data.item);
 					console.log(result);
 					$('.container').append(result);
 				}
@@ -158,22 +159,21 @@
 		})
 
 		// 获取多条
-		$('#getSome').click(function(){
+		$('#getSome').click(function () {
 			$.ajax({
-				url:'_api/luowang_getSome.php',
-				data:{
-					num:Math.floor((16*Math.random()))
+				url: '_api/luowang_getSome.php',
+				data: {
+					num: Math.floor((16 * Math.random()))
 				},
-				success:function(data){
-						console.log(data);
-						// 循环 填坑
-						for(var i =0;i<data.items.length;i++){
-							// 填坑 使用
-							$('.container').append(template('template',data.items[i]));
-						}
+				success: function (data) {
+					console.log(data);
+					// 循环 填坑
+					for (var i = 0; i < data.items.length; i++) {
+						// 填坑 使用
+						$('.container').append(template('template', data.items[i]));
+					}
 				}
 			})
 		})
 	})
 </script>
-
