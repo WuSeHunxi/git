@@ -22,6 +22,14 @@
             height: 200px;
             background-color: #0ff;
         }
+
+        /*伪元素：虚拟加一个标签元素*/
+        .parent::after {
+            /* 清除浮动效果  */
+            clear: both;
+            content: '';
+            display: block;
+        }
     </style>
 </head>
 
@@ -32,6 +40,9 @@
     <!-- 没浮动之前，父级元素的高度就是子元素的高度之和,浮动之后,父元素的高度变为0 -->
     <!-- 如何恢复父级的高度？
             给父级直接设置一个高度
+            父级元素:after{
+                clear:both;
+            }
     -->
 
     <div class="parent">
@@ -39,6 +50,7 @@
         <div>b</div>
         <div>c</div>
     </div>
+
     <!-- 当上面的元素浮动时，该元素会被其覆盖 -->
     <div class="other"></div>
 
