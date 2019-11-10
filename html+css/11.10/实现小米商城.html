@@ -7,6 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
         .main {
             width: 1130px;
             margin: 0 auto;
@@ -25,10 +35,30 @@
         }
 
         .center {
+            position: relative;
             height: 588px;
             width: 1519.2px;
             background-image: url('https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e8201bfbb8c9d474a48da76f7d81a5c7.jpg');
             background-position: center center;
+        }
+
+        .center>a {
+            height: 588px;
+            width: 1519.2px;
+            display: block;
+        }
+
+        .center .right {
+            float: right;
+
+        }
+
+        .center .left {
+            float: left;
+        }
+
+        .left_bottom {
+            color: #ff6700;
         }
     </style>
 </head>
@@ -41,43 +71,35 @@
             </div>
         </div>
         <div class="center">
-            <div class="left">
-                <div class="left_top">
-                    <h1><a href="#" class="title">小米9</a></h1>
-                    <ul class="topic">
-                        <li><a href="#">骁龙855 处理器</a></li>
-                        <li><a href="#">|</a></li>
-                        <li><a href="#">索尼4800 万超广角微距AI三射</a></li>
-                        <li><a href="#">|</a></li>
-                        <li><a href="#">小米首款20W无线闪充</a></li>
-                        <li><a href="#">|</a></li>
-                        <li><a href="#">全息幻彩玻璃机身</a></li>
-                    </ul>
-                </div>
-                <div class="left_bottom">
-                    <span>￥</span>
-                    <h2>2999</h2>
-                    <span>起</span>
-                    <button class="sell" value="立即购买"></button>
-                </div>
-            </div>
-            <div class="right">
-                <div class="right_top">
-                    <a href="#">帐号登录</a>
-                    <a href="#">扫码登录</a>
-                    <input type="text" class="user">
-                    <input type="password" class="ps">
-                    <input type="submit" value="登录">
-                    <span>手机短信登录/注册</span>
-                    <div class="right_right">
-                        <ul class="submit">
-                            <li><a href="#">立即注册</a></li>
-                            <li><a href="#">|</a></li>
-                            <li><a href="#">忘记密码</a></li>
-                        </ul>
+            <div class="main">
+                <a href="#">
+                    <div class="left">
+                        <div class="left_bottom">
+                            <span calss="pic">￥</span>
+                            <span class="money">2999</span>
+                            <span calss="world">起</span>
+                            <button class="sell" value="立即购买">立即购买</button>
+                        </div>
                     </div>
+                </a>
+                <div class="right">
+                    <div class="right_top">
+                        <a href="#">帐号登录</a>
+                        <a href="#">扫码登录</a>
+                        <input type="text" class="user">
+                        <input type="password" class="ps">
+                        <input type="submit" value="登录">
+                        <span>手机短信登录/注册</span>
+                        <div class="right_right">
+                            <ul class="submit">
+                                <li><a href="#">立即注册</a></li>
+                                <li><a href="#">|</a></li>
+                                <li><a href="#">忘记密码</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="right_bottom"></div>
                 </div>
-                <div class="right_bottom"></div>
             </div>
         </div>
         <div class="footer"></div>
