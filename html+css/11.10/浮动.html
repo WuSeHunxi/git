@@ -7,13 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        div {
+        .parent div {
             width: 100px;
             height: 100px;
             background-color: yellow;
             border: 1px solid#000;
             /* 第一种水平排列的；方法 */
-            display: inline-block;
+            /* display: inline-block; */
+            float: left;
+        }
+
+        .other {
+            width: 200px;
+            height: 200px;
+            background-color: #0ff;
         }
     </style>
 </head>
@@ -22,11 +29,20 @@
 
 
     <!-- CSS盒模型：内容+padding+margin+border -->
+    <!-- 没浮动之前，父级元素的高度就是子元素的高度之和,浮动之后,父元素的高度变为0 -->
+    <!-- 如何恢复父级的高度？
+            给父级直接设置一个高度
+    -->
+
+    <div class="parent">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+    </div>
+    <!-- 当上面的元素浮动时，该元素会被其覆盖 -->
+    <div class="other"></div>
 
 
-    <div>a</div>
-    <div>b</div>
-    <div>c</div>
 </body>
 
 </html>
