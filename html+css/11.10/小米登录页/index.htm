@@ -10,6 +10,7 @@
         * {
             margin: 0;
             padding: 0;
+            text-decoration: none;
         }
 
         .header {
@@ -59,6 +60,20 @@
             right: 0;
             bottom: 0;
         }
+
+        /*水平居中*/
+        .lf-header {
+            text-align: center;
+        }
+
+        .lf-header a {
+            color: #666;
+            font-size: 24px;
+        }
+
+        .lf-header .active {
+            color: #f56600;
+        }
     </style>
 </head>
 
@@ -73,9 +88,10 @@
         <div class="login-panel">
             <div class="login-form">
                 <div class="lf-header">
-                    <a href="javascript:void(0);"></a>
+                    <a href="javascript:void(0);" class="active">账号登录</a>
+                    <!-- 利用span实现一个竖线 -->
                     <span></span>
-                    <a href="javascript:void(0);"></a>
+                    <a href="javascript:void(0);">扫码登录</a>
                 </div>
                 <div class="lf-content"></div>
                 <div class="lf-footer"></div>
