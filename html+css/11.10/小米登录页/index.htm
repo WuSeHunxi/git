@@ -7,6 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
         .header {
             height: 98px;
         }
@@ -17,15 +22,28 @@
             height: 98px;
             background-color: #f0f;
         }
+
+        .header-img {
+            width: 200px;
+            height: 98px;
+            background: url('https://account.xiaomi.com/static/res/7f6f2f5/account-static/respassport/acc-2014/img/mistore_logo.png');
+        }
     </style>
 </head>
 
 <body>
     <div class="header">
-        <div class="header-panel"></div>
+        <div class="header-panel">
+            <div class="header-img"></div>
+        </div>
     </div>
     <div class="content"></div>
     <div class="footer"></div>
+    <!-- 
+        实现块级元素的水平居中：块级元素的宽度固定
+            margin:0 auto;
+        要想显示背景图片必须得有宽度和高度
+    -->
 </body>
 
 </html>
