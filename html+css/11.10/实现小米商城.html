@@ -58,7 +58,85 @@
         }
 
         .left_bottom {
+            position: absolute;
+            bottom: 150px;
             color: #ff6700;
+        }
+
+        .left_bottom .money {
+            font-size: 26px;
+        }
+
+        .left_bottom .pic {
+            vertical-align: top;
+        }
+
+        .left_bottom .word {
+            vertical-align: bottom;
+        }
+
+        .left_bottom .sell {
+            display: block;
+            background-color: #ff6700;
+            width: 200px;
+            height: 40px;
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            border: 1px solid #ff6700;
+        }
+
+        .right {
+            width: 410px;
+            height: 499px;
+            background-color: #fff;
+            border: 1px solid #fff;
+            position: absolute;
+            bottom: 0;
+            right: 200px;
+        }
+
+        .three {
+            width: 410px;
+            height: 83px;
+            position: absolute;
+            left: 50%;
+            margin-left: -140px;
+        }
+
+        .right_top .login {
+            color: #ff6700;
+            font-size: 26px;
+        }
+
+        .login_top {
+            color: #ccc;
+            font-size: 26px;
+            margin: 0 20px;
+        }
+
+        .right_center {
+            position: absolute;
+            top: 90px;
+            left: 50%;
+            margin-left: -190px;
+            width: 380px;
+            height: 124px;
+        }
+
+        .right_center input {
+            display: block;
+            width: 346px;
+            height: 50px;
+            outline: none;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .right_center input[type='submit'] {
+            background: #ff6700;
+            border: 1px solid #ff6700;
         }
     </style>
 </head>
@@ -75,27 +153,34 @@
                 <a href="#">
                     <div class="left">
                         <div class="left_bottom">
-                            <span calss="pic">￥</span>
+                            <span class="pic">￥</span>
                             <span class="money">2999</span>
-                            <span calss="world">起</span>
+                            <span calss="word">起</span>
                             <button class="sell" value="立即购买">立即购买</button>
                         </div>
                     </div>
                 </a>
                 <div class="right">
                     <div class="right_top">
-                        <a href="#">帐号登录</a>
-                        <a href="#">扫码登录</a>
-                        <input type="text" class="user">
-                        <input type="password" class="ps">
-                        <input type="submit" value="登录">
-                        <span>手机短信登录/注册</span>
-                        <div class="right_right">
-                            <ul class="submit">
-                                <li><a href="#">立即注册</a></li>
-                                <li><a href="#">|</a></li>
-                                <li><a href="#">忘记密码</a></li>
-                            </ul>
+                        <div class="three">
+                            <a href="#" class="login">帐号登录</a>
+                            <span class="login_top">|</span>
+                            <a href="#" class="login">扫码登录</a>
+                        </div>
+                        <div class="right_center">
+                            <input type="text" class="user">
+                            <input type="password" class="ps">
+                            <input type="submit" value="登录">
+                        </div>
+                        <div class="rigth_bottom">
+                            <span>手机短信登录/注册</span>
+                            <div class="right_right">
+                                <ul class="submit">
+                                    <li><a href="#">立即注册</a></li>
+                                    <li><a href="#">|</a></li>
+                                    <li><a href="#">忘记密码</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="right_bottom"></div>
