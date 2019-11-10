@@ -20,7 +20,7 @@
             text-align: center;
             line-height: 30px;
             cursor: pointer;
-            /* fixed是固定定位 */
+            /* fixed是固定定位--->相对于浏览器进行定位的 */
             position: fixed;
             right: 20px;
             bottom: 0;
@@ -29,6 +29,12 @@
 </head>
 
 <body>
+
+    <!-- 
+        定位的值为absolute时会脱离文档流 
+        定位的值为relative时也脱离了文档流，但是没有释放原有的空间，即它的影子留在了浏览器，并挪动了一定的位置，
+    -->
+
     <div class="box"></div>
     <div class="go-top">top</div>
 </body>
