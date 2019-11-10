@@ -1,22 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        .parent{
-            
+        .parent {
+            width: 200px;
+            height: 200px;
+            background-color: #f0f;
         }
-        .child{
 
+        .child {
+            width: 100px;
+            height: 100px;
+            background-color: #ff0;
+            /*相对于最近的已经定位的祖先元素进行定位 
+            position: absolute;
+            right: 0;
+            top: 0; */
+            /*相对于原来没有定位的位置进行定位*/
+            position: relative;
+            left: 10px;
+            top: 10px;
         }
     </style>
 </head>
+
 <body>
+    <!-- 
+        行级元素不能嵌套块级元素
+        p标签不能嵌套div 
+    -->
+
+    <!-- 
+        定位：position
+        定位的值：relative absolute fixed
+        定位的原则：子随父相 
+    -->
+
+
     <div class="parent">
         <div class="child"></div>
     </div>
 </body>
+
 </html>
