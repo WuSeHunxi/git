@@ -20,13 +20,44 @@
             width: 1130px;
             margin: 0 auto;
             height: 98px;
-            background-color: #f0f;
+            /* background-color: #f0f; */
         }
 
         .header-img {
             width: 200px;
             height: 98px;
-            background: url('https://account.xiaomi.com/static/res/7f6f2f5/account-static/respassport/acc-2014/img/mistore_logo.png');
+            background: url('https://account.xiaomi.com/static/res/7f6f2f5/account-static/respassport/acc-2014/img/mistore_logo.png') no-repeat;
+
+        }
+
+        .content {
+            /*子随父相*/
+            position: relative;
+        }
+
+        .content-bg {
+            height: 588px;
+            background-image: url('https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e8201bfbb8c9d474a48da76f7d81a5c7.jpg');
+            background-position: center center;
+        }
+
+        .login-panel {
+            width: 1130px;
+            /* background-color: blue; */
+            position: absolute;
+            height: 558px;
+            top: 0;
+            left: 50%;
+            margin-left: -565px;
+        }
+
+        .login-form {
+            width: 410px;
+            height: 345px;
+            background-color: #fff;
+            position: absolute;
+            right: 0;
+            bottom: 0;
         }
     </style>
 </head>
@@ -37,12 +68,28 @@
             <div class="header-img"></div>
         </div>
     </div>
-    <div class="content"></div>
+    <div class="content">
+        <div class="content-bg"></div>
+        <div class="login-panel">
+            <div class="login-form">
+                <div class="lf-header">
+                    <a href="javascript:void(0);"></a>
+                    <span></span>
+                    <a href="javascript:void(0);"></a>
+                </div>
+                <div class="lf-content"></div>
+                <div class="lf-footer"></div>
+            </div>
+        </div>
+
+    </div>
     <div class="footer"></div>
     <!-- 
         实现块级元素的水平居中：块级元素的宽度固定
             margin:0 auto;
         要想显示背景图片必须得有宽度和高度
+
+        已经定位的元素不能够使用margin:0 auto;居中
     -->
 </body>
 
