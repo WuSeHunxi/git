@@ -54,7 +54,7 @@
 
         .login-form {
             width: 410px;
-            height: 345px;
+            height: 525px;
             background-color: #fff;
             position: absolute;
             right: 0;
@@ -64,6 +64,7 @@
         /*水平居中*/
         .lf-header {
             text-align: center;
+            padding: 20px 0;
         }
 
         .lf-header a {
@@ -73,6 +74,24 @@
 
         .lf-header .active {
             color: #f56600;
+        }
+
+        .lf-header .line {
+            border: 1px solid #e0e0e0;
+            margin: 0 35px 0 42px;
+        }
+
+        .login-area {
+            width: 348px;
+            margin: 0 auto;
+        }
+
+        .inp-bar input {
+            width: 306px;
+            /*为了不让输入的内容紧贴input的边*/
+            padding: 13px 16px 13px 14px;
+            font-size: 14px;
+            color: #4a4a4a;
         }
     </style>
 </head>
@@ -90,10 +109,19 @@
                 <div class="lf-header">
                     <a href="javascript:void(0);" class="active">账号登录</a>
                     <!-- 利用span实现一个竖线 -->
-                    <span></span>
+                    <span class="line"></span>
                     <a href="javascript:void(0);">扫码登录</a>
                 </div>
-                <div class="lf-content"></div>
+                <div class="lf-content">
+                    <!-- 将中间的输入框部分水平居中 -->
+                    <div class="login-area">
+                        <div class="inp-bar">
+                            <input type="text" placeholder="邮箱/手机号码/小米ID">
+                            <input type="password" placeholder="密码">
+                        </div>
+                        <button>登录</button>
+                    </div>
+                </div>
                 <div class="lf-footer"></div>
             </div>
         </div>
