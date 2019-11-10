@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    a:link -->普通的，未被访问的连接
-    a:visited -->用户已访问的连接
-    a:hover -->鼠标指针位于连接的上方
-    a:active -->链接被点击的时刻
+    <!-- 
+        a:link --- 普通的，未被访问的连接
+        a:visited --- 用户已访问的连接
+        a:hover --- 鼠标指针位于连接的上方
+        a:active --- 链接被点击的时刻 
+    -->
+
+    <!-- 
+        注意点：
+            a:hover必须位于a:link和a:visited之后
+            a:active必须位于a:hover之后
+
+        当a标签点击的时候什么也不做的话，需要在href的属性中添加javascript:void(0) -- 表示啥也不干
+     -->
 </body>
+
 </html>
