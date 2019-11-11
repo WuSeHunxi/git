@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        a {
+            text-decoration: none;
+            /*因为是水平排列的，所以最好使用inline-block*/
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            /*当圆角的角度等于元素宽高的一般的话，该样式就会呈现出圆形15 --> bordre-radius:px*/
+            border-radius: 50%;
+            background: #000;
+        }
+
+        i {
+            background-image:
+                url('https://account.xiaomi.com/static/res/166d6dc/account-static/respassport/acc-2014/img/icons_type.png');
+            width: 25px;
+            height: 18px;
+            display: block;
+            /*设置显示的位置*/
+            background-position: -57px 0;
+            margin-top: 6px;
+            margin-left: 4px;
+        }
+
+        fieldset {
+            /*表示只有上边框有样式*/
+            border-width: 1px 0 0 0;
+            /*文字居中*/
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="javascript:void(0);">
+        <!-- 使用i标签展示小图标 -->
+        <i></i>
+    </a>
+    <fieldset>
+        <legend>其他登录方式</legend>
+    </fieldset>
+
+    <!-- 
+        想让一个行级元素有宽和高的方法：
+            设置内容
+            转化成块级元素
+            设置padding 
+    -->
+</body>
+
+</html>
