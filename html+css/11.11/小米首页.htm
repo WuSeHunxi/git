@@ -21,6 +21,12 @@
             text-decoration: none;
         }
 
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
         .site-topbar {
             height: 40px;
             background-color: #333;
