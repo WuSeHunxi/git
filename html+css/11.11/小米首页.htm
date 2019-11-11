@@ -33,6 +33,7 @@
         }
 
         .st-content {
+            position: relative;
             /* background: red; */
             width: 1226px;
             margin: 0 auto;
@@ -53,7 +54,28 @@
         .st-content li span {
             margin: 0 5px;
         }
-        .st-content .right{
+
+        .st-content .right {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .st-content .right a,
+        .topbar-btn {
+            color: #b0b0b0;
+            font-size: 12px;
+        }
+
+        .topbar-btn,
+        .topbar-cart {
+            float: left;
+            height: 40px;
+            line-height: 40px;
+        }
+        .topbar-cart{
+            background-color: #424242;
+            margin-left: 10px;
             
         }
     </style>
@@ -85,7 +107,7 @@
                     <span></span>
                     <a href="">注册</a>
                 </div>
-                <div class="topbar-car">
+                <div class="topbar-cart">
                     <a href="">购物车(0)</a>
 
 
