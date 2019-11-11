@@ -127,7 +127,10 @@
 
         .lf-footer {
             width: 348px;
-            margin: 0 auto;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            margin-left: -174px;
         }
 
         fieldset {
@@ -145,9 +148,67 @@
             margin: 0 auto;
         }
 
+        .logo-icon {
+            /*只要是行级元素就能居中*/
+            text-align: center;
+        }
+
         .logo-icon a {
             display: inline-block;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
+            margin: 20px;
+            /* background-color: pink; */
+        }
+
+        .logo-icon i {
+            display: block;
+            background:
+                url('https://account.xiaomi.com/static/res/166d6dc/account-static/respassport/acc-2014/img/icons_type.png');
+        }
+
+        .logo-icon .qq {
+            background-color: #0288d1;
+        }
+
+        .logo-icon .qq i,
+        .logo-icon .sina i {
+            width: 18px;
+            height: 18px;
+            margin: 4px auto 0;
+            background-position: -19px 0;
+        }
+
+        .logo-icon .sina {
+            background-color: #d32f2f;
+        }
+
+        .logo-icon .sina i {
+            background-position: -38px 0;
+        }
+
+        .logo-icon .alipay {
+            background-color: #0ae;
+        }
+
+        .logo-icon .alipay i {
+            background-position: -57px 0;
+            width: 25px;
+            height: 18px;
+            margin-top: 6px;
+            margin-left: 4px;
+        }
+
+        .logo-icon .wechat {
+            background-color: #00d20d;
+        }
+
+        .logo-icon .wechat i {
+            background-position: -83px 0;
+            margin: 4px auto 0;
+            width: 24px;
+            height: 18px;
         }
     </style>
 </head>
@@ -211,7 +272,15 @@
         </div>
 
     </div>
-    <div class="footer"></div>
+    <div class="footer">
+        <ul>
+            <li>简体</li>
+            <li>繁体</li>
+            <li>English</li>
+            <li>常见问题</li>
+            <li>隐私政策</li>
+        </ul>
+    </div>
     <!-- 
         实现块级元素的水平居中：块级元素的宽度固定
             margin:0 auto;
