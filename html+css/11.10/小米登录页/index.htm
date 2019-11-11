@@ -20,6 +20,11 @@
             display: block;
         }
 
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
         .header {
             height: 98px;
         }
@@ -124,6 +129,21 @@
             width: 348px;
             margin: 0 auto;
         }
+
+        fieldset {
+            border: 0;
+        }
+
+        .login-type {
+            text-align: center;
+            /* border-width: 1px 0 0 0; */
+            border-top: 1px solid #ddd;
+            color: #ddd;
+        }
+
+        .login-type legend {
+            margin: 0 auto;
+        }
     </style>
 </head>
 
@@ -164,9 +184,23 @@
                     </div>
                 </div>
                 <div class="lf-footer">
-                    <fieldset>
+                    <fieldset class="login-type">
                         <legend>其他方式登录</legend>
                     </fieldset>
+                    <div>
+                        <a href="javascript:void(0);">
+                            <i></i>
+                        </a>
+                        <a href="javascript:void(0);">
+                            <i></i>
+                        </a>
+                        <a href="javascript:void(0);">
+                            <i></i>
+                        </a>
+                        <a href="javascript:void(0);">
+                            <i></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
