@@ -13,6 +13,13 @@
             text-decoration: none;
         }
 
+        /*封装一个工具类*/
+        .clearfix::after {
+            content: '';
+            clear: both;
+
+        }
+
         .header {
             height: 98px;
         }
@@ -139,7 +146,7 @@
                             <input type="password" placeholder="密码">
                         </div>
                         <button>登录</button>
-                        <div class="text-info">
+                        <div class="text-info clearfix">
                             <div class="left">
                                 <a href="javascript:void(0);">手机短信登录/注册</a>
                             </div>
@@ -151,7 +158,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="lf-footer"></div>
+                <div class="lf-footer">
+                    <fieldset>
+                        <legend>其他方式登录</legend>
+                    </fieldset>
+                </div>
             </div>
         </div>
 
