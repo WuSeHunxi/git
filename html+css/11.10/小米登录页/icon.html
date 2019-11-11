@@ -38,7 +38,8 @@
             text-align: center;
         }
 
-        span {
+        /*根据权重，为了高于类选择器，要使用id选择器*/
+        #icon-span {
             font-size: 30px;
 
         }
@@ -50,10 +51,22 @@
         <!-- 使用i标签展示小图标 -->
         <i></i>
     </a>
-    <span class="iconfont icon-bianji"></span>
+    <!-- iconfont类选择器本来就有font-size属性 -->
+    <span id='icon-span' class="iconfont icon-bianji"></span>
     <fieldset>
         <legend>其他登录方式</legend>
     </fieldset>
+
+    <!-- 
+        选择器的权重
+            !important
+            内联样式
+            id选择器
+            类选择器
+            标签选择器
+            *通配符选择器
+     -->
+
 
 
 
