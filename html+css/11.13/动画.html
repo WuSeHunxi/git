@@ -11,16 +11,24 @@
             width: 100px;
             height: 100px;
             background-color: #f0f;
+            /*控制过渡效果：监听属性 时间 过渡效果*/
+            transition: height 1s ease;
         }
 
         div:hover {
             height: 200px;
+
         }
     </style>
 </head>
 
 <body>
-    <!-- 过渡动画 -->
+    <!-- 
+        过渡动画：
+            过渡的时候要准确额的判断监听对象，并知道过渡的效果是在什么情况下监听的
+            如果吧transition放在div中，那么鼠标进入和退出都有动画，但是如果把它放在hover的时候，就表示只有在
+            鼠标进入的时候才有动画，退出的时候没有
+    -->
     <div></div>
 </body>
 
