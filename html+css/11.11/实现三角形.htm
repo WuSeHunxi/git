@@ -7,17 +7,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        div {
+        /* div {
             width: 0;
             height: 0;
             border-width: 10px 10px 10px 10px;
 
             border-style: solid;
             border-color: blue transparent transparent transparent;
-        }
+        } */
 
         .parent {
             position: relative;
+            display: none;
+        }
+
+        span:hover {
+            display: block;
         }
 
         .child1 {
@@ -25,6 +30,10 @@
             height: 20px;
             background-color: #ff0;
             transform: rotate(45deg);
+            margin-left: 30px;
+            position: absolute;
+            top: 30px;
+            left: 30px;
         }
 
         .child2 {
@@ -32,12 +41,15 @@
             height: 200px;
             background-color: #ff0;
             position: absolute;
+            top: 40px;
         }
     </style>
 </head>
 
 <body>
+    <!-- 做三角形和方形的拼接 -->
     <!-- <div></div> -->
+    <span>hello world</span>
     <div class="parent">
         <div class="child1"></div>
         <div class="child2"></div>
