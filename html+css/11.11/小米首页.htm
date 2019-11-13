@@ -84,6 +84,45 @@
         .st-content .left a:hover {
             color: #fff;
         }
+
+        .down {
+            position: relative;
+        }
+
+        .down .drop-down {
+            position: absolute;
+            top: 30px;
+            left: -35px;
+            display: none;
+        }
+
+        /* .down:hover {
+            display: block;
+        } */
+
+        .down .drop-down .dd-top {
+            height: 20px;
+            width: 20px;
+            background-color: #fff;
+            transform: rotate(45deg);
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .down .drop-down .dd-bottom {
+            width: 124px;
+            height: 200px;
+            background-color: #fff;
+            position: relative;
+            top: -10px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .down:hover .drop-down {
+            display: block;
+        }
     </style>
 </head>
 
@@ -103,7 +142,15 @@
                     <li><a href="—">政企服务</a><span class="line">|</span></li>
                     <li><a href="—">资质证照</a><span class="line">|</span></li>
                     <li><a href="—">协议规则</a><span class="line">|</span></li>
-                    <li><a href="—">下载App</a><span class="line">|</span></li>
+                    <li class="down"><a href="—">下载App</a><span class="line">|</span>
+                        <div class="drop-down">
+                            <div class="dd-top"></div>
+                            <div class="dd-bottom">
+                                <img src="https://i1.mifile.cn/f/i/17/appdownload/download.png?1" alt="小米商城" width="90"
+                                    height="90" style="padding-top:15px; margin:0 auto;display: block;">
+                            </div>
+                        </div>
+                    </li>
                     <li><a href="—">select region</a><span class="line"></span></li>
                 </ul>
             </div>
