@@ -7,6 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+        .parent {
+            position: relative;
+        }
+
         div {
             height: 100px;
             width: 100px;
@@ -14,17 +18,33 @@
         }
 
         .div2 {
-            height: 100px;
-            width: 100px;
             background-color: #0F0;
+        }
+
+        .div3 {
+            background-color: #f0f;
+        }
+
+        .div1,
+        .div2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .div1 {
+            z-index: 2;
         }
     </style>
 </head>
 
 <body>
     <!-- 实现z-index -->
-    <div class="div1"></div>
-    <div class="div2"></div>
+    <div class="parent">
+        <div class="div1"></div>
+        <div class="div2"></div>
+        <div class="div3"></div>
+    </div>
 </body>
 
 </html>
